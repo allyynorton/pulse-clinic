@@ -1,103 +1,176 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen" style={{ backgroundColor: '#f5f2eb' }}>
+      {/* Hero Section */}
+      <section className="relative text-brown pb-12 pt-16" style={{ backgroundColor: '#f5f2eb' }}>
+        <div className="container mx-auto px-6 flex flex-col items-center text-center">
+          <Image
+            src="/pulse-logo.png"
+            alt="Pulse Clinic Logo Large"
+            width={300}
+            height={300}
+            className="mb-6"
+            priority
+          />
+          <h1 className="text-3xl md:text-4xl font-pacifico text-brown mb-4">Blending natural and conventional care for a more holistic approach to wellness.</h1>
+          <p className="text-xl text-green max-w-2xl mx-auto mb-8">
+            Your trusted partner in comprehensive healthcare. We provide personalized medical care with a focus on root causes, lifestyle, and lasting wellness.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/consult-booking"
+              className="border-2 border-brown text-brown px-8 py-3 rounded-lg font-semibold bg-white hover:bg-brown hover:text-white transition-colors text-center"
+            >
+              Book Consult
+            </Link>
+            <Link 
+              href="/services"
+              className="border-2 border-brown text-brown px-8 py-3 rounded-lg font-semibold bg-white hover:bg-brown hover:text-white transition-colors text-center"
+            >
+              Our Services
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Services Preview */}
+      <section className="py-20 bg-cream">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-brown mb-4">Our Services</h2>
+            <p className="text-xl text-green max-w-2xl mx-auto">
+              Comprehensive healthcare services tailored to meet your individual needs
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Functional Care */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-cream">
+              <div className="w-16 h-16 bg-green rounded-lg flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-brown">Functional Care</h3>
+              <p className="text-green mb-4">
+                Personalized, root-cause medicine that looks at the whole person.
+              </p>
+              <Link href="/services" className="text-brown font-semibold hover:text-orange">
+                Learn More →
+              </Link>
+            </div>
+            {/* Preventative Care */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-cream">
+              <div className="w-16 h-16 bg-orange rounded-lg flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-brown">Preventative Care</h3>
+              <p className="text-green mb-4">
+                Proactive strategies and coaching to help you prevent illness and maintain optimal health.
+              </p>
+              <Link href="/services" className="text-brown font-semibold hover:text-orange">
+                Learn More →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 bg-cream">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-brown mb-6">Why Choose Pulse Clinic?</h2>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-orange rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-brown" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2 text-brown">Experienced Medical Team</h3>
+                    <p className="text-green">Our board-certified physicians and healthcare professionals bring years of experience and expertise.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-brown" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2 text-brown">Healthcare from the Comfort of Your Home</h3>
+                    <p className="text-green">Experience expert care and support through our secure telemedicine platform—no travel required.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-orange rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-brown" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2 text-brown">Patient-Centered Care</h3>
+                    <p className="text-green">Personalized treatment plans that prioritize your health goals and individual needs.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-8 border border-cream">
+              <div className="text-center">
+                <div className="w-20 h-20 bg-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-brown mb-4">Join Our Community</h3>
+                <p className="text-green mb-6">
+                  Become part of our growing family of satisfied patients who trust us with their healthcare needs.
+                </p>
+                <Link 
+                  href="/contact"
+                  className="bg-brown text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange transition-colors"
+                >
+                  Get Started Today
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-orange">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold mb-6 text-green">Ready to Take Control of Your Health?</h2>
+          <p className="text-xl mb-8 text-green max-w-2xl mx-auto">
+            Schedule your consult today and experience the difference that personalized, professional healthcare can make.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/consult-booking"
+              className="bg-white text-brown px-8 py-4 rounded-lg font-semibold hover:bg-cream transition-colors"
+            >
+              Book Your Consult
+            </Link>
+            <Link 
+              href="/contact"
+              className="bg-white text-brown px-8 py-4 rounded-lg font-semibold hover:bg-cream transition-colors"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
