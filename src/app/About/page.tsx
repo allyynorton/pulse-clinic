@@ -85,7 +85,7 @@ export default function About() {
                   </div>
                   <h3 className="text-2xl font-bold text-brown mb-4">Clinical Philosophy</h3>
                   <p className="text-green leading-relaxed">
-                    "I believe in evidence-based, patient-centered care that addresses the fundamental causes of health issues. By implementing comprehensive lifestyle medicine principles, we can achieve sustainable wellness outcomes and prevent future health complications."
+                    &quot;I believe in evidence-based, patient-centered care that addresses the fundamental causes of health issues. By implementing comprehensive lifestyle medicine principles, we can achieve sustainable wellness outcomes and prevent future health complications.&quot;
                   </p>
                 </div>
               </div>
