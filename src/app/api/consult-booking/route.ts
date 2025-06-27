@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
       data: { service, reason },
     });
     return NextResponse.json({ success: true, booking });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to create booking.' }, { status: 500 });
   }
 } 

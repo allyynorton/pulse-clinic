@@ -21,11 +21,6 @@ export default function ConsultBooking() {
     { id: "followup", name: "Follow-up Consult", duration: "30 min", price: "$80" }
   ];
 
-  const timeSlots = [
-    "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
-    "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM"
-  ];
-
   const handleInputChange = (field: string, value: string | boolean) => {
     setBookingData(prev => ({ ...prev, [field]: value }));
   };
@@ -81,7 +76,7 @@ export default function ConsultBooking() {
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-brown mb-6">Reason for Your Consult</h2>
       <div>
-        <label className="block text-brown font-semibold mb-2">Please describe your health concerns or what you'd like to address *</label>
+        <label className="block text-brown font-semibold mb-2">Please describe your health concerns or what you&apos;d like to address *</label>
         <textarea
           value={bookingData.reason}
           onChange={(e) => handleInputChange("reason", e.target.value)}
