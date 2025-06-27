@@ -6,7 +6,7 @@ export default function Contact() {
       <section className="bg-white rounded-xl shadow-lg p-10 max-w-lg w-full text-center">
         <h1 className="text-4xl font-pacifico text-brown mb-6">Contact Pulse Clinic</h1>
         <p className="text-green text-lg mb-8">
-          We'd love to hear from you! Please use the information below to get in touch.
+          We&apos;d love to hear from you! Please use the information below to get in touch.
         </p>
         <div className="mb-6">
           <h2 className="text-xl font-bold text-brown mb-2">Phone</h2>
