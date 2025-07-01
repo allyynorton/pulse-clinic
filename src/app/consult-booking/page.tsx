@@ -16,6 +16,7 @@ export default function ConsultBooking() {
   });
 
   const services = [
+    { id: "intro", name: "Get To Know Each Other Call", duration: "15 min", price: "Free" },
     { id: "functional", name: "Integrative Care Consultation", duration: "60 min", price: "$150" },
     { id: "preventative", name: "Preventative Care Session", duration: "45 min", price: "$120" },
     { id: "followup", name: "Follow-up Consult", duration: "30 min", price: "$80" }
@@ -41,6 +42,7 @@ export default function ConsultBooking() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      console.log("Consult booking API route invoked");
       const response = await fetch('/api/consult-booking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
