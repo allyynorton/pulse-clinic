@@ -25,19 +25,10 @@ export default function Services() {
                 </svg>
               </div>
               <h2 className="text-2xl font-bold text-brown mb-2">Integrative Care</h2>
-              <p className="text-green mb-2">
-                This service is for patients who are looking to heal a chronic condition (ie. diabetes, high blood pressure, obesity, gut issues etc.) Integrative care blends conventional medicine with functional medicine to finding the root cause of the condition and a treatment plan centered around natural solutions. We dive into lifestyle habits, diet, exercise, environmental exposures, genetic predisposition, etc. to provide comprehensive patient-center care
-              </p>
               {open === "functional" && (
-                <div className="mt-4 text-left w-full text-green animate-fade-in">
-                  <ul className="list-disc list-inside space-y-2">
-                    <li>Comprehensive health assessments and lab work</li>
-                    <li>Root-cause analysis for chronic symptoms</li>
-                    <li>Personalized treatment plans</li>
-                    <li>Focus on nutrition, lifestyle, and environment</li>
-                    <li>Ongoing support and follow-up</li>
-                  </ul>
-                </div>
+                <p className="text-green mb-2">
+                  This service is for patients who are looking to heal a chronic condition (ie. diabetes, high blood pressure, obesity, gut issues etc.) Integrative care blends conventional medicine with functional medicine to finding the root cause of the condition and a treatment plan centered around natural solutions. We dive into lifestyle habits, diet, exercise, environmental exposures, genetic predisposition, etc. to provide comprehensive patient-center care
+                </p>
               )}
             </div>
             {/* Preventative Care */}
@@ -51,9 +42,6 @@ export default function Services() {
                 </svg>
               </div>
               <h2 className="text-2xl font-bold text-brown mb-2">Preventative Care</h2>
-              <p className="text-green mb-2">
-                Proactive strategies and coaching to help you prevent illness and maintain optimal health.
-              </p>
               {open === "preventative" && (
                 <div className="mt-4 text-left w-full text-green animate-fade-in">
                   <p>
