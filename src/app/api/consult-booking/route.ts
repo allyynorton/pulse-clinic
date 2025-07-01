@@ -18,8 +18,8 @@ export async function POST(req: NextRequest) {
 
     // Send booking email
     const msg = {
-      to: 'contact@pulsewholehealth.com', // your email address to receive bookings
-      from: 'your_verified_sender@yourdomain.com', // update to a verified sender in SendGrid
+      to: 'contact@pulsewholehealth.com',
+      from: 'contact@pulsewholehealth.com', // use verified sender
       subject: 'New Consult Booking',
       text: `New booking for ${service}\nReason: ${reason}\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}`,
       html: `<p><strong>Service:</strong> ${service}</p>
@@ -28,6 +28,7 @@ export async function POST(req: NextRequest) {
              <p><strong>Email:</strong> ${email}</p>
              <p><strong>Phone:</strong> ${phone}</p>`
     };
+    console.log("Reached SendGrid send step");
     await sgMail.send(msg);
 
     return NextResponse.json({ success: true, booking });
