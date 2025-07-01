@@ -14,7 +14,7 @@ export default function Services() {
             At Pulse Clinic, we blend natural and conventional care to provide a holistic approach to your wellness. Explore our core offerings below.
           </p>
           <div className="grid md:grid-cols-2 gap-10">
-            {/* Functional Care */}
+            {/* Integrative Care */}
             <div
               className={`bg-white rounded-xl p-8 border border-cream shadow-lg flex flex-col items-center cursor-pointer transition-all ${open === "functional" ? "ring-2 ring-brown" : "hover:shadow-xl"}`}
               onClick={() => setOpen(open === "functional" ? null : "functional")}
@@ -24,9 +24,9 @@ export default function Services() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-bold text-brown mb-2">Functional Care</h2>
+              <h2 className="text-2xl font-bold text-brown mb-2">Integrative Care</h2>
               <p className="text-green mb-2">
-                Personalized, root-cause medicine that looks at the whole person.
+                This service is for patients who are looking to heal a chronic condition (ie. diabetes, high blood pressure, obesity, gut issues etc.) Integrative care blends conventional medicine with functional medicine to finding the root cause of the condition and a treatment plan centered around natural solutions. We dive into lifestyle habits, diet, exercise, environmental exposures, genetic predisposition, etc. to provide comprehensive patient-center care
               </p>
               {open === "functional" && (
                 <div className="mt-4 text-left w-full text-green animate-fade-in">
@@ -56,13 +56,9 @@ export default function Services() {
               </p>
               {open === "preventative" && (
                 <div className="mt-4 text-left w-full text-green animate-fade-in">
-                  <ul className="list-disc list-inside space-y-2">
-                    <li>Personalized wellness plans</li>
-                    <li>Screenings and risk assessments</li>
-                    <li>Guidance on nutrition, exercise, and stress reduction</li>
-                    <li>Support for healthy habits and lifestyle changes</li>
-                    <li>Education and empowerment for long-term health</li>
-                  </ul>
+                  <p>
+                    This service is for patients who are looking to be proactive about their health. We will analyze current lifestyle habits including diet, exercise, stressors, etc to create a personalized wellness plan that will help prevent chronic disease and maintain optimal health. This plan gives the patient the education and empowerment to take their long-term health into their own hands.
+                  </p>
                 </div>
               )}
             </div>
