@@ -16,7 +16,7 @@ export default function ConsultBooking() {
   });
 
   const services = [
-    { id: "functional", name: "Functional Care Consultation", duration: "60 min", price: "$150" },
+    { id: "functional", name: "Integrative Care Consultation", duration: "60 min", price: "$150" },
     { id: "preventative", name: "Preventative Care Session", duration: "45 min", price: "$120" },
     { id: "followup", name: "Follow-up Consult", duration: "30 min", price: "$80" }
   ];
@@ -189,32 +189,9 @@ export default function ConsultBooking() {
           <div className="text-center mb-12">
             <h1 className="text-5xl font-pacifico text-brown mb-4">Book Your Consult</h1>
             <p className="text-xl text-green max-w-2xl mx-auto">
-              Take the first step towards optimal health. Schedule your consult with Allyson Norton, MPAS.
+              Ready to take the first step towards feeling better, moving better, and living better? Schedule your consult with Ally below!
             </p>
           </div>
-
-          {/* Progress Bar */}
-          {step < 5 && (
-            <div className="mb-8">
-              <div className="flex justify-between items-center mb-4">
-                {[1, 2, 3, 4].map((stepNumber) => (
-                  <div key={stepNumber} className="flex items-center">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                      step >= stepNumber ? 'bg-brown text-white' : 'bg-cream text-brown'
-                    }`}>
-                      {stepNumber}
-                    </div>
-                    {stepNumber < 4 && (
-                      <div className={`w-16 h-1 mx-2 ${step > stepNumber ? 'bg-brown' : 'bg-cream'}`}></div>
-                    )}
-                  </div>
-                ))}
-              </div>
-              <div className="text-center text-green">
-                Step {step} of 4
-              </div>
-            </div>
-          )}
 
           {/* Step Content */}
           <div className="bg-white rounded-xl p-8 shadow-lg">
