@@ -6,7 +6,7 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative bg-cream text-brown pb-12 pt-16">
         <div className="container mx-auto px-6 flex flex-col items-center text-center">
-          <h1 className="text-5xl md:text-6xl font-pacifico text-brown mb-4">About Allyson Norton, MPAS</h1>
+          <h1 className="text-5xl md:text-6xl font-pacifico text-brown mb-4">About Allyson Norton, PA-C</h1>
           <p className="text-xl text-green max-w-2xl mx-auto mb-8">
             Board-Certified Physician Assistant & Functional Medicine Specialist
           </p>
@@ -21,13 +21,9 @@ export default function About() {
             <div>
               <div className="prose prose-lg text-green space-y-6">
                 <p className="text-xl leading-relaxed">
-                  My name is Allyson, but everyone calls me Ally! I am a graduate from the University of Florida where I earned my Master of Physician Assistant Studies (MPAS) in June of 2019.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  After four years of dedicated practice in urgent care settings, I discovered that my passion for patient care extended far beyond the scope of conventional medicine. I recognized the limitations of simply treating symptoms and became driven to uncover the underlying causes of health issues rather than relying solely on pharmaceutical interventions.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  This professional evolution led me to pursue advanced training in functional medicine, ultimately culminating in the creation of Pulse Clinic. At Pulse, my mission is to deliver comprehensive patient care that examines the whole person—not merely isolated symptoms. I employ a systematic approach that investigates lifestyle factors, nutritional patterns, physical activity levels, environmental exposures, and other fundamental determinants of health to identify and address the root causes of disease.
+                  I have always had a strong belief in functional medicine and finding the "why" behind illness. After 4 years of dedicated practice in urgent care, I have grown more and more uncomfortable with the way conventional medicine approaches and treats illness. Providing band-aid treatments for patients symptoms, rather than finding the root cause, perpetuates and sometimes exacerbates disease states. Let's switch the mindset from defensive medicine to offensive medicine. 
+                  This is where the idea for Pulse came into play. Creating an integrative environment that joins both conventional medicine and functional medicine to treat patients. My goal is to deliver patient-centered care in order to find a natural solution to chronic disease. The focus of pulse is on gut health and healing in order to help with weight loss and treat other conditions such as diabetes, high blood pressure, and GI conditions.
+                  Through a comprehensive evaluation I employ a systematic approach that investigates lifestyle factors, nutritional patterns, physical activity levels, environmental exposures, and other fundamental determinants of health to identify and address the root causes of disease.
                 </p>
               </div>
 
@@ -65,8 +61,8 @@ export default function About() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-brown">Functional Medicine Specialist</h4>
-                      <p className="text-green">Root Cause Medicine Practitioner</p>
+                      <h4 className="font-semibold text-brown">Certified Personal Trainer</h4>
+                      <p className="text-green">NASM Certified since 2018</p>
                     </div>
                   </div>
                 </div>
@@ -83,9 +79,9 @@ export default function About() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-brown mb-4">Clinical Philosophy</h3>
+                  <h3 className="text-2xl font-bold text-brown mb-4">Clinic Mission</h3>
                   <p className="text-green leading-relaxed">
-                    &quot;I believe in evidence-based, patient-centered care that addresses the fundamental causes of health issues. By implementing comprehensive lifestyle medicine principles, we can achieve sustainable wellness outcomes and prevent future health complications.&quot;
+                    My mission is to deliver evidence-based, patient-centered care to find the root cause of chronic health issues. By looking at the patient as a whole, considering lifestyle habits, exercise, diet, genetic predispositions, and environmental factors, we can create a sustainable plan to treat current health concerns and prevent future health complications.
                   </p>
                 </div>
               </div>
