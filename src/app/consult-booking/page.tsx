@@ -232,7 +232,7 @@ export default function ConsultBooking() {
                         (step === 1 && !bookingData.service) ||
                         (step === 2 && !bookingData.reason)
                       }
-                      className="ml-auto px-6 py-3 bg-green text-white rounded-lg hover:bg-brown transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="ml-auto px-6 py-3 border border-brown text-brown rounded-lg hover:bg-brown hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Next
                     </button>
