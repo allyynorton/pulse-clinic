@@ -49,11 +49,10 @@ export default function ConsultBooking() {
       if (response.ok) {
         setStep(5); // Show confirmation
       } else {
-        // Optionally show an error message to the user
         alert('There was a problem submitting your booking. Please try again.');
       }
     } catch (error) {
-      // Optionally show an error message to the user
+      console.error(error);
       alert('There was a problem submitting your booking. Please try again.');
     }
   };
