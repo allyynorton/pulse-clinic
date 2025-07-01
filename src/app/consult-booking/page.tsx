@@ -38,11 +38,24 @@ export default function ConsultBooking() {
     if (step > 1) setStep(step - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the booking data to your backend
-    console.log("Booking submitted:", bookingData);
-    setStep(5); // Show confirmation
+    try {
+      const response = await fetch('/api/consult-booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bookingData),
+      });
+      if (response.ok) {
+        setStep(5); // Show confirmation
+      } else {
+        // Optionally show an error message to the user
+        alert('There was a problem submitting your booking. Please try again.');
+      }
+    } catch (error) {
+      // Optionally show an error message to the user
+      alert('There was a problem submitting your booking. Please try again.');
+    }
   };
 
   const renderStep1 = () => (
@@ -218,7 +231,7 @@ export default function ConsultBooking() {
                         (step === 1 && !bookingData.service) ||
                         (step === 2 && !bookingData.reason)
                       }
-                      className="ml-auto px-6 py-3 bg-brown text-white rounded-lg hover:bg-green transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="ml-auto px-6 py-3 bg-green text-white rounded-lg hover:bg-brown transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Next
                     </button>
