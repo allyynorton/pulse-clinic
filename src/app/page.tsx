@@ -10,21 +10,21 @@ export default function Home() {
           <Image
             src="/pulse-logo.png"
             alt="Pulse Clinic Logo Large"
-            width={300}
-            height={300}
+            width={380}
+            height={380}
             className="mb-6"
             priority
           />
-          <h1 className="text-3xl md:text-4xl font-pacifico text-brown mb-4">Blending natural and conventional care for a more holistic approach to wellness.</h1>
+          <h1 className="text-xl md:text-2xl font-pacifico text-brown mb-4">Blending natural and conventional care for a more holistic approach to wellness.</h1>
           <p className="text-xl text-green max-w-2xl mx-auto mb-8">
             Your trusted partner in comprehensive healthcare. We provide personalized medical care with a focus on root causes, lifestyle, and lasting wellness.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
-              href="/consult-booking"
+              href="/About"
               className="border-2 border-brown text-brown px-8 py-3 rounded-lg font-semibold bg-white hover:bg-brown hover:text-white transition-colors text-center"
             >
-              Book Consult
+              About
             </Link>
             <Link 
               href="/services"
@@ -32,50 +32,6 @@ export default function Home() {
             >
               Our Services
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Preview */}
-      <section className="py-20 bg-cream">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-brown mb-4">Our Services</h2>
-            <p className="text-xl text-green max-w-2xl mx-auto">
-              Comprehensive healthcare services tailored to meet your individual needs
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Functional Care */}
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-cream">
-              <div className="w-16 h-16 bg-green rounded-lg flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-brown">Functional Care</h3>
-              <p className="text-green mb-4">
-                Personalized, root-cause medicine that looks at the whole person.
-              </p>
-              <Link href="/services" className="text-brown font-semibold hover:text-orange">
-                Learn More →
-              </Link>
-            </div>
-            {/* Preventative Care */}
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-cream">
-              <div className="w-16 h-16 bg-orange rounded-lg flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-brown">Preventative Care</h3>
-              <p className="text-green mb-4">
-                Proactive strategies and coaching to help you prevent illness and maintain optimal health.
-              </p>
-              <Link href="/services" className="text-brown font-semibold hover:text-orange">
-                Learn More →
-              </Link>
-            </div>
           </div>
         </div>
       </section>
