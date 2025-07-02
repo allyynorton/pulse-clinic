@@ -15,9 +15,9 @@ export default function Home() {
             className="mb-6"
             priority
           />
-          <h1 className="text-xl md:text-2xl font-pacifico text-brown mb-4">Blending natural and conventional care for a more holistic approach to wellness.</h1>
+          <h1 className="text-xl md:text-2xl font-pacifico text-brown mb-4">At Pulse we strongly believe that no one should receive cookie cutter healthcare because everyone is unique in their own way.</h1>
           <p className="text-xl text-green max-w-2xl mx-auto mb-8">
-            Your trusted partner in comprehensive healthcare. We provide personalized medical care with a focus on root causes, lifestyle, and lasting wellness.
+            We all have different exposures, genetics, lifestyle habits, etc. which is why it is important to have a unique and individualized approach to treatment. Focusing on finding the root causes of disease allows us to develop a personalized treatment plan that can give you the most natural solution to your symptoms and prevent future illness.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
@@ -50,8 +50,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2 text-brown">Experienced Medical Team</h3>
-                    <p className="text-green">Our board-certified physicians and healthcare professionals bring years of experience and expertise.</p>
+                    <h3 className="font-semibold text-lg mb-2 text-brown">Experienced Medical Provider</h3>
+                    <p className="text-green">Ally is a board-certified physician assistant with 4 years of experience in urgent care/family medicine and a strong passion for integrative medicine.</p>
                   </div>
                 </div>
                 
@@ -75,7 +75,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-2 text-brown">Patient-Centered Care</h3>
-                    <p className="text-green">Personalized treatment plans that prioritize your health goals and individual needs.</p>
+                    <p className="text-green">Personalized treatment plans that prioritize your health goals by finding the root cause of illness.</p>
                   </div>
                 </div>
               </div>
