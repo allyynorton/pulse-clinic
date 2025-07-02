@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-cream">
       <section className="bg-white rounded-xl shadow-lg p-10 max-w-lg w-full text-center">
-        <h1 className="text-4xl font-pacifico text-brown mb-6">Contact Pulse Clinic</h1>
+        <h1 className="text-4xl text-brown mb-6">Contact Pulse Clinic</h1>
         <p className="text-green text-lg mb-8">
           We&apos;d love to hear from you! Please use the information below to get in touch.
         </p>

@@ -15,7 +15,8 @@ export default function Home() {
             className="mb-6"
             priority
           />
-          <h1 className="text-xl md:text-2xl font-pacifico text-brown mb-4">At Pulse we strongly believe that no one should receive cookie cutter healthcare because everyone is unique in their own way.</h1>
+          <div className="text-xl md:text-2xl text-brown mb-4">Blending natural and conventional care for a more holistic approach to wellness.</div>
+          <h1 className="text-xl md:text-2xl text-brown mb-4">At Pulse we strongly believe that no one should receive cookie cutter healthcare because everyone is unique in their own way.</h1>
           <p className="text-xl text-green max-w-2xl mx-auto mb-8">
             We all have different exposures, genetics, lifestyle habits, etc. which is why it is important to have a unique and individualized approach to treatment. Focusing on finding the root causes of disease allows us to develop a personalized treatment plan that can give you the most natural solution to your symptoms and prevent future illness.
           </p>

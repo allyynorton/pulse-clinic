@@ -6,7 +6,7 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative bg-cream text-brown pb-12 pt-16">
         <div className="container mx-auto px-6 flex flex-col items-center text-center">
-          <h1 className="text-5xl md:text-6xl font-pacifico text-brown mb-4">About Allyson Norton, PA-C</h1>
+          <h1 className="text-5xl md:text-6xl text-brown mb-4">About Allyson Norton, PA-C</h1>
           <p className="text-xl text-green max-w-2xl mx-auto mb-8">
             Board-Certified Physician Assistant & Functional Medicine Specialist
           </p>

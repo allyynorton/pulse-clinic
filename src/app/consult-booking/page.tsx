@@ -201,7 +201,7 @@ export default function ConsultBooking() {
       <section className="py-16">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="text-center mb-12">
-            <h1 className="text-5xl font-pacifico text-brown mb-4">Book Your Consult</h1>
+            <h1 className="text-5xl text-brown mb-4">Book Your Consult</h1>
             <p className="text-xl text-green max-w-2xl mx-auto">
               Ready to take the first step towards feeling better, moving better, and living better? Schedule your consult with Ally below!
             </p>
