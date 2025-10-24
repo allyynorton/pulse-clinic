@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 export default function Services() {
-
+  // Services page with full content
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f2eb' }}>
       <section className="py-16 text-center">
