@@ -27,31 +27,31 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <Link 
               href="/" 
-              className="text-[#7a8b74] hover:text-[#a05a36] font-medium transition-colors"
+              className="text-[#7a8b74] hover:text-[#a05a36] font-medium transition-colors px-4 py-2 rounded-lg bg-white/20 hover:bg-white/40 border border-[#e5e1d8] hover:border-[#a05a36]"
             >
               Home
             </Link>
             <Link 
               href="/About" 
-              className="text-[#7a8b74] hover:text-[#a05a36] font-medium transition-colors"
+              className="text-[#7a8b74] hover:text-[#a05a36] font-medium transition-colors px-4 py-2 rounded-lg bg-white/20 hover:bg-white/40 border border-[#e5e1d8] hover:border-[#a05a36]"
             >
               About
             </Link>
             <Link 
               href="/services" 
-              className="text-[#7a8b74] hover:text-[#a05a36] font-medium transition-colors"
+              className="text-[#7a8b74] hover:text-[#a05a36] font-medium transition-colors px-4 py-2 rounded-lg bg-white/20 hover:bg-white/40 border border-[#e5e1d8] hover:border-[#a05a36]"
             >
               Services
             </Link>
             <Link 
               href="/consult-booking" 
-              className="text-[#7a8b74] hover:text-[#a05a36] font-medium transition-colors"
+              className="text-[#7a8b74] hover:text-[#a05a36] font-medium transition-colors px-4 py-2 rounded-lg bg-white/20 hover:bg-white/40 border border-[#e5e1d8] hover:border-[#a05a36]"
             >
               Book Consult
             </Link>
             <Link 
               href="/contact" 
-              className="text-[#7a8b74] hover:text-[#a05a36] font-medium transition-colors"
+              className="text-[#7a8b74] hover:text-[#a05a36] font-medium transition-colors px-4 py-2 rounded-lg bg-white/20 hover:bg-white/40 border border-[#e5e1d8] hover:border-[#a05a36]"
             >
               Contact
             </Link>

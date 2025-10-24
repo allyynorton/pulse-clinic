@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
+import PaymentForm from "@/components/PaymentForm";
 
 export default function ConsultBooking() {
   const [step, setStep] = useState(1);
+  const [paymentCompleted, setPaymentCompleted] = useState(false);
   const [bookingData, setBookingData] = useState({
     service: "",
     date: "",
@@ -16,10 +18,10 @@ export default function ConsultBooking() {
   });
 
   const services = [
-    { id: "intro", name: "Get To Know Each Other Call", duration: "15 min", price: "Free" },
-    { id: "functional", name: "Integrative Care Consultation", duration: "60 min", price: "$150" },
-    { id: "preventative", name: "Preventative Care Session", duration: "45 min", price: "$120" },
-    { id: "followup", name: "Follow-up Consult", duration: "30 min", price: "$80" }
+    { id: "intro", name: "Get To Know Each Other Call", duration: "15 min", price: "Free", amount: 0, requiresPayment: false },
+    { id: "functional", name: "Integrative Care Consultation", duration: "60 min", price: "$150", amount: 150, requiresPayment: true },
+    { id: "preventative", name: "Preventative Care Session", duration: "45 min", price: "$120", amount: 120, requiresPayment: true },
+    { id: "followup", name: "Follow-up Consult", duration: "30 min", price: "$80", amount: 80, requiresPayment: true }
   ];
 
   const handleInputChange = (field: string, value: string | boolean) => {
@@ -28,7 +30,21 @@ export default function ConsultBooking() {
 
   const handleServiceSelect = (serviceId: string) => {
     setBookingData(prev => ({ ...prev, service: serviceId }));
-    setStep(2);
+    
+    const selectedService = services.find(s => s.id === serviceId);
+    
+    // For free service, go directly to Calendly
+    if (selectedService && !selectedService.requiresPayment) {
+      window.open('https://calendly.com/contact-pulsewholehealth/pulse-clinic-consultation', '_blank');
+      setStep(5); // Show confirmation
+      return;
+    }
+    
+    // For paid services, go directly to payment
+    if (selectedService && selectedService.requiresPayment) {
+      setStep(4.5); // Go directly to payment step
+      return;
+    }
   };
 
   const nextStep = () => {
@@ -39,23 +55,43 @@ export default function ConsultBooking() {
     if (step > 1) setStep(step - 1);
   };
 
+  const handlePaymentSuccess = (paymentIntentId: string) => {
+    setPaymentCompleted(true);
+    // Redirect to Calendly for paid services
+    const selectedService = services.find(s => s.id === bookingData.service);
+    if (selectedService?.requiresPayment) {
+      // For paid services, redirect to Calendly after payment
+      window.open('https://calendly.com/contact-pulsewholehealth/pulse-clinic-consultation', '_blank');
+    }
+    setStep(5); // Show confirmation
+  };
+
+  const handlePaymentError = (error: string) => {
+    alert(`Payment failed: ${error}`);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      console.log("Consult booking API route invoked");
-      const response = await fetch('/api/consult-booking', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bookingData),
-      });
-      if (response.ok) {
-        setStep(5); // Show confirmation
-      } else {
-        alert('There was a problem submitting your booking. Please try again.');
-      }
-    } catch (error) {
-      console.error(error);
-      alert('There was a problem submitting your booking. Please try again.');
+    
+    const selectedService = services.find(s => s.id === bookingData.service);
+    
+    // For free service, go directly to Calendly
+    if (selectedService && !selectedService.requiresPayment) {
+      window.open('https://calendly.com/contact-pulsewholehealth/pulse-clinic-consultation', '_blank');
+      setStep(5); // Show confirmation
+      return;
+    }
+    
+    // For paid services, show payment form
+    if (selectedService?.requiresPayment && !paymentCompleted) {
+      setStep(4.5); // Show payment step
+      return;
+    }
+    
+    // If payment completed, proceed to Calendly
+    if (paymentCompleted) {
+      window.open('https://calendly.com/contact-pulsewholehealth/pulse-clinic-consultation', '_blank');
+      setStep(5); // Show confirmation
     }
   };
 
@@ -171,12 +207,79 @@ export default function ConsultBooking() {
     </div>
   );
 
+  const renderStep4_5 = () => {
+    const selectedService = services.find(s => s.id === bookingData.service);
+    return (
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold text-brown mb-6">Payment Information</h2>
+        <div className="bg-cream p-6 rounded-lg mb-6">
+          <h3 className="text-lg font-semibold text-brown mb-2">{selectedService?.name}</h3>
+          <p className="text-green">Amount: ${selectedService?.amount}</p>
+        </div>
+        
+        {/* Customer Information Form */}
+        <div className="space-y-4 mb-6">
+          <h3 className="text-lg font-semibold text-brown">Your Information</h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-brown font-semibold mb-2">First Name *</label>
+              <input
+                type="text"
+                value={bookingData.firstName}
+                onChange={(e) => handleInputChange("firstName", e.target.value)}
+                className="w-full p-3 border border-cream rounded-lg focus:ring-2 focus:ring-brown focus:border-transparent"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-brown font-semibold mb-2">Last Name *</label>
+              <input
+                type="text"
+                value={bookingData.lastName}
+                onChange={(e) => handleInputChange("lastName", e.target.value)}
+                className="w-full p-3 border border-cream rounded-lg focus:ring-2 focus:ring-brown focus:border-transparent"
+                required
+              />
+            </div>
+          </div>
+          <div>
+            <label className="block text-brown font-semibold mb-2">Email *</label>
+            <input
+              type="email"
+              value={bookingData.email}
+              onChange={(e) => handleInputChange("email", e.target.value)}
+              className="w-full p-3 border border-cream rounded-lg focus:ring-2 focus:ring-brown focus:border-transparent"
+              required
+            />
+          </div>
+        </div>
+        
+        {/* Payment Form */}
+        {bookingData.firstName && bookingData.lastName && bookingData.email ? (
+          <PaymentForm
+            service={bookingData.service}
+            amount={selectedService?.amount || 0}
+            customerEmail={bookingData.email}
+            customerName={`${bookingData.firstName} ${bookingData.lastName}`}
+            onPaymentSuccess={handlePaymentSuccess}
+            onPaymentError={handlePaymentError}
+          />
+        ) : (
+          <div className="text-center text-green">
+            Please fill in your information above to proceed with payment.
+          </div>
+        )}
+      </div>
+    );
+  };
+
   const renderStepContent = () => {
     switch (step) {
       case 1: return renderStep1();
       case 2: return renderStep2();
       case 3: return renderStep3();
       case 4: return renderStep4();
+      case 4.5: return renderStep4_5();
       case 5: return renderConfirmation();
       default: return renderStep1();
     }
@@ -197,7 +300,7 @@ export default function ConsultBooking() {
   );
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f5f2eb' }}>
+    <div className="min-h-screen bg-[#f5f2eb]" style={{ backgroundColor: '#f5f2eb' }}>
       <section className="py-16">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="text-center mb-12">
@@ -236,12 +339,16 @@ export default function ConsultBooking() {
                     >
                       Next
                     </button>
+                  ) : step === 4.5 ? (
+                    <div className="ml-auto text-sm text-green">
+                      Complete payment to continue
+                    </div>
                   ) : (
                     <button
                       type="submit"
                       className="ml-auto px-6 py-3 bg-brown text-white rounded-lg hover:bg-green transition-colors"
                     >
-                      Confirm Consult
+                      {paymentCompleted ? 'Continue to Calendly' : 'Confirm Consult'}
                     </button>
                   )}
                 </div>
