@@ -1,12 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
-import sgMail from '@sendgrid/mail';
 
 const prisma = new PrismaClient();
 
-// Only initialize SendGrid if API key is available
+// Conditionally import SendGrid only if API key is available
+let sgMail: typeof import('@sendgrid/mail') | null = null;
 if (process.env.SENDGRID_API_KEY) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const sendgrid = require('@sendgrid/mail');
+    sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+    sgMail = sendgrid;
+  } catch (error) {
+    console.log('SendGrid not available:', error);
+  }
 }
 
 export async function POST(req: NextRequest) {
@@ -22,7 +29,7 @@ export async function POST(req: NextRequest) {
     });
 
     // Send booking email if SendGrid is configured
-    if (process.env.SENDGRID_API_KEY) {
+    if (sgMail) {
       console.log("About to send email with SendGrid");
       const msg = {
         to: 'contact@pulsewholehealth.com',
