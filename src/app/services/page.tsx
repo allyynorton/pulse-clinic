@@ -9,6 +9,7 @@ export default function Services() {
       <section className="py-16 text-center">
         <div className="container mx-auto px-6">
           <h1 className="text-5xl text-brown mb-4">Our Services</h1>
+          {/* Force rebuild - cache cleared */}
           <p className="text-xl text-green max-w-2xl mx-auto mb-12">
             At Pulse Clinic, we blend natural and conventional care to provide a holistic approach to your wellness. Explore our core offerings below.
           </p>
