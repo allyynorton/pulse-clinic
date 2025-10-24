@@ -1,42 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
-import Stripe from 'stripe';
+import { NextResponse } from 'next/server';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-09-30.clover',
-});
-
-export async function POST(request: NextRequest) {
-  try {
-    const { paymentIntentId } = await request.json();
-
-    // Retrieve payment intent to confirm it was successful
-    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
-
-    if (paymentIntent.status === 'succeeded') {
-      // Payment successful - you can trigger Calendly booking here
-      // For now, we'll return success and handle Calendly integration on the frontend
-      return NextResponse.json({
-        success: true,
-        paymentIntent: {
-          id: paymentIntent.id,
-          amount: paymentIntent.amount,
-          status: paymentIntent.status,
-          metadata: paymentIntent.metadata,
-        },
-      });
-    } else {
-      return NextResponse.json(
-        { error: 'Payment not completed' },
-        { status: 400 }
-      );
-    }
-  } catch (error) {
-    console.error('Error confirming payment:', error);
-    return NextResponse.json(
-      { error: 'Failed to confirm payment' },
-      { status: 500 }
-    );
-  }
+// Temporarily disabled to fix build issues
+export async function POST() {
+  return NextResponse.json(
+    { error: 'Payment confirmation temporarily disabled' },
+    { status: 503 }
+  );
 }
 
 
