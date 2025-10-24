@@ -10,15 +10,15 @@ export default function Header() {
   return (
     <header className="bg-[#f7f4ef] shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-24 py-2">
           {/* Logo on the left */}
           <Link href="/" className="flex items-center">
             <Image
               src="/pulse-logo.png"
               alt="Pulse Clinic Logo"
-              width={120}
-              height={120}
-              className="rounded-full"
+              width={80}
+              height={80}
+              className="object-contain"
               priority
             />
           </Link>
