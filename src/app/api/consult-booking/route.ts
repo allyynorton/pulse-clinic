@@ -4,7 +4,10 @@ import sgMail from '@sendgrid/mail';
 
 const prisma = new PrismaClient();
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
+// Only initialize SendGrid if API key is available
+if (process.env.SENDGRID_API_KEY) {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+}
 
 export async function POST(req: NextRequest) {
   console.log("Consult booking API route invoked");
@@ -18,20 +21,24 @@ export async function POST(req: NextRequest) {
       data: { service, reason },
     });
 
-    // Send booking email
-    console.log("About to send email with SendGrid");
-    const msg = {
-      to: 'contact@pulsewholehealth.com',
-      from: 'contact@pulsewholehealth.com', // use verified sender
-      subject: 'New Consult Booking',
-      text: `New booking for ${service}\nReason: ${reason}\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}`,
-      html: `<p><strong>Service:</strong> ${service}</p>
-             <p><strong>Reason:</strong> ${reason}</p>
-             <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Phone:</strong> ${phone}</p>`
-    };
-    await sgMail.send(msg);
+    // Send booking email if SendGrid is configured
+    if (process.env.SENDGRID_API_KEY) {
+      console.log("About to send email with SendGrid");
+      const msg = {
+        to: 'contact@pulsewholehealth.com',
+        from: 'contact@pulsewholehealth.com', // use verified sender
+        subject: 'New Consult Booking',
+        text: `New booking for ${service}\nReason: ${reason}\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}`,
+        html: `<p><strong>Service:</strong> ${service}</p>
+               <p><strong>Reason:</strong> ${reason}</p>
+               <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+               <p><strong>Email:</strong> ${email}</p>
+               <p><strong>Phone:</strong> ${phone}</p>`
+      };
+      await sgMail.send(msg);
+    } else {
+      console.log("SendGrid not configured - skipping email");
+    }
 
     return NextResponse.json({ success: true, booking });
   } catch (error) {
