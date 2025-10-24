@@ -77,7 +77,7 @@ function CheckoutForm({
       } else if (paymentIntent.status === 'succeeded') {
         onPaymentSuccess(paymentIntent.id);
       }
-    } catch (error) {
+    } catch {
       onPaymentError('An unexpected error occurred');
     } finally {
       setIsProcessing(false);

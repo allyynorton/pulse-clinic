@@ -55,7 +55,7 @@ export default function ConsultBooking() {
     if (step > 1) setStep(step - 1);
   };
 
-  const handlePaymentSuccess = (paymentIntentId: string) => {
+  const handlePaymentSuccess = () => {
     setPaymentCompleted(true);
     // Redirect to Calendly for paid services
     const selectedService = services.find(s => s.id === bookingData.service);
