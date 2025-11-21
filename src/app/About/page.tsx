@@ -1,182 +1,133 @@
+"use client";
+
 import Link from "next/link";
+import { useContactPopup } from "@/components/Footer";
 
 export default function About() {
+  const { openPopup } = useContactPopup();
+
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero Section */}
       <section className="relative bg-cream text-brown pb-12 pt-16">
         <div className="container mx-auto px-6 flex flex-col items-center text-center">
-          <h1 className="text-5xl md:text-6xl text-brown mb-4">About Allyson Norton, PA-C</h1>
-          <p className="text-xl text-green max-w-2xl mx-auto mb-8">
-            Board-Certified Physician Assistant & Functional Medicine Specialist
-          </p>
+          <h1 className="text-5xl md:text-6xl text-orange mb-6" style={{ color: '#b8752f' }}>About Pulse Whole Health</h1>
+          
+          {/* Mission Statement */}
+          <div className="max-w-4xl mx-auto mb-8">
+            <h2 className="text-3xl font-bold text-orange mb-6" style={{ color: '#b8752f' }}>Our Mission</h2>
+            <p className="text-xl text-green leading-relaxed mb-6" style={{ color: '#5d6b57' }}>
+              At Pulse Whole Health, we blend modern medicine with holistic approaches to best suit each patient&apos;s unique needs. We believe in using the full spectrum of healthcare—from evidence-based medications to functional medicine principles—to provide comprehensive, personalized care that addresses both immediate symptoms and long-term wellness.
+            </p>
+            <p className="text-xl text-green leading-relaxed" style={{ color: '#5d6b57' }}>
+              Our mission is to deliver patient-centered care that looks at the whole person, not just isolated symptoms. We combine the precision of modern medicine with the depth of holistic health practices, creating treatment plans that work with your body&apos;s natural healing processes to achieve optimal health and prevent future health complications.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* About Content */}
       <section className="py-20 bg-cream">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="max-w-4xl mx-auto">
             {/* Bio Content */}
-            <div>
-              <div className="prose prose-lg text-green space-y-6 text-center">
-                <p className="text-xl leading-relaxed">
-                  I have always had a strong belief in functional medicine and finding the &quot;why&quot; behind illness. After 4 years of dedicated practice in urgent care, I have grown more and more uncomfortable with the way conventional medicine approaches and treats illness. Providing band-aid treatments for patients symptoms, rather than finding the root cause, perpetuates and sometimes exacerbates disease states. Let&apos;s switch the mindset from defensive medicine to offensive medicine.
-                </p>
-                <p className="text-xl leading-relaxed">
-                  This is where the idea for Pulse came into play. Creating an integrative environment that joins both conventional medicine and functional medicine to treat patients. My goal is to deliver patient-centered care in order to find a natural solution to chronic disease. The focus of pulse is on gut health and healing in order to help with weight loss and treat other conditions such as diabetes, high blood pressure, and GI conditions.
-                  Through a comprehensive evaluation I employ a systematic approach that investigates lifestyle factors, nutritional patterns, physical activity levels, environmental exposures, and other fundamental determinants of health to identify and address the root causes of disease.
-                </p>
-              </div>
+            <div className="prose prose-lg text-green space-y-6" style={{ color: '#5d6b57' }}>
+              <h2 className="text-3xl font-bold text-orange mb-6 text-center" style={{ color: '#b8752f' }}>What is Whole Health Medicine?</h2>
+              
+              <p className="text-xl leading-relaxed" style={{ color: '#5d6b57' }}>
+                Whole health medicine, also known as functional or integrative medicine, views your body as an interconnected system where everything is related. Unlike traditional approaches that often focus on individual symptoms or organs, whole health medicine looks at how all the systems in your body work together and how they influence each other.
+              </p>
+              
+              <p className="text-xl leading-relaxed" style={{ color: '#5d6b57' }}>
+                <strong className="text-orange" style={{ color: '#b8752f' }}>The Foundation: Gut Health</strong><br />
+                At Pulse, we place a strong emphasis on gut health because it&apos;s the foundation of your overall wellness. Your gut is home to trillions of bacteria that play crucial roles in digestion, immune function, mood regulation, and even how your body processes nutrients. When your gut microbiome is balanced, you feel energetic, digest food well, and your immune system functions optimally. But when there&apos;s an imbalance—too much harmful bacteria, not enough beneficial bacteria, or gut lining issues—it can contribute to a wide range of health problems, from digestive issues and fatigue to inflammation, autoimmune conditions, and even mental health challenges.
+              </p>
+              
+              <p className="text-xl leading-relaxed" style={{ color: '#5d6b57' }}>
+                <strong className="text-orange" style={{ color: '#b8752f' }}>The Connection Between Systems</strong><br />
+                Whole health medicine recognizes that your systems don&apos;t work in isolation. For example, chronic stress doesn&apos;t just affect your mood—it impacts your gut health, which can affect your immune system, which can influence inflammation throughout your body. Hormonal imbalances might be related to gut health, nutrient deficiencies, or chronic inflammation. Thyroid issues might be connected to nutrient absorption problems in your gut. By understanding these connections, we can address the root cause of your symptoms rather than just treating them in isolation.
+              </p>
+              
+              <p className="text-xl leading-relaxed" style={{ color: '#5d6b57' }}>
+                <strong className="text-orange" style={{ color: '#b8752f' }}>The Role of Nutrition & Lifestyle</strong><br />
+                What you eat, how you sleep, how you manage stress, and your physical activity all influence your body&apos;s ability to function optimally. Food sensitivities might be causing inflammation that contributes to joint pain or skin issues. Nutrient deficiencies might be causing fatigue or brain fog. Sleep problems might be affecting hormone production and gut health. We look at all of these factors to understand the full picture of your health.
+              </p>
+              
+              <p className="text-xl leading-relaxed" style={{ color: '#5d6b57' }}>
+                <strong className="text-orange" style={{ color: '#b8752f' }}>An Integrated Approach: Blending Modern & Holistic Medicine</strong><br />
+                At Pulse Whole Health, we blend modern medicine with holistic approaches to best suit each patient&apos;s unique needs. We use evidence-based medications when appropriate—they&apos;re valuable tools that have saved countless lives and provide crucial symptom relief. At the same time, we investigate what might be contributing to recurring health issues using holistic principles. We use advanced laboratory testing to look at gut health, hormone function, nutrient levels, inflammation markers, and more. We consider your lifestyle, environment, genetics, and nutrition. Then we create a comprehensive, personalized plan that combines the best of both approaches—addressing immediate symptoms with modern medicine when needed, while also working on underlying factors through holistic practices. This integrated approach ensures we&apos;re treating the whole person in the way that best suits their individual needs.
+              </p>
+            </div>
 
-              {/* Credentials */}
-              <div className="mt-12 bg-white rounded-xl p-8 border border-cream">
-                <h3 className="text-2xl font-semibold text-brown mb-6">Professional Credentials</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-green rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-brown">Master of Physician Assistant Studies (MPAS)</h4>
-                      <p className="text-green">University of Florida, 2019</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-brown">Board Certified Physician Assistant</h4>
-                      <p className="text-green">Licensed Healthcare Professional</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-green rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-brown">Certified Personal Trainer</h4>
-                      <p className="text-green">NASM Certified since 2018</p>
-                    </div>
-                  </div>
-                </div>
+            {/* About Ally */}
+            <div className="mt-12 bg-white rounded-xl p-8 border border-cream">
+              <h3 className="text-2xl font-semibold text-orange mb-6" style={{ color: '#b8752f' }}>Meet Your Provider</h3>
+              <div className="prose prose-lg text-green" style={{ color: '#5d6b57' }}>
+                <p className="text-lg leading-relaxed mb-4" style={{ color: '#5d6b57' }}>
+                  Allyson Norton, PA-C, is a Board-Certified Physician Assistant and Functional Medicine Specialist who founded Pulse Whole Health with a passion for blending modern medicine with holistic approaches. With a Master of Physician Assistant Studies from the University of Florida (2019) and completed courses with A4M (American Academy of Anti-Aging Medicine), Ally brings both clinical expertise and a deep understanding of whole health principles to her practice.
+                </p>
+                <p className="text-lg leading-relaxed mb-4" style={{ color: '#5d6b57' }}>
+                  With four years of experience in urgent care, Ally has witnessed firsthand how conventional medicine excels at managing acute symptoms, but also recognized the need to address the underlying factors that contribute to recurring health issues. This experience, combined with her background as a NASM Certified Personal Trainer since 2018, has shaped her integrated approach to patient care.
+                </p>
+                <p className="text-lg leading-relaxed mb-4" style={{ color: '#5d6b57' }}>
+                  At Pulse Whole Health, Ally combines evidence-based medications with functional medicine principles to create personalized treatment plans that address both immediate symptoms and long-term wellness. Her commitment to finding the root cause of health concerns, particularly focusing on gut health as the foundation of overall wellness, helps patients achieve sustainable improvements in their health.
+                </p>
+                <p className="text-lg leading-relaxed" style={{ color: '#5d6b57' }}>
+                  Beyond the clinic, Ally is an avid outdoors person who loves hiking and spending time in nature. Her passion for fitness and wellness extends to her personal life, where she enjoys staying active and spending time with her dogs. This personal commitment to an active, healthy lifestyle informs her approach to patient care, as she understands firsthand the importance of balancing physical activity, nature, and wellness in achieving optimal health.
+                </p>
               </div>
             </div>
 
-            {/* Visual Elements */}
-            <div className="space-y-8">
-              {/* Philosophy Card */}
-              <div className="bg-white rounded-2xl p-8 border border-cream">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-orange rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            {/* Credentials */}
+            <div className="mt-12 bg-white rounded-xl p-8 border border-cream">
+              <h3 className="text-2xl font-semibold text-orange mb-6" style={{ color: '#b8752f' }}>Professional Credentials</h3>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-green rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-brown mb-4">Clinic Mission</h3>
-                  <p className="text-green leading-relaxed">
-                    My mission is to deliver evidence-based, patient-centered care to find the root cause of chronic health issues. By looking at the patient as a whole, considering lifestyle habits, exercise, diet, genetic predispositions, and environmental factors, we can create a sustainable plan to treat current health concerns and prevent future health complications.
-                  </p>
+                  <div>
+                    <h4 className="font-semibold text-orange" style={{ color: '#b8752f' }}>Master of Physician Assistant Studies (MPAS)</h4>
+                    <p className="text-green" style={{ color: '#5d6b57' }}>University of Florida, 2019</p>
+                  </div>
                 </div>
-              </div>
-
-              {/* Personal Interests */}
-              <div className="bg-white border border-cream rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-brown mb-6">Beyond the Clinic</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-orange rounded-full flex items-center justify-center">
-                      <svg className="w-5 h-5 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-brown">Avid Athlete</h4>
-                      <p className="text-green">Committed to physical fitness and performance</p>
-                    </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-green rounded-full flex items-center justify-center">
-                      <svg className="w-5 h-5 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-brown">Outdoor Enthusiast</h4>
-                      <p className="text-green">Passionate about nature and outdoor activities</p>
-                    </div>
+                  <div>
+                    <h4 className="font-semibold text-orange" style={{ color: '#b8752f' }}>Board Certified Physician Assistant</h4>
+                    <p className="text-green" style={{ color: '#5d6b57' }}>Licensed Healthcare Professional</p>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-green rounded-full flex items-center justify-center">
-                      <svg className="w-5 h-5 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-brown">Dog Lover</h4>
-                      <p className="text-green">Devoted to my canine companions</p>
-                    </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-green rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-orange" style={{ color: '#b8752f' }}>Certified Personal Trainer</h4>
+                    <p className="text-green" style={{ color: '#5d6b57' }}>NASM Certified since 2018</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-orange" style={{ color: '#b8752f' }}>A4M Courses Completed</h4>
+                    <p className="text-green" style={{ color: '#5d6b57' }}>American Academy of Anti-Aging Medicine</p>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Approach Section */}
-      <section className="py-20 bg-cream">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-brown mb-4">Clinical Approach</h2>
-            <p className="text-xl text-green max-w-3xl mx-auto">
-              A comprehensive methodology that integrates evidence-based medicine with functional health principles
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-brown">Holistic Assessment</h3>
-              <p className="text-green">Comprehensive evaluation of physical, mental, and lifestyle factors</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-brown">Root Cause Analysis</h3>
-              <p className="text-green">Systematic investigation of underlying health determinants</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-brown">Lifestyle Medicine</h3>
-              <p className="text-green">Evidence-based interventions targeting nutrition, exercise, and environment</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-brown">Preventive Strategy</h3>
-              <p className="text-green">Proactive health optimization and disease prevention protocols</p>
             </div>
           </div>
         </div>
@@ -196,12 +147,12 @@ export default function About() {
             >
               Schedule Consultation
             </Link>
-            <Link 
-              href="/contact"
+            <button
+              onClick={openPopup}
               className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-brown transition-colors"
             >
               Contact Practice
-            </Link>
+            </button>
           </div>
         </div>
       </section>

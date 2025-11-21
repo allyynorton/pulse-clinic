@@ -19,9 +19,9 @@ export default function ConsultBooking() {
 
   const services = [
     { id: "intro", name: "Get To Know Each Other Call", duration: "15 min", price: "Free", amount: 0, requiresPayment: false },
-    { id: "functional", name: "Integrative Care Consultation", duration: "60 min", price: "$150", amount: 150, requiresPayment: true },
-    { id: "preventative", name: "Preventative Care Session", duration: "45 min", price: "$120", amount: 120, requiresPayment: true },
-    { id: "followup", name: "Follow-up Consult", duration: "30 min", price: "$80", amount: 80, requiresPayment: true }
+    { id: "functional", name: "Integrative Care Consultation", duration: "60 min", price: "$200", amount: 200, requiresPayment: true },
+    { id: "preventative", name: "Preventative Care Session", duration: "45 min", price: "$150", amount: 150, requiresPayment: true },
+    { id: "followup", name: "Follow-up Consult", duration: "30 min", price: "$100", amount: 100, requiresPayment: true }
   ];
 
   const handleInputChange = (field: string, value: string | boolean) => {
@@ -55,7 +55,8 @@ export default function ConsultBooking() {
     if (step > 1) setStep(step - 1);
   };
 
-  const handlePaymentSuccess = () => {
+  const handlePaymentSuccess = (paymentIntentId: string) => {
+    console.log('Payment successful:', paymentIntentId);
     setPaymentCompleted(true);
     // Redirect to Calendly for paid services
     const selectedService = services.find(s => s.id === bookingData.service);
@@ -70,8 +71,10 @@ export default function ConsultBooking() {
     alert(`Payment failed: ${error}`);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.MouseEvent<HTMLButtonElement>) => {
+    if (e) {
+      e.preventDefault();
+    }
     
     const selectedService = services.find(s => s.id === bookingData.service);
     
@@ -97,7 +100,7 @@ export default function ConsultBooking() {
 
   const renderStep1 = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-brown mb-6">Select Your Service</h2>
+      <h2 className="text-2xl font-bold text-orange mb-6" style={{ color: '#b8752f' }}>Select Your Service</h2>
       <div className="grid gap-4">
         {services.map((service) => (
           <div
@@ -111,10 +114,10 @@ export default function ConsultBooking() {
           >
             <div className="flex justify-between items-start">
               <div>
-                <h3 className="text-lg font-semibold text-brown">{service.name}</h3>
-                <p className="text-green mt-1">Duration: {service.duration}</p>
+                <h3 className="text-lg font-semibold text-orange" style={{ color: '#b8752f' }}>{service.name}</h3>
+                <p className="text-green mt-1" style={{ color: '#5d6b57' }}>Duration: {service.duration}</p>
               </div>
-              <span className="text-xl font-bold text-orange">{service.price}</span>
+              <span className="text-xl font-bold text-orange" style={{ color: '#b8752f' }}>{service.price}</span>
             </div>
           </div>
         ))}
@@ -124,7 +127,7 @@ export default function ConsultBooking() {
 
   const renderStep2 = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-brown mb-6">Reason for Your Consult</h2>
+      <h2 className="text-2xl font-bold text-orange mb-6" style={{ color: '#b8752f' }}>Reason for Your Consult</h2>
       <div>
         <label className="block text-brown font-semibold mb-2">Please describe your health concerns or what you&apos;d like to address *</label>
         <textarea
@@ -140,9 +143,9 @@ export default function ConsultBooking() {
 
   const renderStep3 = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-brown mb-6">Intake Form</h2>
+      <h2 className="text-2xl font-bold text-orange mb-6" style={{ color: '#b8752f' }}>Intake Form</h2>
       <div className="bg-cream p-6 rounded-lg">
-        <p className="text-green text-lg mb-4">A comprehensive health and lifestyle history form will be available here soon. Please continue to the next step.</p>
+        <p className="text-green text-lg mb-4" style={{ color: '#5d6b57' }}>A comprehensive health and lifestyle history form will be available here soon. Please continue to the next step.</p>
         {/* TODO: Add fillable health and lifestyle history form fields here */}
       </div>
     </div>
@@ -150,7 +153,7 @@ export default function ConsultBooking() {
 
   const renderStep4 = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-brown mb-6">Your Information</h2>
+      <h2 className="text-2xl font-bold text-orange mb-6" style={{ color: '#b8752f' }}>Your Information</h2>
       <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-brown font-semibold mb-2">First Name *</label>
@@ -211,15 +214,15 @@ export default function ConsultBooking() {
     const selectedService = services.find(s => s.id === bookingData.service);
     return (
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-brown mb-6">Payment Information</h2>
+        <h2 className="text-2xl font-bold text-orange mb-6" style={{ color: '#b8752f' }}>Payment Information</h2>
         <div className="bg-cream p-6 rounded-lg mb-6">
-          <h3 className="text-lg font-semibold text-brown mb-2">{selectedService?.name}</h3>
-          <p className="text-green">Amount: ${selectedService?.amount}</p>
+          <h3 className="text-lg font-semibold text-orange mb-2" style={{ color: '#b8752f' }}>{selectedService?.name}</h3>
+          <p className="text-green" style={{ color: '#5d6b57' }}>Amount: ${selectedService?.amount}</p>
         </div>
         
         {/* Customer Information Form */}
         <div className="space-y-4 mb-6">
-          <h3 className="text-lg font-semibold text-brown">Your Information</h3>
+          <h3 className="text-lg font-semibold text-orange" style={{ color: '#b8752f' }}>Your Information</h3>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-brown font-semibold mb-2">First Name *</label>
@@ -265,7 +268,7 @@ export default function ConsultBooking() {
             onPaymentError={handlePaymentError}
           />
         ) : (
-          <div className="text-center text-green">
+          <div className="text-center text-green" style={{ color: '#5d6b57' }}>
             Please fill in your information above to proceed with payment.
           </div>
         )}
@@ -292,8 +295,8 @@ export default function ConsultBooking() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
         </svg>
       </div>
-      <h2 className="text-3xl font-bold text-brown">Request Received</h2>
-      <p className="text-green text-lg">
+      <h2 className="text-3xl font-bold text-orange" style={{ color: '#b8752f' }}>Request Received</h2>
+      <p className="text-green text-lg" style={{ color: '#5d6b57' }}>
         We have received your request and someone will reach out to you within 48 hours.
       </p>
     </div>
@@ -304,8 +307,8 @@ export default function ConsultBooking() {
       <section className="py-16">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="text-center mb-12">
-            <h1 className="text-5xl text-brown mb-4">Book Your Consult</h1>
-            <p className="text-xl text-green max-w-2xl mx-auto">
+            <h1 className="text-5xl text-orange mb-4" style={{ color: '#b8752f' }}>Book Your Consult</h1>
+            <p className="text-xl text-green max-w-2xl mx-auto" style={{ color: '#5d6b57' }}>
               Ready to take the first step towards feeling better, moving better, and living better? Schedule your consult with Ally below!
             </p>
           </div>
@@ -313,7 +316,7 @@ export default function ConsultBooking() {
           {/* Step Content */}
           <div className="bg-white rounded-xl p-8 shadow-lg">
             {step < 5 ? (
-              <form onSubmit={handleSubmit}>
+              <>
                 {renderStepContent()}
                 
                 {/* Navigation Buttons */}
@@ -340,19 +343,20 @@ export default function ConsultBooking() {
                       Next
                     </button>
                   ) : step === 4.5 ? (
-                    <div className="ml-auto text-sm text-green">
+                    <div className="ml-auto text-sm text-green" style={{ color: '#5d6b57' }}>
                       Complete payment to continue
                     </div>
                   ) : (
                     <button
-                      type="submit"
+                      type="button"
+                      onClick={handleSubmit}
                       className="ml-auto px-6 py-3 bg-brown text-white rounded-lg hover:bg-green transition-colors"
                     >
                       {paymentCompleted ? 'Continue to Calendly' : 'Confirm Consult'}
                     </button>
                   )}
                 </div>
-              </form>
+              </>
             ) : (
               renderStepContent()
             )}

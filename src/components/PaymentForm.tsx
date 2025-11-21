@@ -41,6 +41,7 @@ function CheckoutForm({
     event.preventDefault();
 
     if (!stripe || !elements) {
+      onPaymentError('Stripe is not loaded. Please refresh the page.');
       return;
     }
 
@@ -59,12 +60,33 @@ function CheckoutForm({
         }),
       });
 
-      const { clientSecret } = await response.json();
+      const data = await response.json();
+
+      if (!response.ok) {
+        onPaymentError(data.error || 'Failed to create payment intent');
+        setIsProcessing(false);
+        return;
+      }
+
+      const { clientSecret } = data;
+
+      if (!clientSecret) {
+        onPaymentError('Invalid response from server');
+        setIsProcessing(false);
+        return;
+      }
 
       // Confirm payment
+      const cardElement = elements.getElement(CardElement);
+      if (!cardElement) {
+        onPaymentError('Card element not found');
+        setIsProcessing(false);
+        return;
+      }
+
       const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
-          card: elements.getElement(CardElement)!,
+          card: cardElement,
           billing_details: {
             name: customerName,
             email: customerEmail,
@@ -74,11 +96,14 @@ function CheckoutForm({
 
       if (error) {
         onPaymentError(error.message || 'Payment failed');
-      } else if (paymentIntent.status === 'succeeded') {
+      } else if (paymentIntent && paymentIntent.status === 'succeeded') {
         onPaymentSuccess(paymentIntent.id);
+      } else {
+        onPaymentError('Payment was not completed successfully');
       }
-    } catch {
-      onPaymentError('An unexpected error occurred');
+    } catch (error) {
+      console.error('Payment error:', error);
+      onPaymentError(error instanceof Error ? error.message : 'An unexpected error occurred');
     } finally {
       setIsProcessing(false);
     }
@@ -86,16 +111,21 @@ function CheckoutForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="p-4 border border-gray-300 rounded-lg">
+      <div className="p-4 border border-cream rounded-lg bg-white">
         <CardElement
           options={{
             style: {
               base: {
                 fontSize: '16px',
-                color: '#424770',
+                color: '#b8752f',
+                fontFamily: 'system-ui, sans-serif',
                 '::placeholder': {
                   color: '#aab7c4',
                 },
+              },
+              invalid: {
+                color: '#ef4444',
+                iconColor: '#ef4444',
               },
             },
           }}
@@ -105,7 +135,8 @@ function CheckoutForm({
       <button
         type="submit"
         disabled={!stripe || isProcessing}
-        className="w-full px-6 py-3 bg-brown text-white rounded-lg hover:bg-green transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full px-6 py-3 bg-brown text-white rounded-lg hover:bg-green transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
+        style={{ backgroundColor: '#b8752f' }}
       >
         {isProcessing ? 'Processing...' : `Pay $${amount}`}
       </button>
