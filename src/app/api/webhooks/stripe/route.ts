@@ -57,7 +57,23 @@ export async function POST(req: NextRequest) {
           customerEmail: paymentIntent.metadata.customerEmail,
           service: paymentIntent.metadata.service,
         });
-        // Here you could update your database, send confirmation emails, etc.
+        
+        // Send payment confirmation email
+        if (paymentIntent.metadata.customerEmail && paymentIntent.metadata.customerName) {
+          try {
+            const { sendPaymentConfirmationEmail } = await import('@/lib/email');
+            await sendPaymentConfirmationEmail({
+              customerName: paymentIntent.metadata.customerName,
+              customerEmail: paymentIntent.metadata.customerEmail,
+              service: paymentIntent.metadata.service,
+              amount: paymentIntent.amount,
+              paymentIntentId: paymentIntent.id,
+            });
+          } catch (emailError) {
+            // Log email errors but don't fail the webhook
+            console.error('Error sending payment confirmation email:', emailError);
+          }
+        }
         break;
 
       case 'payment_intent.payment_failed':
@@ -68,7 +84,23 @@ export async function POST(req: NextRequest) {
           currency: failedPayment.currency,
           last_payment_error: failedPayment.last_payment_error,
         });
-        // Here you could notify the customer, log the failure, etc.
+        
+        // Send payment failure notification email
+        if (failedPayment.metadata.customerEmail && failedPayment.metadata.customerName) {
+          try {
+            const { sendPaymentFailureEmail } = await import('@/lib/email');
+            await sendPaymentFailureEmail({
+              customerName: failedPayment.metadata.customerName,
+              customerEmail: failedPayment.metadata.customerEmail,
+              service: failedPayment.metadata.service,
+              amount: failedPayment.amount,
+              errorMessage: failedPayment.last_payment_error?.message,
+            });
+          } catch (emailError) {
+            // Log email errors but don't fail the webhook
+            console.error('Error sending payment failure email:', emailError);
+          }
+        }
         break;
 
       default:
