@@ -62,23 +62,23 @@ export async function POST(req: NextRequest) {
           adminEmail: process.env.ADMIN_EMAIL || 'contact@pulsewholehealth.com',
         },
       });
-    } catch (emailError: any) {
+    } catch (emailError: unknown) {
+      const error = emailError as { message?: string; code?: string; response?: { body?: unknown; statusCode?: number } };
       console.error('SendGrid Error Details:', {
-        message: emailError.message,
-        code: emailError.code,
-        response: emailError.response?.body,
-        statusCode: emailError.response?.statusCode,
-        headers: emailError.response?.headers,
+        message: error.message,
+        code: error.code,
+        response: error.response?.body,
+        statusCode: error.response?.statusCode,
       });
 
       return NextResponse.json(
         {
           error: 'Failed to send test email',
           details: {
-            message: emailError.message,
-            code: emailError.code,
-            statusCode: emailError.response?.statusCode,
-            responseBody: emailError.response?.body,
+            message: error.message || 'Unknown error',
+            code: error.code,
+            statusCode: error.response?.statusCode,
+            responseBody: error.response?.body,
           },
           config: {
             hasApiKey: true,
@@ -90,12 +90,13 @@ export async function POST(req: NextRequest) {
         { status: 500 }
       );
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const err = error as { message?: string };
     console.error('Test email endpoint error:', error);
     return NextResponse.json(
       {
         error: 'Internal server error',
-        message: error.message,
+        message: err.message || 'Unknown error',
       },
       { status: 500 }
     );

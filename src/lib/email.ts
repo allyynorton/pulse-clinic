@@ -113,12 +113,13 @@ export async function sendBookingConfirmationEmail(data: BookingConfirmationEmai
   try {
     await sgMail.send(msg);
     console.log(`✅ Booking confirmation email sent to ${data.customerEmail}`);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const err = error as { message?: string; code?: string; response?: { body?: unknown; statusCode?: number } };
     console.error('❌ Error sending booking confirmation email:', {
-      message: error.message,
-      code: error.code,
-      response: error.response?.body,
-      statusCode: error.response?.statusCode,
+      message: err.message,
+      code: err.code,
+      response: err.response?.body,
+      statusCode: err.response?.statusCode,
       to: data.customerEmail,
       from: FROM_EMAIL,
     });
@@ -208,12 +209,13 @@ export async function sendPaymentConfirmationEmail(data: PaymentConfirmationEmai
   try {
     await sgMail.send(msg);
     console.log(`✅ Payment confirmation email sent to ${data.customerEmail}`);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const err = error as { message?: string; code?: string; response?: { body?: unknown; statusCode?: number } };
     console.error('❌ Error sending payment confirmation email:', {
-      message: error.message,
-      code: error.code,
-      response: error.response?.body,
-      statusCode: error.response?.statusCode,
+      message: err.message,
+      code: err.code,
+      response: err.response?.body,
+      statusCode: err.response?.statusCode,
       to: data.customerEmail,
       from: FROM_EMAIL,
     });
@@ -303,12 +305,13 @@ export async function sendPaymentFailureEmail(data: PaymentFailureEmailData): Pr
   try {
     await sgMail.send(msg);
     console.log(`✅ Payment failure email sent to ${data.customerEmail}`);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const err = error as { message?: string; code?: string; response?: { body?: unknown; statusCode?: number } };
     console.error('❌ Error sending payment failure email:', {
-      message: error.message,
-      code: error.code,
-      response: error.response?.body,
-      statusCode: error.response?.statusCode,
+      message: err.message,
+      code: err.code,
+      response: err.response?.body,
+      statusCode: err.response?.statusCode,
       to: data.customerEmail,
       from: FROM_EMAIL,
     });
@@ -381,12 +384,13 @@ export async function sendAdminBookingNotification(data: BookingConfirmationEmai
   try {
     await sgMail.send(msg);
     console.log(`✅ Admin booking notification sent to ${ADMIN_EMAIL}`);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const err = error as { message?: string; code?: string; response?: { body?: unknown; statusCode?: number } };
     console.error('❌ Error sending admin booking notification:', {
-      message: error.message,
-      code: error.code,
-      response: error.response?.body,
-      statusCode: error.response?.statusCode,
+      message: err.message,
+      code: err.code,
+      response: err.response?.body,
+      statusCode: err.response?.statusCode,
       to: ADMIN_EMAIL,
       from: FROM_EMAIL,
     });
