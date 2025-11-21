@@ -112,9 +112,16 @@ export async function sendBookingConfirmationEmail(data: BookingConfirmationEmai
 
   try {
     await sgMail.send(msg);
-    console.log(`Booking confirmation email sent to ${data.customerEmail}`);
-  } catch (error) {
-    console.error('Error sending booking confirmation email:', error);
+    console.log(`✅ Booking confirmation email sent to ${data.customerEmail}`);
+  } catch (error: any) {
+    console.error('❌ Error sending booking confirmation email:', {
+      message: error.message,
+      code: error.code,
+      response: error.response?.body,
+      statusCode: error.response?.statusCode,
+      to: data.customerEmail,
+      from: FROM_EMAIL,
+    });
     throw error;
   }
 }
@@ -200,9 +207,16 @@ export async function sendPaymentConfirmationEmail(data: PaymentConfirmationEmai
 
   try {
     await sgMail.send(msg);
-    console.log(`Payment confirmation email sent to ${data.customerEmail}`);
-  } catch (error) {
-    console.error('Error sending payment confirmation email:', error);
+    console.log(`✅ Payment confirmation email sent to ${data.customerEmail}`);
+  } catch (error: any) {
+    console.error('❌ Error sending payment confirmation email:', {
+      message: error.message,
+      code: error.code,
+      response: error.response?.body,
+      statusCode: error.response?.statusCode,
+      to: data.customerEmail,
+      from: FROM_EMAIL,
+    });
     throw error;
   }
 }
@@ -288,9 +302,16 @@ export async function sendPaymentFailureEmail(data: PaymentFailureEmailData): Pr
 
   try {
     await sgMail.send(msg);
-    console.log(`Payment failure email sent to ${data.customerEmail}`);
-  } catch (error) {
-    console.error('Error sending payment failure email:', error);
+    console.log(`✅ Payment failure email sent to ${data.customerEmail}`);
+  } catch (error: any) {
+    console.error('❌ Error sending payment failure email:', {
+      message: error.message,
+      code: error.code,
+      response: error.response?.body,
+      statusCode: error.response?.statusCode,
+      to: data.customerEmail,
+      from: FROM_EMAIL,
+    });
     throw error;
   }
 }
@@ -359,9 +380,16 @@ export async function sendAdminBookingNotification(data: BookingConfirmationEmai
 
   try {
     await sgMail.send(msg);
-    console.log(`Admin booking notification sent to ${ADMIN_EMAIL}`);
-  } catch (error) {
-    console.error('Error sending admin booking notification:', error);
+    console.log(`✅ Admin booking notification sent to ${ADMIN_EMAIL}`);
+  } catch (error: any) {
+    console.error('❌ Error sending admin booking notification:', {
+      message: error.message,
+      code: error.code,
+      response: error.response?.body,
+      statusCode: error.response?.statusCode,
+      to: ADMIN_EMAIL,
+      from: FROM_EMAIL,
+    });
     // Don't throw - admin notifications are not critical
   }
 }
