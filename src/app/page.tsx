@@ -115,7 +115,7 @@ export default function Home() {
 
               {/* What You'll Get Section */}
               <div className="mt-8 bg-white rounded-2xl p-6 border border-cream shadow-lg">
-                <h4 className="text-xl font-bold text-orange mb-4">What You'll Get:</h4>
+                <h4 className="text-xl font-bold text-orange mb-4">What You&apos;ll Get:</h4>
                 <ul className="space-y-3 text-green" style={{ color: '#5d6b57' }}>
                   <li className="flex items-start gap-3">
                     <span className="text-orange font-bold text-lg">•</span>
