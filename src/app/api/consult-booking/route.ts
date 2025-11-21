@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 export async function POST(req: NextRequest) {
   console.log("Consult booking API route invoked");
   try {
-    const { service, reason, firstName, lastName, email, phone } = await req.json();
+    const { service, reason, firstName, lastName, email } = await req.json();
     if (!service || !reason) {
       return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 });
     }
