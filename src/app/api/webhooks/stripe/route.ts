@@ -7,12 +7,22 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 // Disable body parsing for this route - we need raw body for webhook signature verification
 export const runtime = 'nodejs';
-
-// Disable body parsing - we need raw body for webhook signature verification
 export const dynamic = 'force-dynamic';
 
 export async function POST(req: NextRequest) {
-  const body = await req.text();
+  // Get raw body as text - critical for signature verification
+  // In Next.js App Router, req.text() should give us the raw body
+  let body: string;
+  try {
+    body = await req.text();
+  } catch (error) {
+    console.error('Error reading request body:', error);
+    return NextResponse.json(
+      { error: 'Failed to read request body' },
+      { status: 400 }
+    );
+  }
+
   const signature = req.headers.get('stripe-signature');
 
   if (!signature) {
@@ -36,11 +46,34 @@ export async function POST(req: NextRequest) {
   let event: Stripe.Event;
 
   try {
-    event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
-  } catch (err) {
-    console.error('Webhook signature verification failed:', err);
+    // Log for debugging
+    console.log('Verifying webhook signature...', {
+      bodyLength: body.length,
+      hasSignature: !!signature,
+      signatureLength: signature?.length,
+      webhookSecretConfigured: !!webhookSecret,
+    });
+    
+    // Use constructEvent which handles signature verification
+    event = stripe.webhooks.constructEvent(body, signature!, webhookSecret);
+    console.log('✅ Webhook signature verified successfully, event type:', event.type);
+  } catch (err: unknown) {
+    const error = err as { message?: string; type?: string; header?: string };
+    console.error('❌ Webhook signature verification failed:', {
+      message: error.message,
+      type: error.type,
+      header: error.header,
+      bodyLength: body.length,
+      bodyFirstChars: body.substring(0, 50),
+      bodyLastChars: body.substring(body.length - 50),
+    });
+    
+    // Return error but don't expose sensitive details
     return NextResponse.json(
-      { error: 'Webhook signature verification failed' },
+      { 
+        error: 'Webhook signature verification failed',
+        message: 'Invalid signature. Please check your webhook secret in Stripe dashboard.',
+      },
       { status: 400 }
     );
   }
