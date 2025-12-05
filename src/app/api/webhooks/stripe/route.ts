@@ -93,12 +93,14 @@ export async function POST(req: NextRequest) {
           allMetadata: paymentIntent.metadata,
         });
         
-        // Send payment confirmation email
+        // Send payment confirmation email to customer
         if (paymentIntent.metadata.customerEmail && paymentIntent.metadata.customerName) {
           console.log('Attempting to send payment confirmation email...');
           try {
-            const { sendPaymentConfirmationEmail } = await import('@/lib/email');
+            const { sendPaymentConfirmationEmail, sendAdminPaymentNotification } = await import('@/lib/email');
             console.log('Email function imported, calling sendPaymentConfirmationEmail...');
+            
+            // Send to customer
             await sendPaymentConfirmationEmail({
               customerName: paymentIntent.metadata.customerName,
               customerEmail: paymentIntent.metadata.customerEmail,
@@ -106,10 +108,20 @@ export async function POST(req: NextRequest) {
               amount: paymentIntent.amount,
               paymentIntentId: paymentIntent.id,
             });
-            console.log('✅ Payment confirmation email sent successfully');
+            console.log('✅ Payment confirmation email sent to customer successfully');
+            
+            // Send admin notification
+            await sendAdminPaymentNotification({
+              customerName: paymentIntent.metadata.customerName,
+              customerEmail: paymentIntent.metadata.customerEmail,
+              service: paymentIntent.metadata.service,
+              amount: paymentIntent.amount,
+              paymentIntentId: paymentIntent.id,
+            });
+            console.log('✅ Admin payment notification sent successfully');
           } catch (emailError) {
             // Log email errors but don't fail the webhook
-            console.error('❌ Error sending payment confirmation email:', emailError);
+            console.error('❌ Error sending payment emails:', emailError);
             console.error('Error details:', {
               message: (emailError as Error).message,
               stack: (emailError as Error).stack,

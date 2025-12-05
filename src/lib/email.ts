@@ -24,6 +24,14 @@ export interface PaymentFailureEmailData {
   errorMessage?: string;
 }
 
+export interface AdminPaymentNotificationData {
+  customerName: string;
+  customerEmail: string;
+  service: string;
+  amount: number;
+  paymentIntentId: string;
+}
+
 const FROM_EMAIL = process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER || 'noreply@pulsewholehealth.com';
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'contact@pulsewholehealth.com';
 
@@ -419,6 +427,86 @@ export async function sendAdminBookingNotification(data: BookingConfirmationEmai
   } catch (error: unknown) {
     const err = error as { message?: string; code?: string; responseCode?: string };
     console.error('❌ Error sending admin booking notification:', {
+      message: err.message,
+      code: err.code,
+      responseCode: err.responseCode,
+      to: ADMIN_EMAIL,
+      from: FROM_EMAIL,
+    });
+    // Don't throw - admin notifications are not critical
+  }
+}
+
+/**
+ * Send admin notification email for successful payment
+ */
+export async function sendAdminPaymentNotification(data: AdminPaymentNotificationData): Promise<void> {
+  const transporter = createTransporter();
+  if (!transporter || !ADMIN_EMAIL) {
+    console.warn('SMTP not configured or ADMIN_EMAIL not set, skipping admin payment notification');
+    return;
+  }
+
+  const serviceNames: Record<string, string> = {
+    intro: 'Get To Know Each Other Call',
+    functional: 'Integrative Care Consultation',
+    preventative: 'Preventative Care Session',
+    followup: 'Follow-up Consult',
+  };
+
+  const serviceName = serviceNames[data.service] || data.service;
+  const formattedAmount = (data.amount / 100).toFixed(2);
+
+  const mailOptions = {
+    from: FROM_EMAIL,
+    to: ADMIN_EMAIL,
+    subject: `New Payment Received: ${serviceName} - ${data.customerName}`,
+    html: `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>New Payment Received</title>
+        </head>
+        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+          <div style="background-color: #f5f2eb; padding: 30px; border-radius: 10px;">
+            <h1 style="color: #b8752f; margin-top: 0;">New Payment Received</h1>
+            
+            <div style="background-color: white; padding: 20px; border-radius: 5px; margin: 20px 0;">
+              <h2 style="color: #5d6b57; margin-top: 0;">Payment Details</h2>
+              <p><strong>Customer Name:</strong> ${data.customerName}</p>
+              <p><strong>Customer Email:</strong> ${data.customerEmail}</p>
+              <p><strong>Service:</strong> ${serviceName}</p>
+              <p><strong>Amount:</strong> $${formattedAmount}</p>
+              <p><strong>Transaction ID:</strong> ${data.paymentIntentId}</p>
+            </div>
+            
+            <p>Payment has been successfully processed. Please follow up with the customer to schedule their appointment.</p>
+          </div>
+        </body>
+      </html>
+    `,
+    text: `
+      New Payment Received
+
+      Payment Details:
+      Customer Name: ${data.customerName}
+      Customer Email: ${data.customerEmail}
+      Service: ${serviceName}
+      Amount: $${formattedAmount}
+      Transaction ID: ${data.paymentIntentId}
+
+      Payment has been successfully processed. Please follow up with the customer to schedule their appointment.
+    `,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log(`✅ Admin payment notification sent to ${ADMIN_EMAIL}`);
+  } catch (error: unknown) {
+    const err = error as { message?: string; code?: string; responseCode?: string };
+    console.error('❌ Error sending admin payment notification:', {
       message: err.message,
       code: err.code,
       responseCode: err.responseCode,
