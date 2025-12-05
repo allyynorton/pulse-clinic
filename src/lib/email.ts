@@ -148,11 +148,25 @@ export async function sendBookingConfirmationEmail(data: BookingConfirmationEmai
  * Send payment confirmation email to customer
  */
 export async function sendPaymentConfirmationEmail(data: PaymentConfirmationEmailData): Promise<void> {
+  console.log('sendPaymentConfirmationEmail called with:', {
+    customerEmail: data.customerEmail,
+    customerName: data.customerName,
+    service: data.service,
+    amount: data.amount,
+  });
+  
   const transporter = createTransporter();
   if (!transporter) {
-    console.warn('SMTP not configured, skipping email');
-    return;
+    console.error('❌ SMTP not configured! Missing:', {
+      hasHost: !!process.env.SMTP_HOST,
+      hasPort: !!process.env.SMTP_PORT,
+      hasUser: !!process.env.SMTP_USER,
+      hasPass: !!process.env.SMTP_PASS,
+    });
+    throw new Error('SMTP not configured');
   }
+  
+  console.log('✅ SMTP transporter created successfully');
 
   const serviceNames: Record<string, string> = {
     intro: 'Get To Know Each Other Call',

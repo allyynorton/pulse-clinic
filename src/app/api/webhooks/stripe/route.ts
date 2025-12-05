@@ -55,13 +55,17 @@ export async function POST(req: NextRequest) {
           amount: paymentIntent.amount,
           currency: paymentIntent.currency,
           customerEmail: paymentIntent.metadata.customerEmail,
+          customerName: paymentIntent.metadata.customerName,
           service: paymentIntent.metadata.service,
+          allMetadata: paymentIntent.metadata,
         });
         
         // Send payment confirmation email
         if (paymentIntent.metadata.customerEmail && paymentIntent.metadata.customerName) {
+          console.log('Attempting to send payment confirmation email...');
           try {
             const { sendPaymentConfirmationEmail } = await import('@/lib/email');
+            console.log('Email function imported, calling sendPaymentConfirmationEmail...');
             await sendPaymentConfirmationEmail({
               customerName: paymentIntent.metadata.customerName,
               customerEmail: paymentIntent.metadata.customerEmail,
@@ -69,10 +73,21 @@ export async function POST(req: NextRequest) {
               amount: paymentIntent.amount,
               paymentIntentId: paymentIntent.id,
             });
+            console.log('✅ Payment confirmation email sent successfully');
           } catch (emailError) {
             // Log email errors but don't fail the webhook
-            console.error('Error sending payment confirmation email:', emailError);
+            console.error('❌ Error sending payment confirmation email:', emailError);
+            console.error('Error details:', {
+              message: (emailError as Error).message,
+              stack: (emailError as Error).stack,
+            });
           }
+        } else {
+          console.warn('⚠️ Missing metadata for email:', {
+            hasEmail: !!paymentIntent.metadata.customerEmail,
+            hasName: !!paymentIntent.metadata.customerName,
+            metadata: paymentIntent.metadata,
+          });
         }
         break;
 
