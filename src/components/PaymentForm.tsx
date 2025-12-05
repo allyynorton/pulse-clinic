@@ -11,11 +11,6 @@ import {
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
-// Debug: Check if Stripe key is loaded
-if (typeof window !== 'undefined') {
-  console.log('Stripe publishable key:', process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
-}
-
 interface PaymentFormProps {
   service: string;
   amount: number;
