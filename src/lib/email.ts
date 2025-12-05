@@ -1,9 +1,4 @@
-import sgMail from '@sendgrid/mail';
-
-// Initialize SendGrid
-if (process.env.SENDGRID_API_KEY) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-}
+import nodemailer from 'nodemailer';
 
 export interface BookingConfirmationEmailData {
   customerName: string;
@@ -29,15 +24,38 @@ export interface PaymentFailureEmailData {
   errorMessage?: string;
 }
 
-const FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || 'noreply@pulsewholehealth.com';
+const FROM_EMAIL = process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER || 'noreply@pulsewholehealth.com';
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'contact@pulsewholehealth.com';
+
+// Create reusable transporter
+function createTransporter() {
+  const smtpHost = process.env.SMTP_HOST;
+  const smtpPort = process.env.SMTP_PORT;
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
+
+  if (!smtpHost || !smtpPort || !smtpUser || !smtpPass) {
+    return null;
+  }
+
+  return nodemailer.createTransport({
+    host: smtpHost,
+    port: parseInt(smtpPort),
+    secure: smtpPort === '465', // true for 465, false for other ports
+    auth: {
+      user: smtpUser,
+      pass: smtpPass,
+    },
+  });
+}
 
 /**
  * Send booking confirmation email to customer
  */
 export async function sendBookingConfirmationEmail(data: BookingConfirmationEmailData): Promise<void> {
-  if (!process.env.SENDGRID_API_KEY) {
-    console.warn('SENDGRID_API_KEY not configured, skipping email');
+  const transporter = createTransporter();
+  if (!transporter) {
+    console.warn('SMTP not configured, skipping email');
     return;
   }
 
@@ -50,9 +68,9 @@ export async function sendBookingConfirmationEmail(data: BookingConfirmationEmai
 
   const serviceName = serviceNames[data.service] || data.service;
 
-  const msg = {
-    to: data.customerEmail,
+  const mailOptions = {
     from: FROM_EMAIL,
+    to: data.customerEmail,
     subject: `Booking Confirmation - ${serviceName}`,
     html: `
       <!DOCTYPE html>
@@ -111,15 +129,14 @@ export async function sendBookingConfirmationEmail(data: BookingConfirmationEmai
   };
 
   try {
-    await sgMail.send(msg);
+    await transporter.sendMail(mailOptions);
     console.log(`✅ Booking confirmation email sent to ${data.customerEmail}`);
   } catch (error: unknown) {
-    const err = error as { message?: string; code?: string; response?: { body?: unknown; statusCode?: number } };
+    const err = error as { message?: string; code?: string; responseCode?: string };
     console.error('❌ Error sending booking confirmation email:', {
       message: err.message,
       code: err.code,
-      response: err.response?.body,
-      statusCode: err.response?.statusCode,
+      responseCode: err.responseCode,
       to: data.customerEmail,
       from: FROM_EMAIL,
     });
@@ -131,8 +148,9 @@ export async function sendBookingConfirmationEmail(data: BookingConfirmationEmai
  * Send payment confirmation email to customer
  */
 export async function sendPaymentConfirmationEmail(data: PaymentConfirmationEmailData): Promise<void> {
-  if (!process.env.SENDGRID_API_KEY) {
-    console.warn('SENDGRID_API_KEY not configured, skipping email');
+  const transporter = createTransporter();
+  if (!transporter) {
+    console.warn('SMTP not configured, skipping email');
     return;
   }
 
@@ -146,9 +164,9 @@ export async function sendPaymentConfirmationEmail(data: PaymentConfirmationEmai
   const serviceName = serviceNames[data.service] || data.service;
   const formattedAmount = (data.amount / 100).toFixed(2);
 
-  const msg = {
-    to: data.customerEmail,
+  const mailOptions = {
     from: FROM_EMAIL,
+    to: data.customerEmail,
     subject: `Payment Confirmation - ${serviceName}`,
     html: `
       <!DOCTYPE html>
@@ -207,15 +225,14 @@ export async function sendPaymentConfirmationEmail(data: PaymentConfirmationEmai
   };
 
   try {
-    await sgMail.send(msg);
+    await transporter.sendMail(mailOptions);
     console.log(`✅ Payment confirmation email sent to ${data.customerEmail}`);
   } catch (error: unknown) {
-    const err = error as { message?: string; code?: string; response?: { body?: unknown; statusCode?: number } };
+    const err = error as { message?: string; code?: string; responseCode?: string };
     console.error('❌ Error sending payment confirmation email:', {
       message: err.message,
       code: err.code,
-      response: err.response?.body,
-      statusCode: err.response?.statusCode,
+      responseCode: err.responseCode,
       to: data.customerEmail,
       from: FROM_EMAIL,
     });
@@ -227,8 +244,9 @@ export async function sendPaymentConfirmationEmail(data: PaymentConfirmationEmai
  * Send payment failure notification email to customer
  */
 export async function sendPaymentFailureEmail(data: PaymentFailureEmailData): Promise<void> {
-  if (!process.env.SENDGRID_API_KEY) {
-    console.warn('SENDGRID_API_KEY not configured, skipping email');
+  const transporter = createTransporter();
+  if (!transporter) {
+    console.warn('SMTP not configured, skipping email');
     return;
   }
 
@@ -242,9 +260,9 @@ export async function sendPaymentFailureEmail(data: PaymentFailureEmailData): Pr
   const serviceName = serviceNames[data.service] || data.service;
   const formattedAmount = (data.amount / 100).toFixed(2);
 
-  const msg = {
-    to: data.customerEmail,
+  const mailOptions = {
     from: FROM_EMAIL,
+    to: data.customerEmail,
     subject: `Payment Issue - ${serviceName}`,
     html: `
       <!DOCTYPE html>
@@ -303,15 +321,14 @@ export async function sendPaymentFailureEmail(data: PaymentFailureEmailData): Pr
   };
 
   try {
-    await sgMail.send(msg);
+    await transporter.sendMail(mailOptions);
     console.log(`✅ Payment failure email sent to ${data.customerEmail}`);
   } catch (error: unknown) {
-    const err = error as { message?: string; code?: string; response?: { body?: unknown; statusCode?: number } };
+    const err = error as { message?: string; code?: string; responseCode?: string };
     console.error('❌ Error sending payment failure email:', {
       message: err.message,
       code: err.code,
-      response: err.response?.body,
-      statusCode: err.response?.statusCode,
+      responseCode: err.responseCode,
       to: data.customerEmail,
       from: FROM_EMAIL,
     });
@@ -323,8 +340,9 @@ export async function sendPaymentFailureEmail(data: PaymentFailureEmailData): Pr
  * Send admin notification email for new booking
  */
 export async function sendAdminBookingNotification(data: BookingConfirmationEmailData): Promise<void> {
-  if (!process.env.SENDGRID_API_KEY || !ADMIN_EMAIL) {
-    console.warn('SENDGRID_API_KEY or ADMIN_EMAIL not configured, skipping admin notification');
+  const transporter = createTransporter();
+  if (!transporter || !ADMIN_EMAIL) {
+    console.warn('SMTP not configured or ADMIN_EMAIL not set, skipping admin notification');
     return;
   }
 
@@ -337,9 +355,9 @@ export async function sendAdminBookingNotification(data: BookingConfirmationEmai
 
   const serviceName = serviceNames[data.service] || data.service;
 
-  const msg = {
-    to: ADMIN_EMAIL,
+  const mailOptions = {
     from: FROM_EMAIL,
+    to: ADMIN_EMAIL,
     subject: `New Booking: ${serviceName} - ${data.customerName}`,
     html: `
       <!DOCTYPE html>
@@ -382,19 +400,17 @@ export async function sendAdminBookingNotification(data: BookingConfirmationEmai
   };
 
   try {
-    await sgMail.send(msg);
+    await transporter.sendMail(mailOptions);
     console.log(`✅ Admin booking notification sent to ${ADMIN_EMAIL}`);
   } catch (error: unknown) {
-    const err = error as { message?: string; code?: string; response?: { body?: unknown; statusCode?: number } };
+    const err = error as { message?: string; code?: string; responseCode?: string };
     console.error('❌ Error sending admin booking notification:', {
       message: err.message,
       code: err.code,
-      response: err.response?.body,
-      statusCode: err.response?.statusCode,
+      responseCode: err.responseCode,
       to: ADMIN_EMAIL,
       from: FROM_EMAIL,
     });
     // Don't throw - admin notifications are not critical
   }
 }
-
