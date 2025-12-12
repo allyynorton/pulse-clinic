@@ -1,11 +1,10 @@
 "use client";
-import { useState, useEffect, useMemo } from "react";
+import { useState } from "react";
 import PaymentForm from "@/components/PaymentForm";
 
 export default function ConsultBooking() {
   const [step, setStep] = useState(1);
   const [paymentCompleted, setPaymentCompleted] = useState(false);
-  const [testMode, setTestMode] = useState(false);
   const [bookingData, setBookingData] = useState({
     service: "",
     date: "",
@@ -18,38 +17,12 @@ export default function ConsultBooking() {
     isNewPatient: false
   });
 
-  // Check for test mode query parameter on mount
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const isTest = params.get('test') === 'true' || params.get('price') === '1';
-      setTestMode(isTest);
-    }
-  }, []);
-
-  // Base services configuration
-  const baseServices = [
+  const services = [
     { id: "intro", name: "Get To Know Each Other Call", duration: "15 min", price: "Free", amount: 0, requiresPayment: false },
     { id: "functional", name: "Integrative Care Consultation", duration: "60 min", price: "$200", amount: 200, requiresPayment: true },
     { id: "preventative", name: "Preventative Care Session", duration: "45 min", price: "$150", amount: 150, requiresPayment: true },
     { id: "followup", name: "Follow-up Consult", duration: "30 min", price: "$100", amount: 100, requiresPayment: true }
   ];
-
-  // Override prices to $1 in test mode
-  const services = useMemo(() => {
-    if (!testMode) return baseServices;
-    
-    return baseServices.map(service => {
-      if (service.requiresPayment) {
-        return {
-          ...service,
-          amount: 1,
-          price: "$1"
-        };
-      }
-      return service;
-    });
-  }, [testMode]);
 
   const handleInputChange = (field: string, value: string | boolean) => {
     setBookingData(prev => ({ ...prev, [field]: value }));
@@ -128,11 +101,6 @@ export default function ConsultBooking() {
   const renderStep1 = () => (
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-orange mb-6" style={{ color: '#b8752f' }}>Select Your Service</h2>
-      {testMode && (
-        <div className="bg-yellow-100 border-2 border-yellow-400 rounded-lg p-4 mb-4">
-          <p className="text-yellow-800 font-semibold">🧪 TEST MODE: All prices set to $1</p>
-        </div>
-      )}
       <div className="grid gap-4">
         {services.map((service) => (
           <div
