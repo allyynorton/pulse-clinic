@@ -106,25 +106,47 @@ export default function RootLayout({
 }>) {
   const organizationJsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalOrganization",
+    "@type": ["MedicalOrganization", "Organization"],
     name: "Pulse Whole Health",
     url: siteUrl,
     logo: `${siteUrl}/pulse-logo.png`,
     medicalSpecialty: ["Integrative medicine", "Functional medicine"],
   };
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Pulse Whole Health",
+    url: siteUrl,
+    publisher: { "@id": `${siteUrl}/#organization` },
+    inLanguage: "en-US",
+  };
+
+  const organizationWithId = {
+    ...organizationJsonLd,
+    "@id": `${siteUrl}/#organization`,
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationWithId),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased flex flex-col min-h-screen`}
       >
         <GoogleAnalytics />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd),
-          }}
-        />
         <ClientWrapper>
           {children}
         </ClientWrapper>
