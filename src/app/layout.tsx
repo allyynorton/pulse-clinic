@@ -106,11 +106,20 @@ export default function RootLayout({
 }>) {
   const organizationJsonLd = {
     "@context": "https://schema.org",
-    "@type": ["MedicalOrganization", "Organization"],
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
     name: "Pulse Whole Health",
     url: siteUrl,
+    description:
+      "Pulse Whole Health offers personalized integrative and functional medicine through virtual visits. Led by Allyson Norton, PA-C, we focus on root cause analysis and holistic wellness.",
     logo: `${siteUrl}/pulse-logo.png`,
     medicalSpecialty: ["Integrative medicine", "Functional medicine"],
+    contactPoint: {
+      "@type": "ContactPoint",
+      url: `${siteUrl}/consult-booking`,
+      contactType: "booking",
+      areaServed: "US",
+    },
   };
 
   const websiteJsonLd = {
@@ -122,25 +131,36 @@ export default function RootLayout({
     inLanguage: "en-US",
   };
 
-  const organizationWithId = {
-    ...organizationJsonLd,
-    "@id": `${siteUrl}/#organization`,
+  const breadcrumbHomeJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteUrl,
+      },
+    ],
   };
+
+  const safeJsonLd = (obj: object) =>
+    JSON.stringify(obj).replace(/</g, "\\u003c");
 
   return (
     <html lang="en">
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationWithId),
-          }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationJsonLd) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteJsonLd),
-          }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbHomeJsonLd) }}
         />
       </head>
       <body
