@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useContactPopup } from "@/components/Footer";
 
 export default function About() {
@@ -11,52 +12,36 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative bg-cream text-brown pb-12 pt-16">
         <div className="container mx-auto px-6 flex flex-col items-center text-center">
-          <h1 className="text-5xl md:text-6xl text-orange mb-6" style={{ color: '#b8752f' }}>About Pulse Whole Health</h1>
-          
           {/* Mission Statement */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <h2 className="text-3xl font-bold text-orange mb-6" style={{ color: '#b8752f' }}>Our Mission</h2>
-            <p className="text-xl text-green leading-relaxed mb-6" style={{ color: '#5d6b57' }}>
-              At Pulse Whole Health, we blend modern medicine with holistic approaches to best suit each patient&apos;s unique needs. We believe in using the full spectrum of healthcare—from evidence-based medications to functional medicine principles—to provide comprehensive, personalized care that addresses both immediate symptoms and long-term wellness.
-            </p>
-            <p className="text-xl text-green leading-relaxed" style={{ color: '#5d6b57' }}>
-              Our mission is to deliver patient-centered care that looks at the whole person, not just isolated symptoms. We combine the precision of modern medicine with the depth of holistic health practices, creating treatment plans that work with your body&apos;s natural healing processes to achieve optimal health and prevent future health complications.
-            </p>
+          <div className="max-w-4xl mx-auto mb-8 w-full px-4">
+            <div className="bg-white rounded-xl p-8 border border-cream">
+              <h2 className="text-3xl font-bold text-orange mb-6" style={{ color: '#b8752f' }}>Our Mission</h2>
+              <p className="text-xl text-green leading-relaxed mb-6" style={{ color: '#5d6b57' }}>
+                At Pulse Whole Health, we blend conventional and functional approaches to best suit the unique needs of each patient. We believe in using the full spectrum of healthcare to provide comprehensive, personalized care that addresses both immediate symptoms and long-term health and wellness.
+              </p>
+              <p className="text-xl text-green leading-relaxed" style={{ color: '#5d6b57' }}>
+                Our mission is to deliver patient-centered care that looks at the whole person, not just isolated symptoms. We create treatment plans that work with your body&apos;s natural healing process to achieve optimal health and prevent future health complications.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* About Content */}
-      <section className="py-20 bg-cream">
+      <section className="pt-8 pb-20 bg-cream">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            {/* Bio Content */}
-            <div className="prose prose-lg text-green space-y-6" style={{ color: '#5d6b57' }}>
-              <h2 className="text-3xl font-bold text-orange mb-6 text-center" style={{ color: '#b8752f' }}>What is Whole Health Medicine?</h2>
-              
-              <p className="text-xl leading-relaxed" style={{ color: '#5d6b57' }}>
-                Whole health medicine, also known as functional or integrative medicine, views your body as an interconnected system where everything is related. Unlike traditional approaches that often focus on individual symptoms or organs, whole health medicine looks at how all the systems in your body work together and how they influence each other.
-              </p>
-              
-              <p className="text-xl leading-relaxed" style={{ color: '#5d6b57' }}>
-                <strong className="text-orange" style={{ color: '#b8752f' }}>The Foundation: Gut Health</strong><br />
-                At Pulse, we place a strong emphasis on gut health because it&apos;s the foundation of your overall wellness. Your gut is home to trillions of bacteria that play crucial roles in digestion, immune function, mood regulation, and even how your body processes nutrients. When your gut microbiome is balanced, you feel energetic, digest food well, and your immune system functions optimally. But when there&apos;s an imbalance—too much harmful bacteria, not enough beneficial bacteria, or gut lining issues—it can contribute to a wide range of health problems, from digestive issues and fatigue to inflammation, autoimmune conditions, and even mental health challenges.
-              </p>
-              
-              <p className="text-xl leading-relaxed" style={{ color: '#5d6b57' }}>
-                <strong className="text-orange" style={{ color: '#b8752f' }}>The Connection Between Systems</strong><br />
-                Whole health medicine recognizes that your systems don&apos;t work in isolation. For example, chronic stress doesn&apos;t just affect your mood—it impacts your gut health, which can affect your immune system, which can influence inflammation throughout your body. Hormonal imbalances might be related to gut health, nutrient deficiencies, or chronic inflammation. Thyroid issues might be connected to nutrient absorption problems in your gut. By understanding these connections, we can address the root cause of your symptoms rather than just treating them in isolation.
-              </p>
-              
-              <p className="text-xl leading-relaxed" style={{ color: '#5d6b57' }}>
-                <strong className="text-orange" style={{ color: '#b8752f' }}>The Role of Nutrition & Lifestyle</strong><br />
-                What you eat, how you sleep, how you manage stress, and your physical activity all influence your body&apos;s ability to function optimally. Food sensitivities might be causing inflammation that contributes to joint pain or skin issues. Nutrient deficiencies might be causing fatigue or brain fog. Sleep problems might be affecting hormone production and gut health. We look at all of these factors to understand the full picture of your health.
-              </p>
-              
-              <p className="text-xl leading-relaxed" style={{ color: '#5d6b57' }}>
-                <strong className="text-orange" style={{ color: '#b8752f' }}>An Integrated Approach: Blending Modern & Holistic Medicine</strong><br />
-                At Pulse Whole Health, we blend modern medicine with holistic approaches to best suit each patient&apos;s unique needs. We use evidence-based medications when appropriate—they&apos;re valuable tools that have saved countless lives and provide crucial symptom relief. At the same time, we investigate what might be contributing to recurring health issues using holistic principles. We use advanced laboratory testing to look at gut health, hormone function, nutrient levels, inflammation markers, and more. We consider your lifestyle, environment, genetics, and nutrition. Then we create a comprehensive, personalized plan that combines the best of both approaches—addressing immediate symptoms with modern medicine when needed, while also working on underlying factors through holistic practices. This integrated approach ensures we&apos;re treating the whole person in the way that best suits their individual needs.
-              </p>
+            {/* Provider photo */}
+            <div className="mt-6 flex justify-center">
+              <div className="relative w-full max-w-md aspect-[4/5] rounded-xl overflow-hidden border border-cream shadow-lg">
+                <Image
+                  src="/Ally Norton.png"
+                  alt="Ally Norton, PA-C - Integrative Medicine Specialist at Pulse Whole Health"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 28rem"
+                />
+              </div>
             </div>
 
             {/* About Ally */}
@@ -64,68 +49,90 @@ export default function About() {
               <h3 className="text-2xl font-semibold text-orange mb-6" style={{ color: '#b8752f' }}>Meet Your Provider</h3>
               <div className="prose prose-lg text-green" style={{ color: '#5d6b57' }}>
                 <p className="text-lg leading-relaxed mb-4" style={{ color: '#5d6b57' }}>
-                  Allyson Norton, PA-C, is a Board-Certified Physician Assistant and Functional Medicine Specialist who founded Pulse Whole Health with a passion for blending modern medicine with holistic approaches. With a Master of Physician Assistant Studies from the University of Florida (2019) and completed courses with A4M (American Academy of Anti-Aging Medicine), Ally brings both clinical expertise and a deep understanding of whole health principles to her practice.
+                  My name is Ally Norton and I am a board certified Physician Assistant and Integrative Medicine specialist. I earned my Master of Physician Assistant Studies from the University of Florida in 2021 and completed gastroenterology and endocrinology education through A4M.
                 </p>
                 <p className="text-lg leading-relaxed mb-4" style={{ color: '#5d6b57' }}>
-                  With four years of experience in urgent care, Ally has witnessed firsthand how conventional medicine excels at managing acute symptoms, but also recognized the need to address the underlying factors that contribute to recurring health issues. This experience, combined with her background as a NASM Certified Personal Trainer since 2018, has shaped her integrated approach to patient care.
+                  The idea for Pulse Whole Health came after 4+ years of working in urgent care and witnessing patients struggle with chronic conditions yet feeling powerless to help them heal. I have seen the amazing things that conventional medicine can do, however, I have also seen its limitations in healing chronic conditions. There is so much more that goes into treating a patient than just their body system. Things like environmental exposures, traumas, diet, lifestyle, family life, movement etc. all play a crucial role in complete healing. These experiences combined with 8 years of being a certified personal trainer have shown me how much more there is to medicine and how we can truly change patients&apos; lives.
                 </p>
                 <p className="text-lg leading-relaxed mb-4" style={{ color: '#5d6b57' }}>
-                  At Pulse Whole Health, Ally combines evidence-based medications with functional medicine principles to create personalized treatment plans that address both immediate symptoms and long-term wellness. Her commitment to finding the root cause of health concerns, particularly focusing on gut health as the foundation of overall wellness, helps patients achieve sustainable improvements in their health.
+                  At Pulse Whole Health, I am committed to finding the root cause of health concerns, particularly focusing on gut and hormone health, as the foundation of overall wellness. I practice in conjunction with a collaborating physician in accordance with Pennsylvania medical regulations. My goal is to help patients achieve sustainable improvements in their health and to educate my patients so that they can implement these changes long term.
                 </p>
                 <p className="text-lg leading-relaxed" style={{ color: '#5d6b57' }}>
-                  Beyond the clinic, Ally is an avid outdoors person who loves hiking and spending time in nature. Her passion for fitness and wellness extends to her personal life, where she enjoys staying active and spending time with her dogs. This personal commitment to an active, healthy lifestyle informs her approach to patient care, as she understands firsthand the importance of balancing physical activity, nature, and wellness in achieving optimal health.
+                  Beyond the clinic, I enjoy spending time with my partner outdoors including hiking, skiing, camping, and just being with nature. We have two, very active, rescue dogs that we take with us on as many adventures as we can. I always enjoy a good book or puzzle when I can squeeze it into a busy schedule. I have a personal commitment to an active, healthy lifestyle which has truly shaped my approach to patient care, as I understand firsthand the importance of balancing physical activity, nature, and wellness in achieving optimal health.
                 </p>
               </div>
             </div>
 
-            {/* Credentials */}
-            <div className="mt-12 bg-white rounded-xl p-8 border border-cream">
-              <h3 className="text-2xl font-semibold text-orange mb-6" style={{ color: '#b8752f' }}>Professional Credentials</h3>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-green rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-orange" style={{ color: '#b8752f' }}>Master of Physician Assistant Studies (MPAS)</h4>
-                    <p className="text-green" style={{ color: '#5d6b57' }}>University of Florida, 2019</p>
-                  </div>
+            {/* Pulse Whole Health Roadmap */}
+            <div className="mt-12 flex justify-center">
+              <div className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-cream shadow-lg bg-white">
+                <Image
+                  src="/roadmap.png"
+                  alt="Pulse Whole Health Roadmap - The Core, The Reignition, and The Optimization phases"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+
+            {/* FAQs */}
+            <div className="mt-12">
+              <div className="bg-white rounded-xl p-8 border border-cream space-y-8">
+                <h2 className="text-3xl font-bold text-orange mb-8 text-center" style={{ color: '#b8752f' }}>Integrative Medicine FAQs</h2>
+                <div>
+                  <h2 className="text-xl font-semibold text-orange mb-3" style={{ color: '#b8752f' }}>What is integrative medicine?</h2>
+                  <p className="text-green leading-relaxed" style={{ color: '#5d6b57' }}>
+                    Integrative medicine combines conventional medical care with evidence-based nutrition, lifestyle medicine, and targeted supplementation to treat the whole person—not just symptoms. The goal is to address root causes of chronic health concerns while supporting long-term wellness. It uses peer-reviewed research, clinical guidelines, and laboratory testing, alongside lifestyle and nutritional interventions to support safe and effective care.
+                  </p>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-orange" style={{ color: '#b8752f' }}>Board Certified Physician Assistant</h4>
-                    <p className="text-green" style={{ color: '#5d6b57' }}>Licensed Healthcare Professional</p>
-                  </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-orange mb-3" style={{ color: '#b8752f' }}>What training do integrative medicine PAs have?</h2>
+                  <p className="text-green leading-relaxed" style={{ color: '#5d6b57' }}>
+                    In addition to formal medical training and board certification, integrative PAs pursue advanced education in nutrition, hormone optimization, gut health, metabolic health, and longevity-focused care. Integrative PAs are able to order diagnostic testing, prescribe medications, and always work in conjunction with a collaborating physician.
+                  </p>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-green rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-orange" style={{ color: '#b8752f' }}>Certified Personal Trainer</h4>
-                    <p className="text-green" style={{ color: '#5d6b57' }}>NASM Certified since 2018</p>
-                  </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-orange mb-3" style={{ color: '#b8752f' }}>Can integrative medicine help with gut health issues?</h2>
+                  <p className="text-green leading-relaxed" style={{ color: '#5d6b57' }}>
+                    Yes. Integrative medicine can help address bloating, IBS, reflux, food sensitivities, constipation, diarrhea, and chronic inflammation by identifying underlying contributors such as diet, microbiome imbalance, stress, or nutrient deficiencies.
+                  </p>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-orange" style={{ color: '#b8752f' }}>A4M Courses Completed</h4>
-                    <p className="text-green" style={{ color: '#5d6b57' }}>American Academy of Anti-Aging Medicine</p>
-                  </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-orange mb-3" style={{ color: '#b8752f' }}>How is integrative weight loss different from traditional weight loss programs?</h2>
+                  <p className="text-green leading-relaxed" style={{ color: '#5d6b57' }}>
+                    Integrative weight loss focuses on metabolic health, hormones, gut function, and inflammation rather than calorie restriction alone. The goal is sustainable fat loss and long-term health. When appropriate, FDA-approved weight loss medications may be prescribed as part of a comprehensive, medically supervised plan.
+                  </p>
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-orange mb-3" style={{ color: '#b8752f' }}>Can integrative medicine help with hormone imbalance?</h2>
+                  <p className="text-green leading-relaxed" style={{ color: '#5d6b57' }}>
+                    Yes. Hormone-related concerns such as fatigue, weight gain, low libido, mood changes, and sleep disruption may be evaluated using comprehensive lab testing and personalized treatment strategies. Treatment options may include lifestyle optimization, nutritional support, supplements, and prescription therapies when clinically appropriate, in collaboration with a supervising physician.
+                  </p>
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-orange mb-3" style={{ color: '#b8752f' }}>Do you offer telemedicine visits in Pennsylvania?</h2>
+                  <p className="text-green leading-relaxed" style={{ color: '#5d6b57' }}>
+                    Yes. Telemedicine appointments are available to patients located anywhere in Pennsylvania.
+                  </p>
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-orange mb-3" style={{ color: '#b8752f' }}>Can lab work be done locally?</h2>
+                  <p className="text-green leading-relaxed" style={{ color: '#5d6b57' }}>
+                    Yes. Lab testing can typically be completed at draw sites closest to you for convenience. Our labs are ordered through a third party company and you will be sent a lab draw kit that can be taken to any draw site for completion.
+                  </p>
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-orange mb-3" style={{ color: '#b8752f' }}>What should I expect at my first integrative medicine visit?</h2>
+                  <p className="text-green leading-relaxed" style={{ color: '#5d6b57' }}>
+                    Initial visits include a comprehensive review of symptoms, medical history, lifestyle factors, and goals. Appointments are longer than traditional care visits to allow for thorough evaluation and personalized planning.
+                  </p>
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-orange mb-3" style={{ color: '#b8752f' }}>How long does it take to see results?</h2>
+                  <p className="text-green leading-relaxed" style={{ color: '#5d6b57' }}>
+                    Some patients notice improvements within several weeks, while others require several months depending on the condition and complexity.
+                  </p>
                 </div>
               </div>
             </div>
@@ -136,20 +143,22 @@ export default function About() {
       {/* CTA Section */}
       <section className="py-20 bg-orange text-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-6">Begin Your Wellness Transformation</h2>
-          <p className="text-xl mb-8 text-white max-w-2xl mx-auto">
-            Experience the difference that personalized, evidence-based functional medicine can make in your health journey.
+          <h2 className="text-4xl font-bold mb-6" style={{ color: '#b8752f' }}>Begin Your Wellness Transformation</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto" style={{ color: '#b8752f' }}>
+            Experience the difference that personalized, root-cause, integrative medicine can make in your health journey.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/consult-booking"
-              className="bg-white text-brown px-8 py-4 rounded-lg font-semibold hover:bg-cream transition-colors"
+              className="border-2 px-8 py-3 rounded-lg font-semibold bg-transparent hover:bg-white transition-all duration-200 text-center"
+              style={{ borderColor: '#5d6b57', color: '#5d6b57' }}
             >
               Schedule Consultation
             </Link>
             <button
               onClick={openPopup}
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-brown transition-colors"
+              className="border-2 px-8 py-3 rounded-lg font-semibold bg-transparent hover:bg-white transition-all duration-200 text-center"
+              style={{ borderColor: '#5d6b57', color: '#5d6b57' }}
             >
               Contact Practice
             </button>

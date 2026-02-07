@@ -18,10 +18,10 @@ export default function ConsultBooking() {
   });
 
   const services = [
-    { id: "intro", name: "Get To Know Each Other Call", duration: "15 min", price: "Free", amount: 0, requiresPayment: false },
-    { id: "functional", name: "Integrative Care Consultation", duration: "60 min", price: "$200", amount: 200, requiresPayment: true },
-    { id: "preventative", name: "Preventative Care Session", duration: "45 min", price: "$150", amount: 150, requiresPayment: true },
-    { id: "followup", name: "Follow-up Consult", duration: "30 min", price: "$100", amount: 100, requiresPayment: true }
+    { id: "intro", name: "Get To Know Each Other Call", duration: "15 min", price: "$10", amount: 10, requiresPayment: true },
+    { id: "functional", name: "Integrative Care Consultation", duration: "60 min", price: "$300", amount: 300, requiresPayment: true },
+    { id: "preventative", name: "Preventative Care Session", duration: "45 min", price: "$250", amount: 250, requiresPayment: true },
+    { id: "followup", name: "Follow-up Consult", duration: "30-45 min", price: "$175", amount: 175, requiresPayment: true }
   ];
 
   const handleInputChange = (field: string, value: string | boolean) => {
@@ -116,6 +116,11 @@ export default function ConsultBooking() {
               <div>
                 <h3 className="text-lg font-semibold text-orange" style={{ color: '#b8752f' }}>{service.name}</h3>
                 <p className="text-green mt-1" style={{ color: '#5d6b57' }}>Duration: {service.duration}</p>
+                {service.id === "intro" && (
+                  <p className="text-sm text-green mt-2" style={{ color: '#5d6b57' }}>
+                    The proceeds from this booking are donated 100% to local charities in need at the end of the calendar year.
+                  </p>
+                )}
               </div>
               <span className="text-xl font-bold text-orange" style={{ color: '#b8752f' }}>{service.price}</span>
             </div>

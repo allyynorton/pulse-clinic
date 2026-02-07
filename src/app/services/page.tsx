@@ -79,30 +79,6 @@ export default function Services() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Comprehensive Metabolic Panel */}
-            <div className="bg-cream rounded-xl p-6 border border-cream/50">
-              <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-orange" style={{ color: '#b8752f' }}>Comprehensive Metabolic Panel</h3>
-              <p className="text-green mb-3" style={{ color: '#5d6b57' }}>Reveals: Kidney function, liver health, blood sugar regulation, electrolyte balance, and protein levels.</p>
-              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Shows us if your body is processing nutrients correctly and if organ function is optimal.</p>
-            </div>
-
-            {/* Complete Blood Count */}
-            <div className="bg-cream rounded-xl p-6 border border-cream/50">
-              <div className="w-12 h-12 bg-green rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-orange" style={{ color: '#b8752f' }}>Complete Blood Count</h3>
-              <p className="text-green mb-3" style={{ color: '#5d6b57' }}>Reveals: Red and white blood cell counts, hemoglobin, hematocrit, and platelet levels.</p>
-              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Identifies anemia, inflammation, infection, and immune system function.</p>
-            </div>
-
             {/* Thyroid Panel */}
             <div className="bg-cream rounded-xl p-6 border border-cream/50">
               <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center mb-4">
@@ -175,23 +151,12 @@ export default function Services() {
               <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Identifies hidden inflammation driving heart disease, diabetes, autoimmune conditions, and chronic pain.</p>
             </div>
 
-            {/* Organic Acids Test */}
-            <div className="bg-cream rounded-xl p-6 border border-cream/50">
-              <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-orange" style={{ color: '#b8752f' }}>Organic Acids Test</h3>
-              <p className="text-green mb-3" style={{ color: '#5d6b57' }}>Reveals: Metabolic function, energy production, neurotransmitter metabolism, detoxification pathways, and yeast/bacterial overgrowth.</p>
-              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Shows us how well your cells are producing energy and processing toxins—key to understanding fatigue and brain fog.</p>
-            </div>
           </div>
 
           <div className="mt-12 bg-cream rounded-xl p-8 border-2 border-brown/20">
             <h3 className="text-2xl font-bold text-orange mb-4 text-center" style={{ color: '#b8752f' }}>Why This Matters</h3>
             <p className="text-lg text-green text-center max-w-4xl mx-auto leading-relaxed" style={{ color: '#5d6b57' }}>
-              Standard lab panels are essential for diagnosing and monitoring many conditions. Functional medicine testing complements these by revealing imbalances and dysfunctions that might be contributing to recurring symptoms. When we understand the why—the root cause—we can create a comprehensive treatment plan that addresses both immediate symptoms with appropriate medications and underlying factors that may be causing issues to recur. This integrated approach helps you feel better now while working to prevent problems from happening again.
+              Standard lab panels are essential for diagnosing and monitoring many conditions. Integrative medicine complements these by finding the root cause of imbalances that might be contributing to recurring symptoms. When we understand the why - the root cause - we can create a comprehensive treatment plan that addresses both immediate symptoms and underlying factors that may be contributing to persistent symptoms. This approach also allows us to create treatment plans that are sustainable long term.
             </p>
           </div>
         </div>
