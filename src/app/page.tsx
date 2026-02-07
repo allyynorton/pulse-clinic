@@ -72,7 +72,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-2 text-orange">Experienced Medical Provider</h3>
-                    <p className="text-green" style={{ color: '#5d6b57' }}>Ally is a board-certified physician assistant with expertise in urgent care and family medicine, and a strong passion for integrative medicine.</p>
+                    <p className="text-green" style={{ color: '#5d6b57' }}>Ally has been a board certified physician assistant since 2021 with extensive education in GI and Endocrine focused integrative medicine. She has been a personal trainer since 2018 and has worked with a variety of clients including athletes, parents, weight loss clients, and peri/post menopausal women.</p>
                   </div>
                 </div>
                 
@@ -96,7 +96,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-2 text-orange">Patient-Centered Care</h3>
-                    <p className="text-green" style={{ color: '#5d6b57' }}>Personalized treatment plans that prioritize your health goals by finding the root cause of illness.</p>
+                    <p className="text-green" style={{ color: '#5d6b57' }}>At Pulse you will receive personalized treatment plans that prioritize your health and wellness goals by finding the root cause of your symptoms. We do this by taking a thorough look into your health, as well as you as a whole person, not just as a body system.</p>
                   </div>
                 </div>
                 
@@ -119,19 +119,27 @@ export default function Home() {
                 <ul className="space-y-3 text-green" style={{ color: '#5d6b57' }}>
                   <li className="flex items-start gap-3">
                     <span className="text-orange font-bold text-lg">•</span>
-                    <span>A personalized assessment of your health concerns</span>
+                    <span>An in-depth personalized assessment of your health concerns</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-orange font-bold text-lg">•</span>
-                    <span>Understanding of root cause analysis approach</span>
+                    <span>Understanding of the root cause of your symptoms</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-orange font-bold text-lg">•</span>
-                    <span>Customized treatment plan recommendations</span>
+                    <span>Nutrition and exercise counseling</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-orange font-bold text-lg">•</span>
-                    <span>Information on next steps for your wellness journey</span>
+                    <span>Supplement recommendations</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-orange font-bold text-lg">•</span>
+                    <span>Customized treatment plans</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-orange font-bold text-lg">•</span>
+                    <span>Education on how to make sustainable lifestyle changes for overall health and well-being</span>
                   </li>
                 </ul>
               </div>
