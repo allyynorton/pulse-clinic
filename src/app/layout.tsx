@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Pacifico } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -117,6 +118,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased flex flex-col min-h-screen`}
       >
+        <GoogleAnalytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
