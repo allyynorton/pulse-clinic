@@ -23,13 +23,16 @@ const pacifico = Pacifico({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.pulsewholehealth.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://pulseclinic.com'),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Pulse Clinic - Integrative & Functional Medicine | Virtual Healthcare",
-    template: "%s | Pulse Clinic"
+    default: "Pulse Whole Health – Integrative & Functional Medicine | Virtual Healthcare",
+    template: "%s | Pulse Whole Health",
   },
-  description: "Pulse Clinic offers personalized integrative and functional medicine through virtual visits. Led by Allyson Norton, PA-C, we focus on root cause analysis and holistic wellness. Book your consultation today.",
+  description:
+    "Pulse Whole Health offers personalized integrative and functional medicine through virtual visits. Led by Allyson Norton, PA-C, we focus on root cause analysis and holistic wellness. Book your consultation today.",
   keywords: [
     "integrative medicine",
     "functional medicine",
@@ -41,42 +44,44 @@ export const metadata: Metadata = {
     "Allyson Norton PA-C",
     "chronic disease treatment",
     "preventive care",
-    "wellness consultation"
+    "wellness consultation",
   ],
-  authors: [{ name: "Pulse Clinic" }],
-  creator: "Pulse Clinic",
-  publisher: "Pulse Clinic",
+  authors: [{ name: "Pulse Whole Health" }],
+  creator: "Pulse Whole Health",
+  publisher: "Pulse Whole Health",
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
-    siteName: "Pulse Clinic",
-    title: "Pulse Clinic - Integrative & Functional Medicine",
-    description: "Personalized integrative and functional medicine through virtual visits. Root cause analysis and holistic wellness.",
+    siteName: "Pulse Whole Health",
+    title: "Pulse Whole Health – Integrative & Functional Medicine",
+    description:
+      "Personalized integrative and functional medicine through virtual visits. Root cause analysis and holistic wellness.",
     images: [
       {
         url: "/pulse-logo.png",
         width: 1200,
         height: 630,
-        alt: "Pulse Clinic Logo",
+        alt: "Pulse Whole Health Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pulse Clinic - Integrative & Functional Medicine",
-    description: "Personalized integrative and functional medicine through virtual visits.",
+    title: "Pulse Whole Health – Integrative & Functional Medicine",
+    description:
+      "Personalized integrative and functional medicine through virtual visits.",
     images: ["/pulse-logo.png"],
   },
   alternates: {
@@ -98,11 +103,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    name: "Pulse Whole Health",
+    url: siteUrl,
+    logo: `${siteUrl}/pulse-logo.png`,
+    medicalSpecialty: ["Integrative medicine", "Functional medicine"],
+  };
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased flex flex-col min-h-screen`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
         <ClientWrapper>
           {children}
         </ClientWrapper>

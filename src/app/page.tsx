@@ -25,9 +25,9 @@ export default function Home() {
             className={`mb-4 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
             style={{ width: '380px', height: '380px', objectFit: 'cover', objectPosition: 'center' }}
           />
-          <h2 className={`text-4xl font-bold mb-6 text-orange transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ color: '#b8752f' }}>
+          <h1 className={`text-4xl font-bold mb-6 text-orange transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ color: '#b8752f' }}>
             Ready to Take Control of Your Health?
-          </h2>
+          </h1>
           <div className={`text-xl md:text-2xl text-brown mb-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             Blending natural and conventional care for a more holistic approach to wellness.
           </div>
@@ -62,7 +62,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="animate-fade-in-up">
-              <h2 className="text-4xl font-bold text-orange mb-6 -mt-4" style={{ color: '#b8752f' }}>Why Choose Pulse Clinic?</h2>
+              <h2 className="text-4xl font-bold text-orange mb-6 -mt-4" style={{ color: '#b8752f' }}>Why Choose Pulse Whole Health?</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4 transition-all duration-500 hover:translate-x-2">
                   <div className="w-8 h-8 bg-orange rounded-full flex items-center justify-center flex-shrink-0 mt-1">
