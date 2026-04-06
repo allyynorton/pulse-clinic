@@ -9,7 +9,7 @@ export default function Services() {
         <div className="container mx-auto px-6">
           <h1 className="text-5xl text-orange mb-4 animate-fade-in-up" style={{ color: '#b8752f' }}>Our Services</h1>
           <p className="text-xl text-green max-w-2xl mx-auto mb-12 animate-fade-in-up" style={{ color: '#5d6b57' }}>
-            At Pulse Clinic, we blend natural and conventional care to provide a holistic approach to your wellness. Explore our core offerings below.
+            At Pulse Whole Health, we blend natural and conventional care to provide a holistic approach to your wellness. Explore our core offerings below.
           </p>
           <div className="grid md:grid-cols-2 gap-10">
             {/* Integrative Care */}

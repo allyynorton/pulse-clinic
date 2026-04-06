@@ -9,7 +9,6 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  // Ensure webhook routes can access raw body
   experimental: {
     serverActions: {
       bodySizeLimit: '2mb',

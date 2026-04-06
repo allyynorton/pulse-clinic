@@ -23,7 +23,7 @@ export default function Home() {
             muted
             playsInline
             className={`mb-4 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
-            style={{ width: '380px', height: '380px', objectFit: 'cover', objectPosition: 'center' }}
+            style={{ width: '380px', height: '380px', objectFit: 'cover', objectPosition: 'center', mixBlendMode: 'multiply' }}
           />
           <h1 className={`text-4xl font-bold mb-6 text-orange transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ color: '#b8752f' }}>
             Ready to Take Control of Your Health?
@@ -161,7 +161,7 @@ export default function Home() {
                   ) : (
                     <Image
                       src="/Ally Norton.png"
-                      alt="Allyson Norton, PA-C - Pulse Clinic Founder and Medical Provider"
+                      alt="Allyson Norton, PA-C - Pulse Whole Health Founder and Medical Provider"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"

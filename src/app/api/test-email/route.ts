@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { sendBookingConfirmationEmail } from '@/lib/email';
 
 /**
- * Test endpoint to verify SendGrid email configuration
+ * Test endpoint to verify SMTP email configuration
  * Usage: POST /api/test-email with { email: "test@example.com" }
  */
 export async function POST(req: NextRequest) {
@@ -16,25 +16,22 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Check if SendGrid API key is configured
-    const hasApiKey = !!process.env.SENDGRID_API_KEY;
-    const apiKeyLength = process.env.SENDGRID_API_KEY?.length || 0;
-    const apiKeyPrefix = process.env.SENDGRID_API_KEY?.substring(0, 3) || '';
+    const hasSmtp = !!(process.env.SMTP_HOST && process.env.SMTP_USER);
 
-    console.log('SendGrid Configuration Check:');
-    console.log('- API Key Present:', hasApiKey);
-    console.log('- API Key Length:', apiKeyLength);
-    console.log('- API Key Prefix:', apiKeyPrefix);
-    console.log('- From Email:', process.env.SENDGRID_FROM_EMAIL || 'noreply@pulsewholehealth.com');
+    console.log('SMTP Configuration Check:');
+    console.log('- SMTP Host:', process.env.SMTP_HOST || 'not set');
+    console.log('- SMTP Port:', process.env.SMTP_PORT || 'not set');
+    console.log('- SMTP User:', process.env.SMTP_USER ? 'set' : 'not set');
+    console.log('- From Email:', process.env.SMTP_FROM_EMAIL || 'noreply@pulsewholehealth.com');
     console.log('- Admin Email:', process.env.ADMIN_EMAIL || 'contact@pulsewholehealth.com');
 
-    if (!hasApiKey) {
+    if (!hasSmtp) {
       return NextResponse.json(
         {
-          error: 'SENDGRID_API_KEY is not configured',
+          error: 'SMTP is not configured. Set SMTP_HOST, SMTP_PORT, SMTP_USER, and SMTP_PASS.',
           config: {
-            hasApiKey: false,
-            fromEmail: process.env.SENDGRID_FROM_EMAIL || 'noreply@pulsewholehealth.com',
+            hasSmtp: false,
+            fromEmail: process.env.SMTP_FROM_EMAIL || 'noreply@pulsewholehealth.com',
             adminEmail: process.env.ADMIN_EMAIL || 'contact@pulsewholehealth.com',
           },
         },
@@ -42,33 +39,30 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Send test email
     try {
       await sendBookingConfirmationEmail({
         customerName: 'Test User',
         customerEmail: email,
-        service: 'test',
-        reason: 'This is a test email to verify SendGrid configuration',
+        service: 'intro',
+        reason: 'This is a test email to verify SMTP configuration.',
       });
 
       return NextResponse.json({
         success: true,
         message: 'Test email sent successfully',
         config: {
-          hasApiKey: true,
-          apiKeyLength,
-          apiKeyPrefix: apiKeyPrefix + '...',
-          fromEmail: process.env.SENDGRID_FROM_EMAIL || 'noreply@pulsewholehealth.com',
+          hasSmtp: true,
+          smtpHost: process.env.SMTP_HOST,
+          fromEmail: process.env.SMTP_FROM_EMAIL || 'noreply@pulsewholehealth.com',
           adminEmail: process.env.ADMIN_EMAIL || 'contact@pulsewholehealth.com',
         },
       });
     } catch (emailError: unknown) {
-      const error = emailError as { message?: string; code?: string; response?: { body?: unknown; statusCode?: number } };
-      console.error('SendGrid Error Details:', {
+      const error = emailError as { message?: string; code?: string; responseCode?: string };
+      console.error('SMTP Error:', {
         message: error.message,
         code: error.code,
-        response: error.response?.body,
-        statusCode: error.response?.statusCode,
+        responseCode: error.responseCode,
       });
 
       return NextResponse.json(
@@ -77,14 +71,6 @@ export async function POST(req: NextRequest) {
           details: {
             message: error.message || 'Unknown error',
             code: error.code,
-            statusCode: error.response?.statusCode,
-            responseBody: error.response?.body,
-          },
-          config: {
-            hasApiKey: true,
-            apiKeyLength,
-            apiKeyPrefix: apiKeyPrefix + '...',
-            fromEmail: process.env.SENDGRID_FROM_EMAIL || 'noreply@pulsewholehealth.com',
           },
         },
         { status: 500 }
@@ -102,4 +88,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-

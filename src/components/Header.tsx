@@ -17,7 +17,7 @@ export default function Header() {
           <Link href="/" className="flex items-end group gap-3">
             <Image
               src="/pulse-logo.png"
-              alt="Pulse Clinic Logo"
+              alt="Pulse Whole Health Logo"
               width={70}
               height={70}
               className="object-contain transition-transform group-hover:scale-105"

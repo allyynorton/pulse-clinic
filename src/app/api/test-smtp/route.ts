@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 /**
- * Test endpoint to verify Gmail SMTP configuration
+ * Test endpoint to verify SMTP configuration
  * Usage: POST /api/test-smtp with { email: "test@example.com" }
  */
 export async function POST(req: NextRequest) {
@@ -87,7 +87,7 @@ export async function POST(req: NextRequest) {
       const mailOptions = {
         from: fromEmail,
         to: email,
-        subject: 'SMTP Test Email - Pulse Clinic',
+        subject: 'SMTP Test Email - Pulse Whole Health',
         html: `
           <!DOCTYPE html>
           <html>
@@ -100,7 +100,7 @@ export async function POST(req: NextRequest) {
               <div style="background-color: #f5f2eb; padding: 30px; border-radius: 10px;">
                 <h1 style="color: #b8752f; margin-top: 0;">✅ SMTP Test Successful!</h1>
                 
-                <p>This is a test email to verify that Gmail SMTP is working correctly with your Pulse Clinic application.</p>
+                <p>This is a test email to verify that SMTP is working correctly with your Pulse Whole Health application.</p>
                 
                 <div style="background-color: white; padding: 20px; border-radius: 5px; margin: 20px 0;">
                   <h2 style="color: #5d6b57; margin-top: 0;">Configuration Details</h2>
@@ -114,7 +114,7 @@ export async function POST(req: NextRequest) {
                 
                 <p style="margin-top: 30px;">
                   Best regards,<br>
-                  <strong>Pulse Clinic System</strong>
+                  <strong>Pulse Whole Health System</strong>
                 </p>
               </div>
             </body>
@@ -123,7 +123,7 @@ export async function POST(req: NextRequest) {
         text: `
           SMTP Test Successful!
 
-          This is a test email to verify that Gmail SMTP is working correctly with your Pulse Clinic application.
+          This is a test email to verify that SMTP is working correctly with your Pulse Whole Health application.
 
           Configuration Details:
           SMTP Host: ${smtpHost}
@@ -134,7 +134,7 @@ export async function POST(req: NextRequest) {
           If you received this email, your SMTP configuration is working correctly!
 
           Best regards,
-          Pulse Clinic System
+          Pulse Whole Health System
         `,
       };
 
