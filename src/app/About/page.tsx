@@ -63,6 +63,16 @@ export default function About() {
               </div>
             </div>
 
+            {/* Medical Director */}
+            <div className="mt-12 bg-white rounded-xl p-6 sm:p-8 border border-cream">
+              <h3 className="text-2xl font-semibold mb-6" style={{ color: '#b8752f' }}>Medical Director</h3>
+              <div className="prose prose-lg" style={{ color: '#5d6b57' }}>
+                <p className="text-lg leading-relaxed" style={{ color: '#5d6b57' }}>
+                  Pulse Whole Health I, P.C. is owned and operated under the medical direction of David G. Marx, M.D., a licensed physician in the Commonwealth of Pennsylvania. Dr. Marx is board certified in Emergency Medicine and has been practicing as an Integrative Medicine Physician since 2021. Dr. Marx serves as Medical Director and provides clinical oversight and supervision of all patient care services in accordance with Pennsylvania law.
+                </p>
+              </div>
+            </div>
+
             {/* Pulse Whole Health Roadmap */}
             <div className="mt-12 flex justify-center">
               <div className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-cream shadow-lg bg-white">
@@ -134,6 +144,21 @@ export default function About() {
                     Some patients notice improvements within several weeks, while others require several months depending on the condition and complexity.
                   </p>
                 </div>
+              </div>
+            </div>
+
+            {/* Provider Credentials & Licensure */}
+            <div className="mt-12 bg-white rounded-xl p-6 sm:p-8 border border-cream">
+              <h3 className="text-2xl font-semibold mb-6" style={{ color: '#b8752f' }}>Credentials &amp; Licensure</h3>
+              <div className="space-y-3 text-base sm:text-lg" style={{ color: '#5d6b57' }}>
+                <p><strong>Allyson L. Norton, PA-C</strong></p>
+                <p>Pennsylvania PA License: MA065203</p>
+                <p>Master of Physician Assistant Studies, University of Florida (2021)</p>
+                <p>NASM Certified Personal Trainer (2018)</p>
+                <p>Advanced Education in Gastroenterology &amp; Endocrinology through A4M</p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-cream/50 text-sm" style={{ color: '#8a9584' }}>
+                <p>Clinical services are provided by Allyson Norton, PA-C under the supervision of David G. Marx, M.D., Medical Director, pursuant to a Written Supervisory Agreement filed with the Pennsylvania State Board of Medicine.</p>
               </div>
             </div>
           </div>
