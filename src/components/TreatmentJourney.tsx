@@ -87,19 +87,19 @@ const phases: Phase[] = [
         number: 7,
         title: "Hormone Rebalancing",
         description:
-          "With your foundation solid, we fine-tune hormone health - thyroid, adrenal, sex hormones, and metabolic markers. Treatment may include lifestyle optimization, targeted supplementation, or prescription therapies when clinically appropriate.",
+          "After we get a solid foundation, we fine-tune hormone health including thyroid, metabolic markers, and sex hormones. Treatment may include lifestyle optimization, targeted supplementation, or prescription therapies only if clinically appropriate.",
       },
       {
         number: 8,
         title: "Cellular Repair & Health",
         description:
-          "We support your body's ability to detoxify and repair at the cellular level. This includes addressing oxidative stress, mitochondrial function, and ensuring your cells have what they need to regenerate and thrive long-term.",
+          "This supports your body's ability to repair at the cellular level. Including addressing stress on your cells and mitochondria (the powerhouse of your cells). This ensures your cells have what they need to thrive long-term.",
       },
       {
         number: 9,
         title: "Mindset & Emotional Balance",
         description:
-          "True wellness includes mental and emotional health. We address the mind-body connection, supporting you in building resilience, emotional regulation, and a positive relationship with your health journey.",
+          "True wellness includes mental and emotional health. This is where changes are solidified. We are here to walk with you through your health journey so that you have a positive relationship with your body and health.",
       },
     ],
   },
