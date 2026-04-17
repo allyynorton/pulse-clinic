@@ -6,6 +6,7 @@ interface Step {
   number: number;
   title: string;
   description: string;
+  icon: string;
 }
 
 interface Phase {
@@ -30,18 +31,21 @@ const phases: Phase[] = [
       {
         number: 1,
         title: "Comprehensive Intake",
+        icon: "clipboard",
         description:
           "You will complete a detailed intake form covering your full health history, symptoms, lifestyle, diet, stress levels, goals, etc. At your first visit we go through everything together (may take 60-90 minutes). There is no rushing, no quick conversations. We want to know you as a whole person.",
       },
       {
         number: 2,
         title: "Advanced Lab Testing",
+        icon: "microscope",
         description:
           "Based on your symptoms and history, we will order appropriate advanced functional lab panels that go far beyond standard bloodwork. These tests help us uncover root-causes such as nutrient deficiencies, hormone imbalances, gut dysfunction, and inflammatory markers that often get missed.",
       },
       {
         number: 3,
         title: "Prioritize Your Approach",
+        icon: "target",
         description:
           "Once we have the full clinical picture in hand, we build a personalized roadmap together. We identify which areas need attention first and create an achievable, sustainable, step-by-step plan for healing. Your life deserves more than a one-size-fits-all approach.",
       },
@@ -58,18 +62,21 @@ const phases: Phase[] = [
       {
         number: 4,
         title: "Nutrition, Diet & Exercise",
+        icon: "leaf",
         description:
           "We address how you fuel your body. Whether it is an anti-inflammatory protocol, gut-healing nutrition plan, or sustainable exercise routine, we design a strategy that works with your lifestyle and abilities.",
       },
       {
         number: 5,
         title: "Sleep & Stress Management",
+        icon: "moon",
         description:
           "Chronic stress and poor sleep can be silent killers. They can truly undermine every other area of health without even knowing it. We implement strategies to allow your body to achieve optimal recovery time.",
       },
       {
         number: 6,
         title: "Gut Health & Inflammation",
+        icon: "heart",
         description:
           "The gut is the gateway to whole-body health. We work to improve bloating, food sensitivities, indigestion, and inflammation because when the gut heals, everything else follows.",
       },
@@ -86,24 +93,43 @@ const phases: Phase[] = [
       {
         number: 7,
         title: "Hormone Rebalancing",
+        icon: "scale",
         description:
           "After we get a solid foundation, we fine-tune hormone health including thyroid, metabolic markers, and sex hormones. Treatment may include lifestyle optimization, targeted supplementation, or prescription therapies only if clinically appropriate.",
       },
       {
         number: 8,
         title: "Cellular Repair & Health",
+        icon: "sparkle",
         description:
           "This supports your body's ability to repair at the cellular level. Including addressing stress on your cells and mitochondria (the powerhouse of your cells). This ensures your cells have what they need to thrive long-term.",
       },
       {
         number: 9,
         title: "Mindset & Emotional Balance",
+        icon: "brain",
         description:
           "True wellness includes mental and emotional health. This is where changes are solidified. We are here to walk with you through your health journey so that you have a positive relationship with your body and health.",
       },
     ],
   },
 ];
+
+function StepIcon({ name, color }: { name: string; color: string }) {
+  const s = { width: 22, height: 22, viewBox: "0 0 24 24", fill: "none", stroke: color, strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+  const icons: Record<string, JSX.Element> = {
+    clipboard: (<svg {...s}><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><rect x="8" y="2" width="8" height="4" rx="1" ry="1" /></svg>),
+    microscope: (<svg {...s}><path d="M6 18h8" /><path d="M3 22h18" /><path d="M14 22a7 7 0 1 0 0-14h-1" /><path d="M9 14h2" /><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" /><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" /></svg>),
+    target: (<svg {...s}><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>),
+    leaf: (<svg {...s}><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-4.78 10-10 10Z" /><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" /></svg>),
+    moon: (<svg {...s}><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg>),
+    heart: (<svg {...s}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></svg>),
+    scale: (<svg {...s}><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" /></svg>),
+    sparkle: (<svg {...s}><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /><path d="M5 3v4" /><path d="M19 17v4" /><path d="M3 5h4" /><path d="M17 19h4" /></svg>),
+    brain: (<svg {...s}><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /><path d="M12 18v4" /></svg>),
+  };
+  return icons[name] || null;
+}
 
 export default function TreatmentJourney() {
   const [activeStep, setActiveStep] = useState<number | null>(null);
@@ -206,6 +232,7 @@ export default function TreatmentJourney() {
                     {/* Step Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3">
+                        <span className="flex-shrink-0"><StepIcon name={step.icon} color={isActive ? phase.iconBg : "#9ca3af"} /></span>
                         <h4
                           className="text-lg font-semibold transition-colors duration-300"
                           style={{ color: isActive ? phase.iconBg : "#374151" }}
