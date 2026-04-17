@@ -31,19 +31,19 @@ const phases: Phase[] = [
         number: 1,
         title: "Comprehensive Intake",
         description:
-          "You'll complete a detailed intake form covering your full health history, symptoms, lifestyle, diet, stress levels, and goals. At your first visit (60-90 minutes), we go through everything together - no rushing, no surface-level conversations. You're a whole person, not a chart number.",
+          "You will complete a detailed intake form covering your full health history, symptoms, lifestyle, diet, stress levels, goals, etc. At your first visit we go through everything together (may take 60-90 minutes). There is no rushing, no quick conversations. We want to know you as a whole person.",
       },
       {
         number: 2,
         title: "Advanced Lab Testing",
         description:
-          "Based on your symptoms and history, we order advanced functional lab panels that go far beyond standard bloodwork. These tests help us uncover hidden root causes - things like nutrient deficiencies, hormone imbalances, gut dysfunction, and inflammatory markers that often get missed.",
+          "Based on your symptoms and history, we will order appropriate advanced functional lab panels that go far beyond standard bloodwork. These tests help us uncover root-causes such as nutrient deficiencies, hormone imbalances, gut dysfunction, and inflammatory markers that often get missed.",
       },
       {
         number: 3,
         title: "Prioritize Your Approach",
         description:
-          "With your labs and full clinical picture in hand, we build a personalized roadmap together. We identify which areas need attention first and create a clear, step-by-step plan tailored to your body and your life - not a one-size-fits-all protocol.",
+          "Once we have the full clinical picture in hand, we build a personalized roadmap together. We identify which areas need attention first and create an achievable, sustainable, step-by-step plan for healing. Your life deserves more than a one-size-fits-all approach.",
       },
     ],
   },
