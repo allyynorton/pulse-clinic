@@ -123,7 +123,7 @@ export default function TreatmentJourney() {
           className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
           style={{ color: "#5d6b57" }}
         >
-          {"Integrative medicine isn't a quick fix - it's a partnership. Here's how we walk with you from your first visit to lasting health."}
+          {"At Pulse we don't just treat your symptoms. We take a deep dive into you as a whole person to find the root cause and help you heal from within. Here is what your journey with Pulse will look like."}
         </p>
       </div>
 
