@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useContactPopup } from "@/components/Footer";
+import TreatmentJourney from "@/components/TreatmentJourney";
 
 export default function About() {
   const { openPopup } = useContactPopup();
@@ -73,17 +74,9 @@ export default function About() {
               </div>
             </div>
 
-            {/* Pulse Whole Health Roadmap */}
-            <div className="mt-12 flex justify-center">
-              <div className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-cream shadow-lg bg-white">
-                <Image
-                  src="/roadmap.png"
-                  alt="Pulse Whole Health Roadmap - The Core, The Reignition, and The Optimization phases"
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
+            {/* Treatment Journey */}
+            <div className="mt-12 bg-white rounded-xl p-6 sm:p-8 border border-cream">
+              <TreatmentJourney />
             </div>
 
             {/* FAQs */}
