@@ -59,19 +59,19 @@ const phases: Phase[] = [
         number: 4,
         title: "Nutrition, Diet & Exercise",
         description:
-          "We address the fuel your body runs on. Whether it's an anti-inflammatory protocol, gut-healing nutrition plan, or a sustainable exercise routine, we design a strategy that works with your lifestyle - not against it.",
+          "We address how you fuel your body. Whether it is an anti-inflammatory protocol, gut-healing nutrition plan, or sustainable exercise routine, we design a strategy that works with your lifestyle and abilities.",
       },
       {
         number: 5,
         title: "Sleep & Stress Management",
         description:
-          "Chronic stress and poor sleep silently undermine every other area of health. We implement evidence-based strategies to restore your circadian rhythm, calm your nervous system, and give your body the recovery time it needs to heal.",
+          "Chronic stress and poor sleep can be silent killers. They can truly undermine every other area of health without even knowing it. We implement strategies to allow your body to achieve optimal recovery time.",
       },
       {
         number: 6,
         title: "Gut Health & Inflammation",
         description:
-          "The gut is the gateway to whole-body health. We work to resolve bloating, food sensitivities, microbiome imbalances, and systemic inflammation using targeted interventions - because when the gut heals, everything else follows.",
+          "The gut is the gateway to whole-body health. We work to improve bloating, food sensitivities, indigestion, and inflammation because when the gut heals, everything else follows.",
       },
     ],
   },
