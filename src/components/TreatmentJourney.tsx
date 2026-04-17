@@ -6,7 +6,6 @@ interface Step {
   number: number;
   title: string;
   description: string;
-  icon: string;
 }
 
 interface Phase {
@@ -32,22 +31,19 @@ const phases: Phase[] = [
         number: 1,
         title: "Comprehensive Intake",
         description:
-          "You'll complete a detailed intake form covering your full health history, symptoms, lifestyle, diet, stress levels, and goals. At your first visit (60â90 minutes), we go through everything together â no rushing, no surface-level conversations. You're a whole person, not a chart number.",
-        icon: "ð",
+          "You'll complete a detailed intake form covering your full health history, symptoms, lifestyle, diet, stress levels, and goals. At your first visit (60-90 minutes), we go through everything together - no rushing, no surface-level conversations. You're a whole person, not a chart number.",
       },
       {
         number: 2,
         title: "Advanced Lab Testing",
         description:
-          "Based on your symptoms and history, we order advanced functional lab panels that go far beyond standard bloodwork. These tests help us uncover hidden root causes â things like nutrient deficiencies, hormone imbalances, gut dysfunction, and inflammatory markers that often get missed.",
-        icon: "ð¬",
+          "Based on your symptoms and history, we order advanced functional lab panels that go far beyond standard bloodwork. These tests help us uncover hidden root causes - things like nutrient deficiencies, hormone imbalances, gut dysfunction, and inflammatory markers that often get missed.",
       },
       {
         number: 3,
         title: "Prioritize Your Approach",
         description:
-          "With your labs and full clinical picture in hand, we build a personalized roadmap together. We identify which areas need attention first and create a clear, step-by-step plan tailored to your body and your life â not a one-size-fits-all protocol.",
-        icon: "ð¯",
+          "With your labs and full clinical picture in hand, we build a personalized roadmap together. We identify which areas need attention first and create a clear, step-by-step plan tailored to your body and your life - not a one-size-fits-all protocol.",
       },
     ],
   },
@@ -63,22 +59,19 @@ const phases: Phase[] = [
         number: 4,
         title: "Nutrition, Diet & Exercise",
         description:
-          "We address the fuel your body runs on. Whether it's an anti-inflammatory protocol, gut-healing nutrition plan, or a sustainable exercise routine, we design a strategy that works with your lifestyle â not against it.",
-        icon: "ð¥",
+          "We address the fuel your body runs on. Whether it's an anti-inflammatory protocol, gut-healing nutrition plan, or a sustainable exercise routine, we design a strategy that works with your lifestyle - not against it.",
       },
       {
         number: 5,
         title: "Sleep & Stress Management",
         description:
           "Chronic stress and poor sleep silently undermine every other area of health. We implement evidence-based strategies to restore your circadian rhythm, calm your nervous system, and give your body the recovery time it needs to heal.",
-        icon: "ð",
       },
       {
         number: 6,
         title: "Gut Health & Inflammation",
         description:
-          "The gut is the gateway to whole-body health. We work to resolve bloating, food sensitivities, microbiome imbalances, and systemic inflammation using targeted interventions â because when the gut heals, everything else follows.",
-        icon: "ð",
+          "The gut is the gateway to whole-body health. We work to resolve bloating, food sensitivities, microbiome imbalances, and systemic inflammation using targeted interventions - because when the gut heals, everything else follows.",
       },
     ],
   },
@@ -94,22 +87,19 @@ const phases: Phase[] = [
         number: 7,
         title: "Hormone Rebalancing",
         description:
-          "With your foundation solid, we fine-tune hormone health â thyroid, adrenal, sex hormones, and metabolic markers. Treatment may include lifestyle optimization, targeted supplementation, or prescription therapies when clinically appropriate.",
-        icon: "âï¸",
+          "With your foundation solid, we fine-tune hormone health - thyroid, adrenal, sex hormones, and metabolic markers. Treatment may include lifestyle optimization, targeted supplementation, or prescription therapies when clinically appropriate.",
       },
       {
         number: 8,
         title: "Cellular Repair & Health",
         description:
           "We support your body's ability to detoxify and repair at the cellular level. This includes addressing oxidative stress, mitochondrial function, and ensuring your cells have what they need to regenerate and thrive long-term.",
-        icon: "â¨",
       },
       {
         number: 9,
         title: "Mindset & Emotional Balance",
         description:
           "True wellness includes mental and emotional health. We address the mind-body connection, supporting you in building resilience, emotional regulation, and a positive relationship with your health journey.",
-        icon: "ð§ ",
       },
     ],
   },
@@ -133,9 +123,7 @@ export default function TreatmentJourney() {
           className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
           style={{ color: "#5d6b57" }}
         >
-          Integrative medicine isn&apos;t a quick fix â it&apos;s a partnership.
-          Here&apos's how we walk with you from your first visit to lasting
-          health.
+          {"Integrative medicine isn't a quick fix - it's a partnership. Here's how we walk with you from your first visit to lasting health."}
         </p>
       </div>
 
@@ -197,11 +185,15 @@ export default function TreatmentJourney() {
                       : "none",
                   }}
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4">
                     {/* Step Number Circle */}
                     <div
-                      className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg transition-all duration-300"
+                      className="flex-shrink-0 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300"
                       style={{
+                        width: "44px",
+                        height: "44px",
+                        fontSize: "18px",
+                        lineHeight: "1",
                         backgroundColor: isActive
                           ? phase.iconBg
                           : `${phase.iconBg}99`,
@@ -214,7 +206,6 @@ export default function TreatmentJourney() {
                     {/* Step Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3">
-                        <span className="text-xl">{step.icon}</span>
                         <h4
                           className="text-lg font-semibold transition-colors duration-300"
                           style={{ color: isActive ? phase.iconBg : "#374151" }}
@@ -272,7 +263,6 @@ export default function TreatmentJourney() {
         className="mt-8 rounded-2xl p-6 sm:p-8 text-center border-2 border-dashed"
         style={{ borderColor: "#c5d1bf", backgroundColor: "#f8faf7" }}
       >
-        <div className="text-3xl mb-3">ð¤</div>
         <h4
           className="text-xl font-semibold mb-2"
           style={{ color: "#b8752f" }}
@@ -283,11 +273,7 @@ export default function TreatmentJourney() {
           className="text-base max-w-xl mx-auto leading-relaxed"
           style={{ color: "#5d6b57" }}
         >
-          Once you&apos;re optimized, we don&apos;t disappear. You&apos;ll
-          return every 6â 12 months for follow-up labs and check-ins to ensure
-          you&apos;re maintaining balance. Every appointment is in-depth â because
-          your health story is always evolving, and we&apos;re here for the whole
-          chapter.
+          {"Once you're optimized, we don't disappear. You'll return every 6-12 months for follow-up labs and check-ins to ensure you're maintaining balance. Every appointment is in-depth - because your health story is always evolving, and we're here for the whole chapter."}
         </p>
       </div>
 
