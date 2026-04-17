@@ -21,7 +21,7 @@ interface Phase {
 const phases: Phase[] = [
   {
     name: "Phase 1",
-    subtitle: "The Foundation",
+    subtitle: "Cleanse",
     color: "#5d6b57",
     bgColor: "#f0f4ee",
     borderColor: "#c5d1bf",
@@ -49,7 +49,7 @@ const phases: Phase[] = [
   },
   {
     name: "Phase 2",
-    subtitle: "The Rebuild",
+    subtitle: "Center",
     color: "#b8752f",
     bgColor: "#fdf6ee",
     borderColor: "#e8cfa8",
@@ -77,7 +77,7 @@ const phases: Phase[] = [
   },
   {
     name: "Phase 3",
-    subtitle: "The Optimization",
+    subtitle: "Cultivate",
     color: "#8B6914",
     bgColor: "#faf5eb",
     borderColor: "#d4c49a",
