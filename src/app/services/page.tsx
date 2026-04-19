@@ -31,9 +31,9 @@ export default function Services() {
                   Includes:
                 </p>
                 <ul className="text-green text-center space-y-2 mb-3" style={{ color: '#5d6b57' }}>
-                  <li>â¢ In-Depth Consultation</li>
-                  <li>â¢ Advanced Lab Testing</li>
-                  <li>â¢ Personalized Care Plans with Ongoing Follow Up</li>
+                  <li>{"\u2022"} In-Depth Consultation</li>
+                  <li>{"\u2022"} Advanced Lab Testing</li>
+                  <li>{"\u2022"} Personalized Care Plans with Ongoing Follow Up</li>
                 </ul>
               </div>
               <div className="mt-auto">
@@ -61,8 +61,8 @@ export default function Services() {
                   Includes:
                 </p>
                 <ul className="text-green text-center space-y-2 mb-3" style={{ color: '#5d6b57' }}>
-                  <li>â¢ Nutrition Education</li>
-                  <li>â¢ Custom Workout Planning</li>
+                  <li>{"\u2022"} Nutrition Education</li>
+                  <li>{"\u2022"} Custom Workout Planning</li>
                 </ul>
                 <p className="text-orange text-center text-sm font-semibold" style={{ color: '#b8752f' }}>
                   NASM Certified Personal Trainer
