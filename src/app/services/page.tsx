@@ -30,15 +30,15 @@ export default function Services() {
                 <p className="text-green text-center mb-3 font-semibold" style={{ color: '#5d6b57' }}>
                   Includes:
                 </p>
-                <ul className="text-green text-center space-y-2 mb-3" style={{ color: '#5d6b57' }}>
-                  <li>{"\u2022"} In-Depth Consultation</li>
-                  <li>{"\u2022"} Advanced Lab Testing</li>
-                  <li>{"\u2022"} Personalized Care Plans with Ongoing Follow Up</li>
+                <ul className="text-green text-center space-y-2 mb-3 list-none" style={{ color: '#5d6b57' }}>
+                  <li>In-Depth Consultation</li>
+                  <li>Advanced Lab Testing</li>
+                  <li>Personalized Care Plans with Ongoing Follow Up</li>
                 </ul>
               </div>
               <div className="mt-auto">
                 <span className="inline-flex items-center px-4 py-2 bg-brown text-white rounded-lg font-medium hover:bg-orange transition-colors">
-                  Book Consultation â
+                  Book Consultation →
                 </span>
               </div>
             </Link>
@@ -60,9 +60,9 @@ export default function Services() {
                 <p className="text-green text-center mb-3 font-semibold" style={{ color: '#5d6b57' }}>
                   Includes:
                 </p>
-                <ul className="text-green text-center space-y-2 mb-3" style={{ color: '#5d6b57' }}>
-                  <li>{"\u2022"} Nutrition Education</li>
-                  <li>{"\u2022"} Custom Workout Planning</li>
+                <ul className="text-green text-center space-y-2 mb-3 list-none" style={{ color: '#5d6b57' }}>
+                  <li>Nutrition Education</li>
+                  <li>Custom Workout Planning</li>
                 </ul>
                 <p className="text-orange text-center text-sm font-semibold" style={{ color: '#b8752f' }}>
                   NASM Certified Personal Trainer
@@ -70,7 +70,7 @@ export default function Services() {
               </div>
               <div className="mt-auto">
                 <span className="inline-flex items-center px-4 py-2 bg-brown text-white rounded-lg font-medium hover:bg-orange transition-colors">
-                  Book Consultation â
+                  Book Consultation →
                 </span>
               </div>
             </Link>
@@ -146,7 +146,7 @@ export default function Services() {
               </div>
               <h3 className="text-xl font-semibold mb-3 text-orange" style={{ color: '#b8752f' }}>Nutrient & Vitamin Levels</h3>
               <p className="text-green mb-3" style={{ color: '#5d6b57' }}>Reveals: Vitamin D, B12, folate, iron, magnesium, zinc, and other essential nutrients.</p>
-              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Shows deficiencies that cause fatigue, brain fog, poor immune function, and slow healingâeven if you eat well.</p>
+              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Shows deficiencies that cause fatigue, brain fog, poor immune function, and slow healing—even if you eat well.</p>
             </div>
 
             {/* Inflammatory Markers */}
