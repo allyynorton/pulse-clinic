@@ -264,27 +264,24 @@ export default function TreatmentJourney() {
                   }}
                 >
                   <div className="flex items-center gap-4">
-                    {/* Step Number Circle */}
+                    {/* Step Icon Circle */}
                     <div
-                      className="flex-shrink-0 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300"
+                      className="flex-shrink-0 rounded-full flex items-center justify-center transition-all duration-300"
                       style={{
                         width: "44px",
                         height: "44px",
-                        fontSize: "18px",
-                        lineHeight: "1",
                         backgroundColor: isActive
                           ? phase.iconBg
                           : `${phase.iconBg}99`,
                         transform: isActive ? "scale(1.1)" : "scale(1)",
                       }}
                     >
-                      {step.number}
+                      <StepIcon name={step.icon} color="#ffffff" />
                     </div>
 
                     {/* Step Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3">
-                        <span className="flex-shrink-0"><StepIcon name={step.icon} color={isActive ? phase.iconBg : "#9ca3af"} /></span>
                         <h4
                           className="text-lg font-semibold transition-colors duration-300"
                           style={{ color: isActive ? phase.iconBg : "#374151" }}
