@@ -78,99 +78,27 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Laboratory Testing Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-orange mb-4" style={{ color: '#b8752f' }}>How We Discover the Root Cause</h2>
-            <p className="text-xl text-green max-w-3xl mx-auto" style={{ color: '#5d6b57' }}>
-              Advanced laboratory testing reveals what standard panels miss. Here&apos;s what we test and what it tells us about your health.
-            </p>
+      {/* Root Cause Medicine Banner */}
+      <Link href="/consult-booking" className="block">
+        <section
+          className="relative py-32 md:py-44 bg-cover bg-center cursor-pointer transition-all hover:brightness-110"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1584257274862-42aa4f6e5f55?w=1920&q=80&fit=crop)',
+          }}
+        >
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.45)' }} />
+          <div className="relative z-10 container mx-auto px-6 text-center">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+              Come See What Root Cause Medicine Is All About
+            </h2>
+            <div className="mt-8">
+              <span className="inline-flex items-center px-8 py-4 bg-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-shadow" style={{ color: '#b8752f' }}>
+                Book Your Consultation →
+              </span>
+            </div>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Thyroid Panel */}
-            <div className="bg-cream rounded-xl p-6 border border-cream/50">
-              <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-orange" style={{ color: '#b8752f' }}>Comprehensive Thyroid Panel</h3>
-              <p className="text-green mb-3" style={{ color: '#5d6b57' }}>Reveals: TSH, T3, T4, reverse T3, and thyroid antibodies.</p>
-              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Explains fatigue, weight changes, mood issues, and metabolism problems. Standard testing often misses subtle thyroid dysfunction.</p>
-            </div>
-
-            {/* Hormone Panel */}
-            <div className="bg-cream rounded-xl p-6 border border-cream/50">
-              <div className="w-12 h-12 bg-green rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-orange" style={{ color: '#b8752f' }}>Hormone & Adrenal Function</h3>
-              <p className="text-green mb-3" style={{ color: '#5d6b57' }}>Reveals: Cortisol patterns, DHEA, sex hormones (estrogen, progesterone, testosterone), and adrenal function.</p>
-              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Uncovers stress response issues, hormone imbalances, and why you might feel constantly fatigued or anxious.</p>
-            </div>
-
-            {/* Stool Analysis */}
-            <div className="bg-cream rounded-xl p-6 border border-cream/50">
-              <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-orange" style={{ color: '#b8752f' }}>Comprehensive Stool Analysis</h3>
-              <p className="text-green mb-3" style={{ color: '#5d6b57' }}>Reveals: Gut microbiome composition, beneficial and harmful bacteria, yeast overgrowth, parasites, digestive enzymes, and inflammation markers.</p>
-              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Shows us why you have digestive issues, bloating, or food intolerances. The gut is the foundation of health.</p>
-            </div>
-
-            {/* Food Sensitivity Testing */}
-            <div className="bg-cream rounded-xl p-6 border border-cream/50">
-              <div className="w-12 h-12 bg-green rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-orange" style={{ color: '#b8752f' }}>Food Sensitivity & Intolerance</h3>
-              <p className="text-green mb-3" style={{ color: '#5d6b57' }}>Reveals: IgG and IgA reactions to common foods, identifying hidden triggers for inflammation and symptoms.</p>
-              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Explains chronic inflammation, joint pain, headaches, skin issues, and digestive problems you couldn&apos;t pinpoint.</p>
-            </div>
-
-            {/* Nutrient Testing */}
-            <div className="bg-cream rounded-xl p-6 border border-cream/50">
-              <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-orange" style={{ color: '#b8752f' }}>Nutrient & Vitamin Levels</h3>
-              <p className="text-green mb-3" style={{ color: '#5d6b57' }}>Reveals: Vitamin D, B12, folate, iron, magnesium, zinc, and other essential nutrients.</p>
-              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Shows deficiencies that cause fatigue, brain fog, poor immune function, and slow healing—even if you eat well.</p>
-            </div>
-
-            {/* Inflammatory Markers */}
-            <div className="bg-cream rounded-xl p-6 border border-cream/50">
-              <div className="w-12 h-12 bg-green rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-orange" style={{ color: '#b8752f' }}>Inflammatory Markers</h3>
-              <p className="text-green mb-3" style={{ color: '#5d6b57' }}>Reveals: C-reactive protein (CRP), homocysteine, and other markers of chronic inflammation.</p>
-              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Identifies hidden inflammation driving heart disease, diabetes, autoimmune conditions, and chronic pain.</p>
-            </div>
-
-          </div>
-
-          <div className="mt-12 bg-cream rounded-xl p-8 border-2 border-brown/20">
-            <h3 className="text-2xl font-bold text-orange mb-4 text-center" style={{ color: '#b8752f' }}>Why This Matters</h3>
-            <p className="text-lg text-green text-center max-w-4xl mx-auto leading-relaxed" style={{ color: '#5d6b57' }}>
-              Standard lab panels are essential for diagnosing and monitoring many conditions. Integrative medicine complements these by finding the root cause of imbalances that might be contributing to recurring symptoms. When we understand the why - the root cause - we can create a comprehensive treatment plan that addresses both immediate symptoms and underlying factors that may be contributing to persistent symptoms. This approach also allows us to create treatment plans that are sustainable long term.
-            </p>
-          </div>
-        </div>
-      </section>
+        </section>
+      </Link>
     </div>
   );
 }
