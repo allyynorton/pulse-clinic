@@ -26,9 +26,19 @@ export default function Services() {
               <p className="text-green text-center mb-4" style={{ color: '#5d6b57' }}>
                 This service is for patients who are looking to heal a chronic condition (ie. diabetes, high blood pressure, obesity, gut issues etc.) Integrative care blends conventional medicine with functional medicine to finding the root cause of the condition and a treatment plan centered around natural solutions. We dive into lifestyle habits, diet, exercise, environmental exposures, genetic predisposition, etc. to provide comprehensive patient-center care
               </p>
+              <div className="mt-4 pt-4 border-t border-cream/50 w-full">
+                <p className="text-green text-center mb-3 font-semibold" style={{ color: '#5d6b57' }}>
+                  Includes:
+                </p>
+                <ul className="text-green text-center space-y-2 mb-3" style={{ color: '#5d6b57' }}>
+                  <li>â¢ In-Depth Consultation</li>
+                  <li>â¢ Advanced Lab Testing</li>
+                  <li>â¢ Personalized Care Plans with Ongoing Follow Up</li>
+                </ul>
+              </div>
               <div className="mt-auto">
                 <span className="inline-flex items-center px-4 py-2 bg-brown text-white rounded-lg font-medium hover:bg-orange transition-colors">
-                  Book Consultation →
+                  Book Consultation â
                 </span>
               </div>
             </Link>
@@ -51,8 +61,8 @@ export default function Services() {
                   Includes:
                 </p>
                 <ul className="text-green text-center space-y-2 mb-3" style={{ color: '#5d6b57' }}>
-                  <li>• Personalized Nutrition Planning</li>
-                  <li>• Custom Workout Planning</li>
+                  <li>â¢ Nutrition Education</li>
+                  <li>â¢ Custom Workout Planning</li>
                 </ul>
                 <p className="text-orange text-center text-sm font-semibold" style={{ color: '#b8752f' }}>
                   NASM Certified Personal Trainer
@@ -60,7 +70,7 @@ export default function Services() {
               </div>
               <div className="mt-auto">
                 <span className="inline-flex items-center px-4 py-2 bg-brown text-white rounded-lg font-medium hover:bg-orange transition-colors">
-                  Book Consultation →
+                  Book Consultation â
                 </span>
               </div>
             </Link>
@@ -136,7 +146,7 @@ export default function Services() {
               </div>
               <h3 className="text-xl font-semibold mb-3 text-orange" style={{ color: '#b8752f' }}>Nutrient & Vitamin Levels</h3>
               <p className="text-green mb-3" style={{ color: '#5d6b57' }}>Reveals: Vitamin D, B12, folate, iron, magnesium, zinc, and other essential nutrients.</p>
-              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Shows deficiencies that cause fatigue, brain fog, poor immune function, and slow healing—even if you eat well.</p>
+              <p className="text-sm text-green/80" style={{ color: '#5d6b57' }}>Shows deficiencies that cause fatigue, brain fog, poor immune function, and slow healingâeven if you eat well.</p>
             </div>
 
             {/* Inflammatory Markers */}
