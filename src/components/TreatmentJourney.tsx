@@ -334,25 +334,6 @@ export default function TreatmentJourney() {
         </div>
       </div>
 
-      {/* Ongoing Care Footer */}
-      <div
-        className="mt-8 rounded-2xl p-6 sm:p-8 text-center border-2 border-dashed"
-        style={{ borderColor: "#c5d1bf", backgroundColor: "#f8faf7" }}
-      >
-        <h4
-          className="text-xl font-semibold mb-2"
-          style={{ color: "#b8752f" }}
-        >
-          Ongoing Partnership
-        </h4>
-        <p
-          className="text-base max-w-xl mx-auto leading-relaxed"
-          style={{ color: "#5d6b57" }}
-        >
-          {"Once you're optimized, we don't disappear. You'll return every 6-12 months for follow-up labs and check-ins to ensure you're maintaining balance. Every appointment is in-depth - because your health story is always evolving, and we're here for the whole chapter."}
-        </p>
-      </div>
-
       {/* Progress indicator */}
       <div className="mt-6 flex justify-center items-center gap-2">
         <span className="text-xs font-medium" style={{ color: "#8a9584" }}>
