@@ -48,7 +48,6 @@ const services = [
 export default function ConsultBooking() {
   const widgetContainerRef = useRef<HTMLDivElement>(null);
   const [widgetLoaded, setWidgetLoaded] = useState(false);
-  const [showLaunchNotice, setShowLaunchNotice] = useState(true);
 
   useEffect(() => {
     if (!widgetContainerRef.current) return;
@@ -104,27 +103,6 @@ export default function ConsultBooking() {
       className="min-h-screen bg-[#f5f2eb]"
       style={{ backgroundColor: "#f5f2eb" }}
     >
-      {/* Pre-launch notice popup */}
-      {showLaunchNotice && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-          <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full shadow-2xl text-center">
-            <div className="text-4xl mb-4">🌿</div>
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: '#b8752f' }}>
-              Opening June 1st
-            </h2>
-            <p className="text-base sm:text-lg mb-6 leading-relaxed" style={{ color: '#5d6b57' }}>
-              Pulse Whole Health officially opens on <strong>June 1, 2026</strong>. You are welcome to browse available appointment times and book your consultation now for any date on or after our opening day.
-            </p>
-            <button
-              onClick={() => setShowLaunchNotice(false)}
-              className="px-8 py-3 rounded-lg text-white font-semibold text-base transition-colors hover:opacity-90"
-              style={{ backgroundColor: '#b8752f' }}
-            >
-              Got It
-            </button>
-          </div>
-        </div>
-      )}
 
       <section className="py-10 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
