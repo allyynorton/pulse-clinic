@@ -67,9 +67,23 @@ export default function About() {
             {/* Medical Director */}
             <div className="mt-12 bg-white rounded-xl p-6 sm:p-8 border border-cream">
               <h3 className="text-2xl font-semibold mb-6" style={{ color: '#b8752f' }}>Medical Director</h3>
+              <div className="mb-6 flex justify-center">
+                <div className="relative w-full max-w-sm aspect-square rounded-xl overflow-hidden border border-cream shadow-lg">
+                  <Image
+                    src="/Dr Marx.png"
+                    alt="David G. Marx, MD - Medical Director at Pulse Whole Health"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 24rem"
+                  />
+                </div>
+              </div>
               <div className="prose prose-lg" style={{ color: '#5d6b57' }}>
+                <p className="text-lg leading-relaxed mb-4" style={{ color: '#5d6b57' }}>
+                  David G. Marx, MD serves as Medical Director for Pulse Whole Health, providing physician oversight and collaboration in support of Allyson Norton, PA-C, and the clinical team. With more than 30 years of experience in Family and Emergency Medicine and advanced training in Integrative and Functional Medicine, Dr. Marx helps ensure that patients receive safe, evidence-based, and personalized care. Working alongside Allyson, he supports the practice&apos;s commitment to identifying the root causes of illness while empowering patients to achieve lasting health and wellness.
+                </p>
                 <p className="text-lg leading-relaxed" style={{ color: '#5d6b57' }}>
-                  Pulse Whole Health I, P.C. is owned and operated under the medical direction of David G. Marx, M.D., a licensed physician in the Commonwealth of Pennsylvania. Dr. Marx is board certified in Emergency Medicine and has been practicing as an Integrative Medicine Physician since 2021. Dr. Marx serves as Medical Director and provides clinical oversight and supervision of all patient care services in accordance with Pennsylvania law.
+                  Pulse Whole Health I, P.C. is owned and operated under the medical direction of David G. Marx, M.D., a licensed physician in the Commonwealth of Pennsylvania. Dr. Marx serves as Medical Director and provides clinical oversight and supervision of all patient care services in accordance with Pennsylvania law.
                 </p>
               </div>
             </div>
