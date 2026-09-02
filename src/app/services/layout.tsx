@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import StructuredData from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Our Services | Pulse Whole Health – Integrative & Preventative Care",
+  title: "Integrative & Preventative Care in Pennsylvania",
   description:
-    "Explore integrative care, preventative care, and advanced lab testing at Pulse Whole Health. Chronic condition root cause analysis, functional medicine testing, and personalized wellness plans.",
+    "Integrative care, preventative care, and advanced lab testing by telehealth anywhere in Pennsylvania. Root cause analysis for chronic conditions and personalized wellness plans.",
   keywords: [
     "integrative care",
     "preventative care",
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     "personalized wellness plan",
   ],
   openGraph: {
-    title: "Our Services | Pulse Whole Health – Integrative & Preventative Care",
+    title: "Integrative & Preventative Care in Pennsylvania",
     description:
-      "Explore integrative care, preventative care, and advanced lab testing at Pulse Whole Health. Chronic condition root cause analysis and personalized wellness plans.",
+      "Integrative care, preventative care, and advanced lab testing by telehealth anywhere in Pennsylvania.",
     url: "/services",
   },
   alternates: {
