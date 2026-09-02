@@ -4,6 +4,15 @@ import { Pacifico } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import {
+  SITE_URL,
+  SITE_NAME,
+  LEGAL_NAME,
+  CONTACT_EMAIL,
+  SERVICE_STATE,
+  SERVICE_STATE_CODE,
+  ORGANIZATION_ID,
+} from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,32 +33,31 @@ const pacifico = Pacifico({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.pulsewholehealth.com";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Pulse Whole Health – Integrative & Functional Medicine | Virtual Healthcare",
+    default:
+      "Integrative & Functional Medicine in Pennsylvania | Pulse Whole Health",
     template: "%s | Pulse Whole Health",
   },
   description:
-    "Pulse Whole Health offers personalized integrative and functional medicine through virtual visits. Led by Allyson Norton, PA-C, we focus on root cause analysis and holistic wellness. Book your consultation today.",
+    "Virtual integrative and functional medicine for patients across Pennsylvania. Allyson Norton, PA-C, finds the root cause of chronic gut, hormone, and metabolic concerns. Telehealth visits statewide. Book a consultation.",
   keywords: [
-    "integrative medicine",
-    "functional medicine",
-    "virtual healthcare",
-    "telemedicine",
+    "integrative medicine Pennsylvania",
+    "functional medicine Pennsylvania",
+    "telehealth Pennsylvania",
     "root cause medicine",
-    "holistic health",
-    "patient-centered care",
+    "functional medicine near me",
+    "gut health specialist Pennsylvania",
+    "hormone imbalance treatment Pennsylvania",
+    "virtual functional medicine",
     "Allyson Norton PA-C",
-    "chronic disease treatment",
-    "preventive care",
-    "wellness consultation",
+    "cash pay functional medicine",
+    "holistic health Pennsylvania",
   ],
-  authors: [{ name: "Pulse Whole Health" }],
-  creator: "Pulse Whole Health",
-  publisher: "Pulse Whole Health",
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
   robots: {
     index: true,
     follow: true,
@@ -65,10 +73,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "/",
-    siteName: "Pulse Whole Health",
-    title: "Pulse Whole Health – Integrative & Functional Medicine",
+    siteName: SITE_NAME,
+    title: "Integrative & Functional Medicine in Pennsylvania",
     description:
-      "Personalized integrative and functional medicine through virtual visits. Root cause analysis and holistic wellness.",
+      "Virtual root-cause medicine for patients across Pennsylvania. Personalized care for gut, hormone, and metabolic health.",
     images: [
       {
         url: "/pulse-logo.png",
@@ -80,9 +88,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pulse Whole Health – Integrative & Functional Medicine",
+    title: "Integrative & Functional Medicine in Pennsylvania",
     description:
-      "Personalized integrative and functional medicine through virtual visits.",
+      "Virtual root-cause medicine for patients across Pennsylvania.",
     images: ["/pulse-logo.png"],
   },
   alternates: {
@@ -104,30 +112,80 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationJsonLd = {
+  /**
+   * MedicalClinic (a LocalBusiness subtype) rather than the generic
+   * Organization, so search engines classify this as a healthcare provider.
+   *
+   * No streetAddress is published: this is a telehealth-only practice and the
+   * physical address is deliberately kept private. addressRegion plus a State
+   * areaServed is what ties the practice to Pennsylvania.
+   */
+  const clinicJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${siteUrl}/#organization`,
-    name: "Pulse Whole Health",
-    url: siteUrl,
+    "@type": "MedicalClinic",
+    "@id": ORGANIZATION_ID,
+    name: SITE_NAME,
+    legalName: LEGAL_NAME,
+    url: SITE_URL,
     description:
-      "Pulse Whole Health offers personalized integrative and functional medicine through virtual visits. Led by Allyson Norton, PA-C, we focus on root cause analysis and holistic wellness.",
-    logo: `${siteUrl}/pulse-logo.png`,
-    medicalSpecialty: ["Integrative medicine", "Functional medicine"],
+      "Virtual integrative and functional medicine practice serving patients across Pennsylvania. Root-cause care for chronic gut, hormone, and metabolic conditions.",
+    logo: `${SITE_URL}/pulse-logo.png`,
+    image: `${SITE_URL}/pulse-logo.png`,
+    email: CONTACT_EMAIL,
+    medicalSpecialty: ["Integrative medicine", "Functional medicine", "Preventive medicine"],
+    isAcceptingNewPatients: true,
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: SERVICE_STATE_CODE,
+      addressCountry: "US",
+    },
+    areaServed: {
+      "@type": "State",
+      name: SERVICE_STATE,
+      alternateName: SERVICE_STATE_CODE,
+    },
+    availableService: [
+      {
+        "@type": "MedicalTherapy",
+        name: "Integrative Care",
+        description:
+          "Root-cause evaluation and treatment of chronic conditions including diabetes, high blood pressure, obesity, and gut disorders, blending conventional and functional medicine.",
+      },
+      {
+        "@type": "MedicalTherapy",
+        name: "Preventative Care",
+        description:
+          "Proactive lifestyle, nutrition, and exercise planning to prevent chronic disease and maintain long-term health.",
+      },
+    ],
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: `${SITE_URL}/consult-booking`,
+      availableLanguage: { "@type": "Language", name: "English" },
+      serviceLocation: {
+        "@type": "VirtualLocation",
+        name: "Secure telehealth visit",
+        url: `${SITE_URL}/consult-booking`,
+      },
+    },
+    paymentAccepted: "Credit Card, Debit Card, HSA, FSA",
+    currenciesAccepted: "USD",
     contactPoint: {
       "@type": "ContactPoint",
-      url: `${siteUrl}/consult-booking`,
+      email: CONTACT_EMAIL,
+      url: `${SITE_URL}/consult-booking`,
       contactType: "booking",
-      areaServed: "US",
+      areaServed: SERVICE_STATE_CODE,
+      availableLanguage: "English",
     },
   };
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Pulse Whole Health",
-    url: siteUrl,
-    publisher: { "@id": `${siteUrl}/#organization` },
+    name: SITE_NAME,
+    url: SITE_URL,
+    publisher: { "@id": ORGANIZATION_ID },
     inLanguage: "en-US",
   };
 
@@ -139,7 +197,7 @@ export default function RootLayout({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: siteUrl,
+        item: SITE_URL,
       },
     ],
   };
@@ -152,7 +210,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(clinicJsonLd) }}
         />
         <script
           type="application/ld+json"
