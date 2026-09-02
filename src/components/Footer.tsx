@@ -123,6 +123,9 @@ export default function Footer() {
             <p className="text-green text-sm" style={{ color: '#5d6b57' }}>
               © {new Date().getFullYear()} Pulse Whole Health. All rights reserved.
             </p>
+            <p className="text-green text-sm mt-1" style={{ color: '#5d6b57' }}>
+              Integrative &amp; functional medicine by telehealth, serving patients across Pennsylvania.
+            </p>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             <button
