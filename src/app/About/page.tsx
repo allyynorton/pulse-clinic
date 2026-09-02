@@ -14,9 +14,6 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative bg-cream text-brown pb-12 pt-16">
         <div className="container mx-auto px-6 flex flex-col items-center text-center">
-          <h1 className="text-4xl font-bold mb-8 max-w-3xl" style={{ color: '#b8752f' }}>
-            Integrative &amp; Functional Medicine for Patients Across Pennsylvania
-          </h1>
           {/* Mission Statement */}
           <div className="max-w-4xl mx-auto mb-8 w-full px-4">
             <div className="bg-white rounded-xl p-8 border border-cream">
