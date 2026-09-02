@@ -29,7 +29,7 @@ export default function Home() {
             Ready to Take Control of Your Health?
           </h1>
           <div className={`text-xl md:text-2xl text-brown mb-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            Integrative and functional medicine for patients across Pennsylvania — blending natural and conventional care.
+            Blending natural and conventional care for a more holistic approach to wellness.
           </div>
           <p className={`text-xl text-green max-w-4xl mx-auto mb-8 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ color: '#5d6b57' }}>
             At Pulse we strongly believe that no one should receive cookie cutter healthcare because everyone is unique in their own way. We all have different exposures, genetics, lifestyle habits, etc. which is why it is important to have a unique and individualized approach to treatment. Focusing on finding the root causes of disease allows us to develop a personalized treatment plan that can give you the most natural solution to your symptoms and prevent future illness.
