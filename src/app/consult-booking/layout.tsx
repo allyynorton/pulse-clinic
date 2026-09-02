@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import StructuredData from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Book a Consultation | Pulse Whole Health",
+  title: "Book a Pennsylvania Telehealth Consultation",
   description:
-    "Schedule your virtual functional medicine consult or integrative medicine appointment with Pulse Whole Health. Book a consultation today.",
+    "Schedule a virtual functional medicine consult from anywhere in Pennsylvania. Cash-pay pricing shown up front, no insurance required. Book online today.",
   keywords: [
     "book consultation",
     "schedule consult",
@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     "integrative medicine appointment",
   ],
   openGraph: {
-    title: "Book a Consultation | Pulse Whole Health",
+    title: "Book a Pennsylvania Telehealth Consultation",
     description:
-      "Schedule your virtual functional medicine consult or integrative medicine appointment with Pulse Whole Health.",
+      "Schedule a virtual functional medicine consult from anywhere in Pennsylvania.",
     url: "/consult-booking",
   },
   alternates: {
