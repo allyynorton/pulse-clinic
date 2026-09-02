@@ -12,11 +12,6 @@ export const FAQS: Faq[] = [
       "Integrative medicine combines conventional medical care with evidence-based nutrition, lifestyle medicine, and targeted supplementation to treat the whole person—not just symptoms. The goal is to address root causes of chronic health concerns while supporting long-term wellness. It uses peer-reviewed research, clinical guidelines, and laboratory testing, alongside lifestyle and nutritional interventions to support safe and effective care.",
   },
   {
-    question: "Where in Pennsylvania do you see patients?",
-    answer:
-      "Pulse Whole Health is a fully virtual practice serving patients anywhere in Pennsylvania. Visits are conducted by secure telehealth, so you can be seen from home whether you are in Philadelphia, Pittsburgh, the Lehigh Valley, Erie, Harrisburg, or a rural part of the state. You must be physically located in Pennsylvania at the time of your appointment.",
-  },
-  {
     question: "Do you accept insurance?",
     answer:
       "No. Pulse Whole Health is a cash-pay (direct-pay) practice and does not accept or bill insurance. Payment is due at the time of booking, and we accept major credit cards, debit cards, and HSA/FSA cards. Current pricing for every visit type and care package is listed on our booking page.",
