@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import StructuredData from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "About Us | Pulse Whole Health – Integrative & Functional Medicine",
+  title: "About Ally Norton, PA-C & Dr. Marx",
   description:
-    "Learn about Pulse Whole Health and whole health medicine. Allyson Norton, PA-C, combines modern and holistic care, with a focus on gut health and root cause analysis.",
+    "Meet Allyson Norton, PA-C, and Medical Director David G. Marx, MD. Integrative and functional medicine for patients across Pennsylvania, focused on gut health, hormones, and root cause analysis.",
   keywords: [
     "whole health medicine",
     "Allyson Norton PA-C",
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     "gut health",
   ],
   openGraph: {
-    title: "About Us | Pulse Whole Health – Integrative & Functional Medicine",
+    title: "About Ally Norton, PA-C & Dr. Marx",
     description:
-      "Learn about Pulse Whole Health and whole health medicine. Allyson Norton, PA-C, combines modern and holistic care, with a focus on gut health and root cause analysis.",
+      "Meet Allyson Norton, PA-C, and Medical Director David G. Marx, MD. Integrative and functional medicine for patients across Pennsylvania, focused on gut health, hormones, and root cause analysis.",
     url: "/About",
   },
   alternates: {
