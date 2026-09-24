@@ -60,7 +60,7 @@ export default function PrivacyPolicy() {
 
         <LegalSubsection heading="2.3 Cookies and Tracking Technologies">
           <LegalText>
-            We use cookies and similar tracking technologies to enhance user experience and analyze Site usage. See Section 7 for details.
+            We use cookies to support core Site functionality and to remember your preferences. See Section 7 for details.
           </LegalText>
         </LegalSubsection>
 
@@ -99,7 +99,6 @@ export default function PrivacyPolicy() {
           <LegalList
             items={[
               <><strong>Website hosting and infrastructure:</strong> the platform where our Site is hosted</>,
-              <><strong>Analytics providers:</strong> such as Google Analytics, to understand Site usage</>,
               <><strong>Email and communication providers:</strong> for sending emails and messages</>,
               <><strong>Scheduling and patient management platform:</strong> Practice Better, for appointment booking</>,
               <><strong>Payment processors:</strong> for processing payments (payment information is not stored on our Site)</>,
@@ -158,7 +157,6 @@ export default function PrivacyPolicy() {
           <LegalList
             items={[
               <><strong>Essential Cookies:</strong> Required for the Site to function properly. These cannot be disabled.</>,
-              <><strong>Analytics Cookies:</strong> We use Google Analytics to understand how visitors use our Site. Google Analytics collects information such as pages visited, time on site, and general geographic location. Google Analytics IP addresses are anonymized where possible.</>,
               <><strong>Preference Cookies:</strong> Remember your preferences for future visits.</>,
             ]}
           />
@@ -167,19 +165,6 @@ export default function PrivacyPolicy() {
         <LegalSubsection heading="7.3 Managing Cookies">
           <LegalText>
             You can control cookies through your browser settings. Most browsers allow you to block or delete cookies. Disabling cookies may affect Site functionality.
-          </LegalText>
-          <LegalText>
-            To opt out of Google Analytics tracking, you can install the Google Analytics Opt-Out Browser Add-on available at{" "}
-            <a
-              href="https://tools.google.com/dlpage/gaoptout"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:no-underline"
-              style={{ color: "#b8752f" }}
-            >
-              https://tools.google.com/dlpage/gaoptout
-            </a>
-            .
           </LegalText>
         </LegalSubsection>
       </LegalSection>
