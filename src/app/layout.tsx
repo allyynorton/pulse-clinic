@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Pacifico } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 import {
   SITE_URL,
   SITE_NAME,
@@ -224,7 +223,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased flex flex-col min-h-screen`}
       >
-        <GoogleAnalytics />
         <ClientWrapper>
           {children}
         </ClientWrapper>
