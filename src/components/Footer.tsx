@@ -170,9 +170,13 @@ export default function Footer() {
         {/* Disclosure Links */}
         <div className="border-t border-cream/50 pt-4">
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-4 text-xs sm:text-sm" style={{ color: '#5d6b57' }}>
-            <button onClick={() => toggleDisclosure('privacy')} className="underline hover:no-underline cursor-pointer">
+            <Link href="/notice-of-privacy-practices" className="underline hover:no-underline cursor-pointer">
               Notice of Privacy Practices
-            </button>
+            </Link>
+            <span className="hidden sm:inline">|</span>
+            <Link href="/privacy-policy" className="underline hover:no-underline cursor-pointer">
+              Privacy Policy
+            </Link>
             <span className="hidden sm:inline">|</span>
             <button onClick={() => toggleDisclosure('telehealth')} className="underline hover:no-underline cursor-pointer">
               Telehealth Disclosure
@@ -184,15 +188,6 @@ export default function Footer() {
           </div>
 
           {/* Expandable Disclosures */}
-          {openDisclosure === 'privacy' && (
-            <div className="bg-white rounded-lg p-4 sm:p-6 mb-4 text-xs sm:text-sm leading-relaxed" style={{ color: '#5d6b57' }}>
-              <h4 className="font-semibold mb-2" style={{ color: '#b8752f' }}>Notice of Privacy Practices</h4>
-              <p className="mb-2">Pulse Whole Health I, P.C. is committed to protecting your health information. We follow all applicable federal and state privacy laws, including HIPAA (Health Insurance Portability and Accountability Act). Your protected health information (PHI) will be used only for treatment, payment, and healthcare operations unless you provide written authorization or as otherwise permitted by law.</p>
-              <p className="mb-2">You have the right to request restrictions on how your PHI is used, to receive confidential communications, to inspect and obtain copies of your health records, to request amendments, and to receive an accounting of disclosures.</p>
-              <p>For questions about our privacy practices or to request a full copy of our Notice of Privacy Practices, please contact us at contact@pulsewholehealth.com.</p>
-            </div>
-          )}
-
           {openDisclosure === 'telehealth' && (
             <div className="bg-white rounded-lg p-4 sm:p-6 mb-4 text-xs sm:text-sm leading-relaxed" style={{ color: '#5d6b57' }}>
               <h4 className="font-semibold mb-2" style={{ color: '#b8752f' }}>Telehealth Disclosure</h4>
