@@ -11,6 +11,8 @@ const ROUTES = [
   { path: "/About", lastModified: "2026-09-02", priority: 0.9 },
   { path: "/services", lastModified: "2026-09-02", priority: 0.9 },
   { path: "/consult-booking", lastModified: "2026-09-02", priority: 0.9 },
+  { path: "/privacy-policy", lastModified: "2026-09-24", priority: 0.3 },
+  { path: "/notice-of-privacy-practices", lastModified: "2026-09-24", priority: 0.3 },
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
