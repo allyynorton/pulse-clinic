@@ -106,14 +106,17 @@ export function ContactPopupProvider({ children }: { children: React.ReactNode }
   );
 }
 
+/** Legal pages linked from the footer on every page of the site. */
+const LEGAL_LINKS = [
+  { href: "/notice-of-privacy-practices", label: "Notice of Privacy Practices" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/telehealth-disclosure", label: "Telehealth Disclosure" },
+  { href: "/terms-and-conditions", label: "Terms and Conditions" },
+  { href: "/financial-policy", label: "Financial Policy" },
+] as const;
+
 export default function Footer() {
   const { openPopup } = useContactPopup();
-  const [openDisclosure, setOpenDisclosure] = useState<string | null>(null);
-
-  const toggleDisclosure = (id: string) => {
-    setOpenDisclosure(openDisclosure === id ? null : id);
-  };
-
   return (
     <footer className="bg-cream border-t border-cream/50 mt-auto">
       <div className="container mx-auto px-4 sm:px-6 py-8">
@@ -169,42 +172,20 @@ export default function Footer() {
 
         {/* Disclosure Links */}
         <div className="border-t border-cream/50 pt-4">
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-4 text-xs sm:text-sm" style={{ color: '#5d6b57' }}>
-            <Link href="/notice-of-privacy-practices" className="underline hover:no-underline cursor-pointer">
-              Notice of Privacy Practices
-            </Link>
-            <span className="hidden sm:inline">|</span>
-            <Link href="/privacy-policy" className="underline hover:no-underline cursor-pointer">
-              Privacy Policy
-            </Link>
-            <span className="hidden sm:inline">|</span>
-            <button onClick={() => toggleDisclosure('telehealth')} className="underline hover:no-underline cursor-pointer">
-              Telehealth Disclosure
-            </button>
-            <span className="hidden sm:inline">|</span>
-            <button onClick={() => toggleDisclosure('cashpay')} className="underline hover:no-underline cursor-pointer">
-              Cash Pay Disclosure
-            </button>
-          </div>
-
-          {/* Expandable Disclosures */}
-          {openDisclosure === 'telehealth' && (
-            <div className="bg-white rounded-lg p-4 sm:p-6 mb-4 text-xs sm:text-sm leading-relaxed" style={{ color: '#5d6b57' }}>
-              <h4 className="font-semibold mb-2" style={{ color: '#b8752f' }}>Telehealth Disclosure</h4>
-              <p className="mb-2">Pulse Whole Health provides healthcare services via telehealth (audio and/or video communication technology). Telehealth is not a substitute for in-person emergency care. If you are experiencing a medical emergency, call 911 immediately.</p>
-              <p className="mb-2">By scheduling a telehealth appointment, you acknowledge that: telehealth involves electronic communication of personal health information; technical difficulties may occur; your provider may determine that telehealth is not appropriate for your condition and may recommend an in-person visit.</p>
-              <p>Telehealth services are currently available to patients located in the state of Pennsylvania. Clinical services are provided by Allyson Norton, PA-C under the supervision of David G. Marx, M.D., Medical Director.</p>
-            </div>
-          )}
-
-          {openDisclosure === 'cashpay' && (
-            <div className="bg-white rounded-lg p-4 sm:p-6 mb-4 text-xs sm:text-sm leading-relaxed" style={{ color: '#5d6b57' }}>
-              <h4 className="font-semibold mb-2" style={{ color: '#b8752f' }}>Cash Pay Disclosure</h4>
-              <p className="mb-2">Pulse Whole Health is a cash-pay (direct-pay) practice. We do not accept or bill insurance. Payment is due at the time of service. We accept major credit cards, debit cards, and HSA/FSA cards.</p>
-              <p className="mb-2">Under the No Surprises Act, you have the right to receive a Good Faith Estimate of expected charges for scheduled services. You may request a Good Faith Estimate before your appointment.</p>
-              <p>If you receive a bill that is at least $400 more than your Good Faith Estimate, you may dispute the bill. For questions or to request a Good Faith Estimate, contact us at contact@pulsewholehealth.com.</p>
-            </div>
-          )}
+          <nav
+            aria-label="Legal policies"
+            className="flex flex-wrap justify-center items-center gap-x-3 gap-y-2 sm:gap-x-4 mb-4 text-xs sm:text-sm"
+            style={{ color: '#5d6b57' }}
+          >
+            {LEGAL_LINKS.map((link, i) => (
+              <span key={link.href} className="flex items-center gap-x-3 sm:gap-x-4">
+                {i > 0 && <span className="hidden sm:inline">|</span>}
+                <Link href={link.href} className="underline hover:no-underline cursor-pointer">
+                  {link.label}
+                </Link>
+              </span>
+            ))}
+          </nav>
 
           {/* Corporate Compliance */}
           <div className="text-center text-xs mt-4" style={{ color: '#8a9584' }}>

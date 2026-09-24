@@ -82,16 +82,98 @@ export function LegalAddress({ lines }: { lines: string[] }) {
   );
 }
 
+/** Fee schedule / data table. Scrolls horizontally on narrow screens. */
+export function LegalTable({
+  headers,
+  rows,
+}: {
+  headers: string[];
+  rows: string[][];
+}) {
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full border-collapse text-left">
+        <thead>
+          <tr>
+            {headers.map((h) => (
+              <th
+                key={h}
+                className="py-3 px-4 font-semibold text-sm border-b-2"
+                style={{ color: "#b8752f", borderColor: "#b8752f" }}
+              >
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr key={i} className="border-b border-cream">
+              {row.map((cell, j) => (
+                <td
+                  key={j}
+                  className="py-3 px-4 align-top"
+                  style={{ color: "#5d6b57" }}
+                >
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/** Signature / acknowledgment block shown on documents patients sign at intake. */
+export function LegalSignature({
+  heading,
+  lines,
+  note,
+}: {
+  heading?: string;
+  lines: string[];
+  note?: string;
+}) {
+  return (
+    <div
+      className="rounded-lg p-5 sm:p-6 mt-6 space-y-4"
+      style={{ backgroundColor: "rgba(93, 107, 87, 0.06)" }}
+    >
+      {heading && (
+        <p className="font-semibold" style={{ color: "#b8752f" }}>
+          {heading}
+        </p>
+      )}
+      {lines.map((line, i) => (
+        <p key={i} className="leading-loose" style={{ color: "#5d6b57" }}>
+          {line}
+        </p>
+      ))}
+      {note && (
+        <p className="text-sm italic pt-2" style={{ color: "#8a9584" }}>
+          {note}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function LegalPage({
   title,
+  subtitle,
   effectiveDate,
   lastUpdated,
+  preamble,
   banner,
   children,
 }: {
   title: string;
+  subtitle?: string;
   effectiveDate: string;
   lastUpdated?: string;
+  preamble?: string;
   banner?: string;
   children: React.ReactNode;
 }) {
@@ -101,6 +183,14 @@ export default function LegalPage({
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
             <header className="text-center mb-10">
+              {preamble && (
+                <p
+                  className="italic leading-relaxed max-w-2xl mx-auto mb-8"
+                  style={{ color: "#8a9584" }}
+                >
+                  {preamble}
+                </p>
+              )}
               <p
                 className="text-sm font-semibold tracking-wide uppercase mb-3"
                 style={{ color: "#5d6b57" }}
@@ -108,11 +198,16 @@ export default function LegalPage({
                 Pulse Whole Health
               </p>
               <h1
-                className="text-4xl font-bold mb-4"
+                className="text-4xl font-bold mb-3"
                 style={{ color: "#b8752f" }}
               >
                 {title}
               </h1>
+              {subtitle && (
+                <p className="italic mb-3" style={{ color: "#5d6b57" }}>
+                  {subtitle}
+                </p>
+              )}
               <p className="text-sm" style={{ color: "#8a9584" }}>
                 Effective Date: {effectiveDate}
                 {lastUpdated ? ` · Last Updated: ${lastUpdated}` : ""}
