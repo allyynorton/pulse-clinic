@@ -13,6 +13,9 @@ const ROUTES = [
   { path: "/consult-booking", lastModified: "2026-09-02", priority: 0.9 },
   { path: "/privacy-policy", lastModified: "2026-09-24", priority: 0.3 },
   { path: "/notice-of-privacy-practices", lastModified: "2026-09-24", priority: 0.3 },
+  { path: "/telehealth-disclosure", lastModified: "2026-09-24", priority: 0.3 },
+  { path: "/terms-and-conditions", lastModified: "2026-09-24", priority: 0.3 },
+  { path: "/financial-policy", lastModified: "2026-09-24", priority: 0.3 },
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
