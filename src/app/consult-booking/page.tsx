@@ -1,187 +1,113 @@
-"use client";
+import Link from "next/link";
 
-import { useEffect, useRef, useState } from "react";
-
-const services = [
-  {
-    id: "intro",
-    name: "Get to Know Each Other",
-    duration: "15 min",
-    price: "$10",
-    description:
-      "A casual conversation to see if we're a good fit. No pressure, just connection.",
-    bookingUrl:
-      "https://my.practicebetter.io/#/696fc6840114e12df0a35929/bookings?s=6970f96546010515beda9aa5",
-  },
-  {
-    id: "integrative",
-    name: "Integrative Care Consultation",
-    duration: "1 hour",
-    price: "$300",
-    description:
-      "A comprehensive deep-dive into your health history, labs, and goals with a personalized care plan.",
-    bookingUrl:
-      "https://my.practicebetter.io/#/696fc6840114e12df0a35929/bookings?s=6970f84846010515beda91b5",
-  },
-  {
-    id: "preventative",
-    name: "Initial Preventative Care Consultation",
-    duration: "45 min",
-    price: "$250",
-    description:
-      "Proactive health planning focused on prevention, screening, and long-term wellness.",
-    bookingUrl:
-      "https://my.practicebetter.io/#/696fc6840114e12df0a35929/bookings?s=6970faf646010515bedac7c4",
-  },
-  {
-    id: "followup",
-    name: "Follow Up Consultation",
-    duration: "30 min",
-    price: "$175",
-    description:
-      "Check in on your progress, review labs, and adjust your care plan as needed.",
-    bookingUrl:
-      "https://my.practicebetter.io/#/696fc6840114e12df0a35929/bookings?s=6970fa1546010515bedab9e6",
-  },
-];
+/**
+ * Booking is intentionally a link-out, not an embedded widget.
+ *
+ * The Practice Better booking iframe loads Practice Better's own Google Tag
+ * Manager, GA4, and advertising tags (plus Meta, LinkedIn, Reddit, Bing and
+ * others) onto this origin. Linking out in a new tab keeps all third-party
+ * tracking off pulsewholehealth.com, which is a HIPAA compliance requirement
+ * for this practice. Do not reintroduce the iframe embed.
+ */
+const BOOKING_URL =
+  "https://my.practicebetter.io/#/696fc6840114e12df0a35929/bookings";
 
 export default function ConsultBooking() {
-  const widgetContainerRef = useRef<HTMLDivElement>(null);
-  const [widgetLoaded, setWidgetLoaded] = useState(false);
-
-  useEffect(() => {
-    if (!widgetContainerRef.current) return;
-
-    // Inject the Practice Better widget using their official embed code
-    widgetContainerRef.current.innerHTML = `
-      <style>.better-inline-booking-widget{position:relative;overflow:hidden}.better-inline-booking-widget iframe{position:absolute;top:0;left:0;width:100%;height:100%}</style>
-      <div class="better-inline-booking-widget" data-url="https://my.practicebetter.io" data-booking-page="" data-hash="696fc6840114e12df0a35929" data-theme="32a363" data-theme-accent="e74c3c" style="width:100%;max-width:700px;height:800px;margin:0 auto;" data-scrollbar-visible="false"></div>
-    `;
-
-    // Load the widget script
-    const existingScript = document.querySelector(
-      'script[src="https://cdn.practicebetter.io/assets/js/booking.widget.js"]'
-    );
-    if (existingScript) existingScript.remove();
-
-    const script = document.createElement("script");
-    script.src = "https://cdn.practicebetter.io/assets/js/booking.widget.js";
-    script.type = "text/javascript";
-    script.async = true;
-    document.body.appendChild(script);
-
-    // Check if widget iframe actually rendered content after a delay
-    const checkTimer = setTimeout(() => {
-      const iframe = widgetContainerRef.current?.querySelector("iframe");
-      if (iframe) {
-        iframe.addEventListener("load", () => setWidgetLoaded(true));
-        try {
-          if (iframe.contentDocument?.body?.innerHTML) {
-            setWidgetLoaded(true);
-          }
-        } catch {
-          setTimeout(() => {
-            if (iframe.offsetHeight > 50) {
-              setWidgetLoaded(true);
-            }
-          }, 3000);
-        }
-      }
-    }, 2000);
-
-    return () => {
-      clearTimeout(checkTimer);
-      const s = document.querySelector(
-        'script[src="https://cdn.practicebetter.io/assets/js/booking.widget.js"]'
-      );
-      if (s) s.remove();
-    };
-  }, []);
-
   return (
-    <div
-      className="min-h-screen bg-[#f5f2eb]"
-      style={{ backgroundColor: "#f5f2eb" }}
-    >
-
+    <div className="min-h-screen" style={{ backgroundColor: "#f5f2eb" }}>
       <section className="py-10 sm:py-16">
-        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-          <div className="text-center mb-8 sm:mb-12">
+        <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+          <div className="text-center mb-8 sm:mb-10">
             <h1
               className="text-3xl sm:text-5xl mb-4"
               style={{ color: "#b8752f" }}
             >
-              Book Your Consult
+              Book Your Consultation
             </h1>
             <p
               className="text-lg sm:text-xl max-w-2xl mx-auto"
               style={{ color: "#5d6b57" }}
             >
-              Ready to take the first step towards feeling better, moving
-              better, and living better? Schedule your consult with Ally below!
+              Ready to take the next step in your health journey? Booking with
+              Pulse Whole Health is simple and secure.
             </p>
           </div>
 
-          {/* Practice Better Embedded Widget (shows on production HTTPS) */}
-          <div
-            ref={widgetContainerRef}
-            style={{ display: widgetLoaded ? "block" : "none" }}
-            className="bg-white rounded-xl p-4 sm:p-8 shadow-lg"
-          />
+          <div className="bg-white rounded-xl p-6 sm:p-10 border border-cream shadow-lg">
+            <h2
+              className="text-2xl font-semibold mb-4 text-center"
+              style={{ color: "#b8752f" }}
+            >
+              How it works
+            </h2>
+            <p
+              className="text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto"
+              style={{ color: "#5d6b57" }}
+            >
+              When you click the button below, you&rsquo;ll be taken to our
+              secure booking system (Practice Better), where you can view
+              available appointment times, select the visit type that&rsquo;s
+              right for you, and complete your booking. You&rsquo;ll receive a
+              confirmation email with next steps for your intake.
+            </p>
 
-          {/* Fallback: Service cards with booking links (shows when widget can't load) */}
-          {!widgetLoaded && (
-            <div className="space-y-4 sm:space-y-6">
-              <div className="grid gap-4 sm:gap-6">
-                {services.map((service) => (
-                  <div
-                    key={service.id}
-                    className="bg-white rounded-xl p-4 sm:p-6 shadow-lg border-2 border-transparent hover:border-[#b8752f] transition-all"
-                  >
-                    <div className="flex flex-col gap-4">
-                      <div className="flex-1">
-                        <h3
-                          className="text-lg sm:text-xl font-semibold mb-1"
-                          style={{ color: "#b8752f" }}
-                        >
-                          {service.name}
-                        </h3>
-                        <p
-                          className="text-sm mb-2"
-                          style={{ color: "#5d6b57" }}
-                        >
-                          {service.duration} &middot; {service.price}
-                        </p>
-                        <p className="text-sm sm:text-base" style={{ color: "#5d6b57" }}>
-                          {service.description}
-                        </p>
-                      </div>
-                      <div className="flex justify-end">
-                        <a
-                          href={service.bookingUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-block px-5 py-2 rounded-lg text-white text-sm font-semibold text-center whitespace-nowrap transition-colors hover:opacity-90"
-                          style={{ backgroundColor: "#b8752f" }}
-                        >
-                          Book Now
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="mt-8 flex justify-center">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-4 rounded-lg text-white text-lg font-semibold text-center transition-opacity hover:opacity-90"
+                style={{ backgroundColor: "#a05a36" }}
+              >
+                Book Your Consultation &rarr;
+              </a>
             </div>
-          )}
+
+            <p
+              className="mt-6 text-sm text-center"
+              style={{ color: "#8a9584" }}
+            >
+              Opens in a new tab.
+            </p>
+          </div>
+
+          <p
+            className="mt-8 text-center text-base"
+            style={{ color: "#5d6b57" }}
+          >
+            Questions before booking? Please reach out via our{" "}
+            <Link
+              href="/About"
+              className="underline hover:no-underline"
+              style={{ color: "#b8752f" }}
+            >
+              About page
+            </Link>{" "}
+            or email us at contact@pulsewholehealth.com.
+          </p>
 
           {/* Cash pay disclosure */}
-          <div className="mt-8 p-4 rounded-lg text-center text-sm sm:text-base font-medium" style={{ backgroundColor: 'rgba(184, 117, 47, 0.08)', color: '#5d6b57' }}>
-            <p>Pulse Whole Health is a cash-pay practice and does not accept insurance. All fees are due at time of booking.</p>
+          <div
+            className="mt-8 p-4 rounded-lg text-center text-sm sm:text-base font-medium"
+            style={{ backgroundColor: "rgba(184, 117, 47, 0.08)", color: "#5d6b57" }}
+          >
+            <p>
+              Pulse Whole Health is a cash-pay practice and does not accept
+              insurance. All fees are due at time of booking.
+            </p>
           </div>
 
           {/* Supervisory disclosure */}
-          <div className="mt-4 p-4 rounded-lg text-center text-xs sm:text-sm" style={{ backgroundColor: 'rgba(93, 107, 87, 0.08)', color: '#5d6b57' }}>
-            <p>Clinical services are provided by Allyson Norton, PA-C under the supervision of David G. Marx, M.D., Medical Director, pursuant to a Written Supervisory Agreement filed with the Pennsylvania State Board of Medicine.</p>
+          <div
+            className="mt-4 p-4 rounded-lg text-center text-xs sm:text-sm"
+            style={{ backgroundColor: "rgba(93, 107, 87, 0.08)", color: "#5d6b57" }}
+          >
+            <p>
+              Clinical services are provided by Allyson Norton, PA-C under the
+              supervision of David G. Marx, M.D., Medical Director, pursuant to
+              a Written Supervisory Agreement filed with the Pennsylvania State
+              Board of Medicine.
+            </p>
           </div>
         </div>
       </section>
