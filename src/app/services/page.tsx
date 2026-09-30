@@ -83,7 +83,7 @@ export default function Services() {
         <section
           className="relative py-32 md:py-44 bg-cover bg-center cursor-pointer transition-all hover:brightness-110"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1584257274862-42aa4f6e5f55?w=1920&q=80&fit=crop)',
+            backgroundImage: 'url(/root-cause-medicine-banner.jpg)',
           }}
         >
           <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.45)' }} />
