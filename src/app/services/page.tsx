@@ -63,6 +63,7 @@ export default function Services() {
           <p className="text-xl text-green max-w-2xl mx-auto mb-12 animate-fade-in-up" style={{ color: '#5d6b57' }}>
             At Pulse Whole Health, we blend natural and conventional care to provide a holistic approach to your wellness. Explore our core offerings below.
           </p>
+          <h2 className="text-4xl mb-8" style={{ color: '#b8752f' }}>À La Carte Services</h2>
           <div className="grid md:grid-cols-2 gap-10">
             {/* Integrative Care */}
             <Link 
@@ -131,11 +132,11 @@ export default function Services() {
       </section>
 
 
-      {/* Care Packages */}
+      {/* Packages */}
       <section className="pb-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl mb-4" style={{ color: '#b8752f' }}>Care Packages</h2>
+            <h2 className="text-4xl mb-4" style={{ color: '#b8752f' }}>Packages</h2>
             <p className="text-lg max-w-3xl mx-auto" style={{ color: '#5d6b57' }}>
               Root-cause work takes more than one visit. These prepaid packages bundle your
               initial consultation with ongoing follow-up so the plan has time to work. All
