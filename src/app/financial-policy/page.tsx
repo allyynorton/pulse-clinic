@@ -58,7 +58,7 @@ export default function FinancialPolicy() {
               "$1,395",
             ],
             [
-              "Immersion Package (1 initial + 6 follow-ups + 2 nutrition coaching sessions, 65-biomarker baseline laboratory panel, secure direct messaging, tailored exercise program, priority scheduling)",
+              "Immersion Package (1 initial + 6 follow-ups + 2 nutrition counseling sessions, 65-biomarker baseline laboratory panel, secure direct messaging, tailored exercise program, priority scheduling)",
               "9 months",
               "$1,995",
             ],
