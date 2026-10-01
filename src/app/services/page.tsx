@@ -59,7 +59,7 @@ const ALA_CARTE = [
 const CARE_PACKAGES = [
   {
     name: "Foundations Package",
-    price: "$795",
+    price: "$875",
     meta: "5 visits · valid 6 months",
     summary:
       "A prepaid integrative medicine package built around one in-depth initial consultation and a steady cadence of follow-up, delivered by telehealth.",
@@ -67,13 +67,14 @@ const CARE_PACKAGES = [
       "1 initial consultation (60 minutes)",
       "4 follow-up visits (30–45 minutes)",
       "Personalized care plan with ongoing adjustment",
+      "Secure messaging with your provider through the patient portal",
     ],
     footnote: "Laboratory testing is billed separately.",
     url: "https://my.practicebetter.io/#/696fc6840114e12df0a35929/bookings?p=6a766e4af31a038b79615ee8",
   },
   {
     name: "Partnership Package",
-    price: "$1,395",
+    price: "$1,495",
     meta: "5 visits · valid 7 months",
     summary:
       "Everything in Foundations, plus the baseline lab work that makes root-cause analysis possible and direct access to your provider between visits.",
@@ -82,14 +83,14 @@ const CARE_PACKAGES = [
       "4 follow-up visits (30–45 minutes)",
       "Baseline laboratory panel covering 65 biomarkers",
       "Secure direct messaging with your provider for the full package term",
-      "Nutrition guidance integrated into visits and messaging",
+      "One 30-minute nutrition counseling session",
     ],
     footnote: null,
     url: "https://my.practicebetter.io/#/696fc6840114e12df0a35929/bookings?p=6a765bf6f77cbc1d9be1fec0",
   },
   {
     name: "Immersion Package",
-    price: "$1,995",
+    price: "$2,395",
     meta: "9 visits · valid 9 months",
     summary:
       "Our most comprehensive option, for patients who want sustained support across medicine, nutrition and movement over a longer arc of care.",
