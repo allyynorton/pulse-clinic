@@ -2,6 +2,58 @@
 
 import Link from "next/link";
 
+const CARE_PACKAGES = [
+  {
+    name: "Foundations Package",
+    price: "$895",
+    meta: "5 visits · valid 6 months",
+    summary:
+      "A prepaid integrative medicine package built around one in-depth initial consultation and a steady cadence of follow-up, delivered by telehealth.",
+    includes: [
+      "1 initial consultation (60 minutes)",
+      "4 follow-up visits (30–45 minutes)",
+      "Personalized care plan with ongoing adjustment",
+    ],
+    footnote: null,
+    url: "https://my.practicebetter.io/#/696fc6840114e12df0a35929/bookings?p=6a766e4af31a038b79615ee8",
+  },
+  {
+    name: "Partnership Package",
+    price: "$1,395",
+    meta: "5 visits · valid 7 months",
+    summary:
+      "Everything in Foundations, plus the baseline lab work that makes root-cause analysis possible and direct access to your provider between visits.",
+    includes: [
+      "1 initial consultation (60 minutes)",
+      "4 follow-up visits (30–45 minutes)",
+      "Baseline laboratory panel covering 65 biomarkers",
+      "Secure direct messaging with your provider for the full package term",
+      "Nutrition guidance integrated into visits and messaging",
+    ],
+    footnote: null,
+    url: "https://my.practicebetter.io/#/696fc6840114e12df0a35929/bookings?p=6a765bf6f77cbc1d9be1fec0",
+  },
+  {
+    name: "Immersion Package",
+    price: "$1,995",
+    meta: "9 visits · valid 9 months",
+    summary:
+      "Our most comprehensive option, for patients who want sustained support across medicine, nutrition and movement over a longer arc of care.",
+    includes: [
+      "1 initial consultation (60 minutes)",
+      "6 follow-up visits (30–45 minutes)",
+      "2 dedicated nutrition coaching sessions (30 minutes each)",
+      "Baseline laboratory panel covering 65 biomarkers",
+      "Secure direct messaging with your provider for the full package term",
+      "Tailored online exercise program with instructional form videos, updated at each follow-up",
+      "Priority scheduling",
+    ],
+    footnote:
+      "The exercise program is a wellness service provided under a separate fitness agreement.",
+    url: "https://my.practicebetter.io/#/696fc6840114e12df0a35929/bookings?p=6a766270f77cbc1d9be243aa",
+  },
+];
+
 export default function Services() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f2eb' }}>
@@ -75,6 +127,80 @@ export default function Services() {
               </div>
             </Link>
           </div>
+        </div>
+      </section>
+
+
+      {/* Care Packages */}
+      <section className="pb-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl mb-4" style={{ color: '#b8752f' }}>Care Packages</h2>
+            <p className="text-lg max-w-3xl mx-auto" style={{ color: '#5d6b57' }}>
+              Root-cause work takes more than one visit. These prepaid packages bundle your
+              initial consultation with ongoing follow-up so the plan has time to work. All
+              visits are delivered by telehealth to patients anywhere in Pennsylvania.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 items-stretch">
+            {CARE_PACKAGES.map((pkg) => (
+              <div
+                key={pkg.name}
+                className="bg-white rounded-xl p-8 border border-cream shadow-lg flex flex-col animate-fade-in-up"
+              >
+                <h3 className="text-2xl font-bold mb-2" style={{ color: '#b8752f' }}>
+                  {pkg.name}
+                </h3>
+                <p className="text-3xl font-bold mb-1" style={{ color: '#5d6b57' }}>
+                  {pkg.price}
+                </p>
+                <p className="text-sm mb-5" style={{ color: '#8a9584' }}>
+                  {pkg.meta}
+                </p>
+                <p className="mb-5" style={{ color: '#5d6b57' }}>
+                  {pkg.summary}
+                </p>
+                <div className="pt-5 border-t border-cream/50">
+                  <p className="font-semibold mb-3" style={{ color: '#5d6b57' }}>
+                    Includes:
+                  </p>
+                  <ul className="space-y-2 list-none mb-5" style={{ color: '#5d6b57' }}>
+                    {pkg.includes.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  {pkg.footnote && (
+                    <p className="text-sm italic mb-5" style={{ color: '#8a9584' }}>
+                      {pkg.footnote}
+                    </p>
+                  )}
+                </div>
+                <div className="mt-auto pt-2">
+                  <a
+                    href={pkg.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-5 py-3 text-white rounded-lg font-medium transition-opacity hover:opacity-90"
+                    style={{ backgroundColor: '#a05a36' }}
+                  >
+                    Purchase Package →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-sm mt-10 max-w-3xl mx-auto" style={{ color: '#8a9584' }}>
+            Packages are paid in full at enrollment and are governed by a Care Package Agreement
+            signed at that time. Prescription medications, compounded medications, nutritional
+            supplements, and any laboratory testing beyond an included baseline panel are billed
+            separately. See our{' '}
+            <Link href="/financial-policy" className="underline" style={{ color: '#b8752f' }}>
+              Financial Policy
+            </Link>{' '}
+            for full terms.
+          </p>
         </div>
       </section>
 
