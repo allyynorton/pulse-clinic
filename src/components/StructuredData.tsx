@@ -111,7 +111,7 @@ const servicesSchema = {
     },
     {
       "@type": "Service",
-      name: "Preventative Care",
+      name: "Nutrition and Exercise Coaching",
       description:
         "Proactive health planning: analysis of lifestyle habits including diet, exercise, and stressors to create a personalized wellness plan that prevents chronic disease. Includes nutrition education and custom workout planning with NASM Certified Personal Trainer support.",
       provider: { "@id": ORGANIZATION_ID },
