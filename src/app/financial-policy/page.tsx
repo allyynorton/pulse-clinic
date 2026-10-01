@@ -48,9 +48,9 @@ export default function FinancialPolicy() {
             ["Initial Integrative Medicine Consultation", "60 minutes", "$300"],
             ["Integrative Medicine Follow-Up Visit", "30-45 minutes", "$175"],
             [
-              "Foundations Package (1 initial + 4 follow-ups)",
+              "Foundations Package (1 initial + 4 follow-ups; laboratory testing billed separately)",
               "6 months",
-              "$895",
+              "$795",
             ],
             [
               "Partnership Package (1 initial + 4 follow-ups, 65-biomarker baseline laboratory panel, secure direct messaging, nutrition guidance)",
