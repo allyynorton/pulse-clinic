@@ -2,21 +2,23 @@ import type { Metadata } from "next";
 import StructuredData from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Integrative & Preventative Care in Pennsylvania",
+  title: "Integrative Medicine & Wellness Coaching in Pennsylvania",
   description:
-    "Integrative care, preventative care, and advanced lab testing by telehealth anywhere in Pennsylvania. Root cause analysis for chronic conditions and personalized wellness plans.",
+    "Integrative medicine, nutrition and exercise coaching, and advanced lab testing by telehealth anywhere in Pennsylvania. Root cause analysis for chronic conditions and personalized wellness plans.",
   keywords: [
-    "integrative care",
+    "integrative medicine",
+    "functional medicine testing",
+    "nutrition coaching",
+    "exercise programming",
     "preventative care",
     "lab testing",
     "chronic condition root cause",
-    "functional medicine testing",
     "personalized wellness plan",
   ],
   openGraph: {
-    title: "Integrative & Preventative Care in Pennsylvania",
+    title: "Integrative Medicine & Wellness Coaching in Pennsylvania",
     description:
-      "Integrative care, preventative care, and advanced lab testing by telehealth anywhere in Pennsylvania.",
+      "Integrative medicine, nutrition and exercise coaching, and advanced lab testing by telehealth anywhere in Pennsylvania.",
     url: "/services",
   },
   alternates: {
