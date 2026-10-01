@@ -48,9 +48,19 @@ export default function FinancialPolicy() {
             ["Initial Integrative Medicine Consultation", "60 minutes", "$300"],
             ["Integrative Medicine Follow-Up Visit", "30-45 minutes", "$175"],
             [
-              "Introductory Package (1 initial + 4 follow-ups, 6-month validity)",
+              "Foundations Package (1 initial + 4 follow-ups)",
               "6 months",
-              "$900",
+              "$895",
+            ],
+            [
+              "Partnership Package (1 initial + 4 follow-ups, 65-biomarker baseline laboratory panel, secure direct messaging, nutrition guidance)",
+              "7 months",
+              "$1,395",
+            ],
+            [
+              "Immersion Package (1 initial + 6 follow-ups + 2 nutrition coaching sessions, 65-biomarker baseline laboratory panel, secure direct messaging, tailored exercise program, priority scheduling)",
+              "9 months",
+              "$1,995",
             ],
           ]}
         />
@@ -65,7 +75,7 @@ export default function FinancialPolicy() {
         </LegalText>
         <LegalList
           items={[
-            <><strong>Laboratory testing:</strong> billed by the lab (RUPA Health, LabCorp, Quest, or other) either at cash-pay rates or through your insurance</>,
+            <><strong>Laboratory testing:</strong> billed by the lab (RUPA Health, LabCorp, Quest, or other) either at cash-pay rates or through your insurance, except where a baseline laboratory panel is expressly included in a care package</>,
             <><strong>Prescription medications:</strong> filled and paid for at your pharmacy of choice</>,
             <><strong>Compounded medications:</strong> billed by the compounding pharmacy at their rates</>,
             <><strong>Nutritional supplements:</strong> purchased through Fullscript or your preferred source</>,
@@ -105,7 +115,7 @@ export default function FinancialPolicy() {
 
         <LegalSubsection heading="5.4 Package Payments">
           <LegalText>
-            Prepaid care packages (such as the Introductory Package) require payment in full at enrollment. Payment plans may be available at the Provider&rsquo;s discretion; please inquire if interested. Package-specific terms are governed by a separate Care Package Agreement signed at enrollment.
+            Prepaid care packages (the Foundations, Partnership, and Immersion Packages) require payment in full at enrollment. Payment plans may be available at the Provider&rsquo;s discretion; please inquire if interested. Package-specific terms are governed by a separate Care Package Agreement signed at enrollment.
           </LegalText>
         </LegalSubsection>
       </LegalSection>
@@ -154,7 +164,7 @@ export default function FinancialPolicy() {
 
         <LegalSubsection heading="7.2 Package Refunds">
           <LegalText>
-            Prepaid care packages (such as the Introductory Package) have their own refund terms as specified in the applicable Care Package Agreement signed at enrollment. In general, package refunds are calculated on a pro-rata basis using the standard itemized rates for services delivered, less an administrative processing fee. Please refer to your signed Care Package Agreement for complete refund terms.
+            Prepaid care packages (the Foundations, Partnership, and Immersion Packages) have their own refund terms as specified in the applicable Care Package Agreement signed at enrollment. In general, package refunds are calculated on a pro-rata basis using the standard itemized rates for services delivered, less an administrative processing fee. Please refer to your signed Care Package Agreement for complete refund terms.
           </LegalText>
         </LegalSubsection>
 
