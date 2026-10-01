@@ -152,9 +152,9 @@ export default function RootLayout({
       },
       {
         "@type": "MedicalTherapy",
-        name: "Preventative Care",
+        name: "Nutrition and Exercise Coaching",
         description:
-          "Proactive lifestyle, nutrition, and exercise planning to prevent chronic disease and maintain long-term health.",
+          "Nutrition education and personalized exercise planning, including custom workout programming, to prevent chronic disease and maintain long-term health.",
       },
     ],
     availableChannel: {
