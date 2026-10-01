@@ -96,7 +96,7 @@ const CARE_PACKAGES = [
     includes: [
       "1 initial consultation (60 minutes)",
       "6 follow-up visits (30–45 minutes)",
-      "2 dedicated nutrition coaching sessions (30 minutes each)",
+      "2 dedicated nutrition counseling sessions (30 minutes each)",
       "Baseline laboratory panel covering 65 biomarkers",
       "Secure direct messaging with your provider for the full package term",
       "Tailored online exercise program with instructional form videos, updated at each follow-up",
