@@ -5,7 +5,7 @@ import Link from "next/link";
 const CARE_PACKAGES = [
   {
     name: "Foundations Package",
-    price: "$895",
+    price: "$795",
     meta: "5 visits · valid 6 months",
     summary:
       "A prepaid integrative medicine package built around one in-depth initial consultation and a steady cadence of follow-up, delivered by telehealth.",
@@ -14,7 +14,7 @@ const CARE_PACKAGES = [
       "4 follow-up visits (30–45 minutes)",
       "Personalized care plan with ongoing adjustment",
     ],
-    footnote: null,
+    footnote: "Laboratory testing is billed separately.",
     url: "https://my.practicebetter.io/#/696fc6840114e12df0a35929/bookings?p=6a766e4af31a038b79615ee8",
   },
   {
