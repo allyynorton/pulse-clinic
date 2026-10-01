@@ -50,17 +50,17 @@ export default function FinancialPolicy() {
             [
               "Foundations Package (1 initial + 4 follow-ups; laboratory testing billed separately)",
               "6 months",
-              "$795",
+              "$875",
             ],
             [
-              "Partnership Package (1 initial + 4 follow-ups, 65-biomarker baseline laboratory panel, secure direct messaging, nutrition guidance)",
+              "Partnership Package (1 initial + 4 follow-ups, 65-biomarker baseline laboratory panel, secure direct messaging, one 30-minute nutrition counseling session)",
               "7 months",
-              "$1,395",
+              "$1,495",
             ],
             [
               "Immersion Package (1 initial + 6 follow-ups + 2 nutrition counseling sessions, 65-biomarker baseline laboratory panel, secure direct messaging, tailored exercise program, priority scheduling)",
               "9 months",
-              "$1,995",
+              "$2,395",
             ],
           ]}
         />
