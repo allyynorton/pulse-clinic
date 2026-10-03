@@ -15,6 +15,7 @@ const ALA_CARTE = [
       "Personalized starting plan",
     ],
     highlight: null,
+    credit: null,
     footnote: "Laboratory testing is ordered separately and billed by the lab.",
     iconPath:
       "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
@@ -32,22 +33,26 @@ const ALA_CARTE = [
       "Care plan adjustments",
     ],
     highlight: null,
+    credit: null,
     footnote: null,
     iconPath:
       "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
     iconBg: "bg-green",
   },
   {
-    name: "Nutrition / Exercise Coaching",
+    name: "Nutrition & Exercise Coaching",
     price: "$150",
     meta: "30 minutes · telehealth",
     summary:
-      "For patients who want to get ahead of chronic disease rather than treat it. We look at your current diet, movement and stressors and build a practical plan you can actually keep.",
+      "The starting point for nutrition and exercise coaching. We assess your goals, review your health history, and build the personalized nutrition and training plan you will work from.",
     includes: [
-      "Nutrition education",
-      "Custom workout planning",
+      "Goal setting and health history review",
+      "Personalized nutrition plan",
+      "Personalized exercise programming",
     ],
     highlight: "NASM Certified Personal Trainer",
+    credit:
+      "Required before starting the Monthly Coaching Membership, and credited in full toward your first month.",
     footnote:
       "Exercise programming is a wellness service provided under a separate fitness agreement.",
     iconPath:
@@ -55,6 +60,29 @@ const ALA_CARTE = [
     iconBg: "bg-orange",
   },
 ];
+
+const COACHING_MEMBERSHIP = {
+  name: "Monthly Coaching Membership",
+  price: "$200",
+  cadence: "per month",
+  meta: "month to month · telehealth",
+  summary:
+    "Weekly asynchronous check-ins plus one live session each month for plan adjustments, for the stretch between visits when the plan has to survive real life.",
+  includes: [
+    "Weekly check-ins via secure messaging",
+    "One live virtual session each month (30 minutes)",
+    "Personalized exercise programming",
+    "Nutrition and lifestyle coaching",
+    "Food and exercise journals in the patient portal",
+    "Ongoing accountability and support",
+  ],
+  highlight: "NASM Certified Personal Trainer",
+  startHere:
+    "All new members begin with a 30-minute Nutrition & Exercise Coaching session ($150) to assess goals, review health history, and build your personalized plan. That session fee is credited toward your first month of membership — so your first month is just $50, then $200 per month ongoing.",
+  footnote:
+    "Billed monthly, month to month, and you may cancel at any time with 30 days' notice. Exercise programming is a wellness service provided under a separate fitness agreement. This membership is coaching and does not include medical visits, prescriptions or laboratory testing.",
+  url: "https://my.practicebetter.io/#/696fc6840114e12df0a35929/bookings",
+};
 
 const CARE_PACKAGES = [
   {
@@ -151,6 +179,11 @@ export default function Services() {
                       {svc.highlight}
                     </p>
                   )}
+                  {svc.credit && (
+                    <p className="text-center text-sm font-semibold mt-3" style={{ color: '#a05a36' }}>
+                      {svc.credit}
+                    </p>
+                  )}
                   {svc.footnote && (
                     <p className="text-center text-sm italic mt-3" style={{ color: '#8a9584' }}>
                       {svc.footnote}
@@ -171,6 +204,74 @@ export default function Services() {
         </div>
       </section>
 
+
+      {/* Monthly Coaching Membership */}
+      <section className="pb-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl mb-4" style={{ color: '#b8752f' }}>Monthly Coaching</h2>
+            <p className="text-lg max-w-3xl mx-auto" style={{ color: '#5d6b57' }}>
+              Nutrition and movement are not a one-visit problem. This is the ongoing version:
+              a plan that gets adjusted every week, and a coach who is actually watching.
+              Begin with a Nutrition & Exercise Coaching session, then continue month to month.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto bg-white rounded-xl p-8 border border-cream shadow-lg flex flex-col animate-fade-in-up">
+            <h3 className="text-2xl font-bold mb-2" style={{ color: '#b8752f' }}>
+              {COACHING_MEMBERSHIP.name}
+            </h3>
+            <p className="text-3xl font-bold mb-1" style={{ color: '#5d6b57' }}>
+              {COACHING_MEMBERSHIP.price}
+              <span className="text-lg font-normal"> {COACHING_MEMBERSHIP.cadence}</span>
+            </p>
+            <p className="text-sm mb-5" style={{ color: '#8a9584' }}>
+              {COACHING_MEMBERSHIP.meta}
+            </p>
+            <p className="mb-5" style={{ color: '#5d6b57' }}>
+              {COACHING_MEMBERSHIP.summary}
+            </p>
+            <div className="pt-5 border-t border-cream/50">
+              <p className="font-semibold mb-3" style={{ color: '#5d6b57' }}>
+                Includes:
+              </p>
+              <ul className="space-y-2 list-none mb-5" style={{ color: '#5d6b57' }}>
+                {COACHING_MEMBERSHIP.includes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p className="text-sm font-semibold mb-5" style={{ color: '#b8752f' }}>
+                {COACHING_MEMBERSHIP.highlight}
+              </p>
+              <div
+                className="rounded-lg p-5 mb-5 border"
+                style={{ backgroundColor: '#f5f2eb', borderColor: '#a05a36' }}
+              >
+                <p className="font-semibold mb-2" style={{ color: '#a05a36' }}>
+                  Start here
+                </p>
+                <p style={{ color: '#5d6b57' }}>
+                  {COACHING_MEMBERSHIP.startHere}
+                </p>
+              </div>
+              <p className="text-sm italic mb-5" style={{ color: '#8a9584' }}>
+                {COACHING_MEMBERSHIP.footnote}
+              </p>
+            </div>
+            <div className="mt-auto pt-2">
+              <a
+                href={COACHING_MEMBERSHIP.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-5 py-3 text-white rounded-lg font-medium transition-opacity hover:opacity-90"
+                style={{ backgroundColor: '#a05a36' }}
+              >
+                Book Your First Session →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Packages */}
       <section className="pb-20">
