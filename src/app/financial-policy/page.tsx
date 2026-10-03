@@ -47,6 +47,12 @@ export default function FinancialPolicy() {
           rows={[
             ["Initial Integrative Medicine Consultation", "60 minutes", "$300"],
             ["Integrative Medicine Follow-Up Visit", "30-45 minutes", "$175"],
+            ["Nutrition & Exercise Coaching", "30 minutes", "$150"],
+            [
+              "Monthly Coaching Membership (weekly secure-message check-ins, one 30-minute live virtual session per month, personalized exercise programming, nutrition and lifestyle coaching)",
+              "Per month, month to month",
+              "$200",
+            ],
             [
               "Foundations Package (1 initial + 4 follow-ups; laboratory testing billed separately)",
               "6 months",
@@ -116,6 +122,18 @@ export default function FinancialPolicy() {
         <LegalSubsection heading="5.4 Package Payments">
           <LegalText>
             Prepaid care packages (the Foundations, Partnership, and Immersion Packages) require payment in full at enrollment. Payment plans may be available at the Provider&rsquo;s discretion; please inquire if interested. Package-specific terms are governed by a separate Care Package Agreement signed at enrollment.
+          </LegalText>
+        </LegalSubsection>
+
+        <LegalSubsection heading="5.5 Monthly Coaching Membership">
+          <LegalText>
+            All new members must first complete a 30-minute Nutrition & Exercise Coaching session ($150), at which goals are assessed, health history is reviewed, and the personalized plan is built. That session fee is then credited in full against the first month of membership, so that the first month is billed at $50 and each month thereafter at $200. The credit is applied once per member, is not redeemable for cash, and has no value except against membership dues.
+          </LegalText>
+          <LegalText>
+            After the first month, the Monthly Coaching Membership is billed at $200 per month to the payment method on file, automatically, on the same day of each month as your enrollment date, until you cancel. There is no minimum term. You may cancel at any time by giving written notice at least thirty (30) days before your next billing date; your membership then continues through the end of the period already paid for. Months already billed are not refunded or prorated, and unused check-ins or sessions do not carry forward.
+          </LegalText>
+          <LegalText>
+            The Monthly Coaching Membership is a nutrition and fitness coaching service. It does not include medical visits, prescriptions, laboratory testing, or any other clinical service, and it does not establish or continue a provider-patient relationship. Exercise programming is provided under a separate fitness agreement signed at enrollment.
           </LegalText>
         </LegalSubsection>
       </LegalSection>
